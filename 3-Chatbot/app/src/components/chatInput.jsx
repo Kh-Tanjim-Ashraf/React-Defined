@@ -14,13 +14,32 @@ export default function ChatInput({ chats, setChats }) {
 
   // Didn't define the function inside the `<Button />` component, rather placed it in such a common place where it can use other data/objects without getting them passed as arguments in the function parameter
   const handleSendMessage = () => {
+    // Store the chat-messages in a new array
+    const newChatMessages = [
+      ...chats,
+      {
+        message: inputText.trim(),
+        sender: "user",
+        id: uuidv4(),
+      },
+    ];
+
     if (inputText.trim() !== "") {
+      // Create a new array of chat messages; The state doesn't get updated immediately; It will be updated after React has completed executing all of the code of this function `ChatInput`
+      setChats(newChatMessages);
+    }
+
+    // Send the message to the external chatbot
+    const response = Chatbot.getResponse(inputText.trim());
+    console.log(response);
+
+    if (response.trim() !== "") {
       // Create a new array of chat messages
       setChats([
-        ...chats,
+        ...newChatMessages,
         {
-          message: inputText.trim(),
-          sender: "user",
+          message: response.trim(),
+          sender: "bot",
           id: uuidv4(),
         },
       ]);
