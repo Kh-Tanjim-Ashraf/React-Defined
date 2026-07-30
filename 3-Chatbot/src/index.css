@@ -113,8 +113,8 @@ code {
 */
 :root {
   --primary: #fff;
-  --secondary: #000;
-  --accent: rgb(25, 135, 84);
+  --secondary: rgb(238, 238, 238);
+  --accent: #08060d;
 
   /* A CSS variable with a prioritized list of font-family names */
   --sans: "Arial", system-ui, "Segoe UI", Roboto, sans-serif;

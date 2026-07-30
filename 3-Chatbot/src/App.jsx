@@ -30,19 +30,21 @@ function App() {
   ]);
 
   return (
-    <>
+    <div className="app-container">
+      <div className="chat-message-container">
+        {/* Chat Messages: User & Bot */}
+        {chats.map((chat) => (
+          <ChatMessage
+            key={chat.id}
+            message={chat.message}
+            sender={chat.sender}
+          />
+        ))}
+      </div>
+
       {/* Chat Input */}
       <ChatInput chats={chats} setChats={setChats} />
-
-      {/* Chat Messages: User & Bot */}
-      {chats.map((chat) => (
-        <ChatMessage
-          key={chat.id}
-          message={chat.message}
-          sender={chat.sender}
-        />
-      ))}
-    </>
+    </div>
   );
 }
 
