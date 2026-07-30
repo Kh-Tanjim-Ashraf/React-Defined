@@ -50,17 +50,20 @@ export default function ChatInput({ chats, setChats }) {
   };
 
   return (
-    <>
-      <div>
-        <input
-          type="text"
-          placeholder="Send a message to chatbot"
-          value={inputText}
-          onChange={handleSaveInputText}
-          onKeyDown={(event) => event.keyCode === 13 && handleSendMessage()}
-        />
-        <Button name="Send" handleSendMessage={handleSendMessage} />
-      </div>
-    </>
+    <div className="chat-input-container">
+      <input
+        type="text"
+        placeholder="Send a message to chatbot"
+        value={inputText}
+        onChange={handleSaveInputText}
+        onKeyDown={(event) => event.keyCode === 13 && handleSendMessage()}
+        className="chat-input"
+      />
+      <Button
+        name="Send"
+        handleSendMessage={handleSendMessage}
+        className="send-button"
+      />
+    </div>
   );
 }

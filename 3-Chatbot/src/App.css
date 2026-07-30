@@ -1,3 +1,4 @@
+/*
 .counter {
   font-size: 16px;
   padding: 5px 10px;
@@ -188,4 +189,29 @@
   gap: 1rem;
   justify-content: center;
   margin-top: 1rem;
+}
+*/
+
+.send-button {
+  background-color: var(--accent);
+  border: none;
+  color: var(--primary);
+  padding: 12px 15px;
+  border-radius: 10px;
+  margin-left: 10px;
+}
+
+.chat-input {
+  font-size: 15px;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border-width: 1px;
+  flex-grow: 1;
+}
+
+.chat-input-container {
+  display: flex;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }

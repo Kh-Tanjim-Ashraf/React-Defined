@@ -1,3 +1,8 @@
-export default function Button({ name, handleSendMessage }) {
-  return <button onClick={handleSendMessage}>{name}</button>;
+/* A a */
+export default function Button({ name, handleSendMessage, className }) {
+  return (
+    <button className={className} onClick={handleSendMessage}>
+      {name}
+    </button>
+  );
 }

@@ -1,3 +1,4 @@
+/*
 :root {
   --text: #6b6375;
   --text-h: #08060d;
@@ -108,4 +109,20 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+}
+*/
+:root {
+  --primary: #fff;
+  --secondary: #000;
+  --accent: rgb(25, 135, 84);
+
+  /* A CSS variable with a prioritized list of font-family names */
+  --sans: "Arial", system-ui, "Segoe UI", Roboto, sans-serif;
+
+  font-family: var(--sans);
+}
+
+body {
+  margin: 0;
+  padding: 0;
 }
