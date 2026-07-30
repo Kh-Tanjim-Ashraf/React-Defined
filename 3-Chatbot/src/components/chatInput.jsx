@@ -31,8 +31,6 @@ export default function ChatInput({ chats, setChats }) {
 
     // Send the message to the external chatbot
     const response = Chatbot.getResponse(inputText.trim());
-    console.log(response);
-
     if (response.trim() !== "") {
       // Create a new array of chat messages
       setChats([

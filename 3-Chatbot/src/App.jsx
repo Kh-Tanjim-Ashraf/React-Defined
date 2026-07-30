@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import "./App.css";
 import ChatInput from "./components/chatInput";
 import ChatMessage from "./components/chatMessage";
@@ -29,9 +29,20 @@ function App() {
     },
   ]);
 
+  const chatMessageContainerRef = useRef(null);
+
+  useEffect(() => {
+    const chatMessageContainerElem = chatMessageContainerRef.current;
+
+    if (chatMessageContainerElem) {
+      chatMessageContainerElem.scrollTop =
+        chatMessageContainerElem.scrollHeight;
+    }
+  }, [chats]);
+
   return (
     <div className="app-container">
-      <div className="chat-message-container">
+      <div className="chat-message-container" ref={chatMessageContainerRef}>
         {/* Chat Messages: User & Bot */}
         {chats.map((chat) => (
           <ChatMessage
