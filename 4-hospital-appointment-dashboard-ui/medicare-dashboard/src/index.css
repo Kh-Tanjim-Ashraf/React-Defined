@@ -85,7 +85,7 @@ header {
   max-width: 1200px;
   display: grid;
   margin: 0 auto;
-  /* background-color: #bcf9ff; */
+  background-color: #bcf9ff;
 }
 
 .stat-grid {
@@ -124,5 +124,22 @@ header {
       margin-bottom: 14px;
       padding: 10px;
     }
+  }
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 24px;
+  margin-top: 24px;
+
+  .main-grid-left-container {
+    height: 100vh;
+    background-color: #ff9090;
+  }
+
+  .main-grid-right-container {
+    height: 100vh;
+    background-color: #90ffb7;
   }
 }
