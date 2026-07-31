@@ -143,3 +143,25 @@ header {
     background-color: #90ffb7;
   }
 }
+
+.doctor-panel-header {
+  display: grid;
+  grid-template-columns: 16fr 1fr;
+  background-color: #ffce9d;
+  align-items: center;
+  padding: 0 20px;
+
+  .card-title {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .count-pill {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary);
+    background-color: var(--primary-soft);
+    border-radius: 999px;
+  }
+}
