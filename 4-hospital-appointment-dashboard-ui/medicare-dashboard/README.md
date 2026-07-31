@@ -81,3 +81,7 @@ This assignment evaluates the following topics 🎯:
 - Prop drilling problem and its alternatives
 - Lifting state up
 - Error handling, Error Boundary, Fallback UI, global error patterns, basic logging
+
+What features & design techniques I implemented in this project 🎯:
+
+- 3-level deep shallow nesting (_CSS Nesting_) in CSS properties.
