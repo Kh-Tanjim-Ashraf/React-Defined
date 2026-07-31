@@ -1,4 +1,4 @@
-export default appointments = [
+const Appointments = [
   {
     id: 101,
     patientName: "Rakib Hasan",
@@ -200,3 +200,5 @@ export default appointments = [
     note: "Patient requested cancellation",
   },
 ];
+
+export default Appointments;

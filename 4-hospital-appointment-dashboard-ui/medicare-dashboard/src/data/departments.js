@@ -1,4 +1,4 @@
-export default departments = [
+const Departments = [
   {
     id: 1,
     departmentName: "Cardiology",
@@ -64,3 +64,5 @@ export default departments = [
     departmentName: "Oncology",
   },
 ];
+
+export default Departments;

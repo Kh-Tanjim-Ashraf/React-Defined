@@ -1,4 +1,4 @@
-export default doctors = [
+const Doctors = [
   {
     id: 1,
     name: "Dr. Ayesha Rahman",
@@ -128,3 +128,5 @@ export default doctors = [
     available: false,
   },
 ];
+
+export default Doctors;
