@@ -11,7 +11,7 @@ export default function Header() {
             alt="MediCare-Logo"
             className="header-brand-logo"
           />
-          <p className="header-brand-name">MediCare Clinic</p>
+          <h1 className="header-brand-name">MediCare Clinic</h1>
         </div>
         <div className="header-center">
           <p className="header-center-content">Front Desk Dashboard</p>
