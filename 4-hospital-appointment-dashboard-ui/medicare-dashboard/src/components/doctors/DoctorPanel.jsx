@@ -1,4 +1,5 @@
 import DoctorFilter from "./DoctorFilter";
+import DoctorList from "./DoctorList";
 
 export default function DoctorPanel() {
   return (
@@ -9,6 +10,7 @@ export default function DoctorPanel() {
       </div>
 
       <DoctorFilter />
+      <DoctorList />
     </div>
   );
 }
