@@ -19,28 +19,43 @@ export default function StatGrid() {
     (appointment) => appointment.status === "Completed",
   );
 
+  const statCards = [
+    {
+      cardIcon: StethoscopeLogo,
+      labelContent: "Total Doctors",
+      cardValue: doctors.length,
+      id: 1,
+    },
+    {
+      cardIcon: CalendarLogo,
+      labelContent: "Total Appointments",
+      cardValue: appointments.length,
+      id: 2,
+    },
+    {
+      cardIcon: HourglassLogo,
+      labelContent: "Pending Appointments",
+      cardValue: pendingAppointments.length,
+      id: 3,
+    },
+    {
+      cardIcon: CheckmarkLogo,
+      labelContent: "Completed Appointments",
+      cardValue: completedAppointments.length,
+      id: 4,
+    },
+  ];
+
   return (
     <div className="stat-grid">
-      <StatCard
-        cardIcon={StethoscopeLogo}
-        labelContent="Total Doctors"
-        cardValue={doctors.length}
-      />
-      <StatCard
-        cardIcon={CalendarLogo}
-        labelContent="Total Appointments"
-        cardValue={appointments.length}
-      />
-      <StatCard
-        cardIcon={HourglassLogo}
-        labelContent="Pending Appointments"
-        cardValue={pendingAppointments.length}
-      />
-      <StatCard
-        cardIcon={CheckmarkLogo}
-        labelContent="Completed Appointments"
-        cardValue={completedAppointments.length}
-      />
+      {statCards.map((statCard) => (
+        <StatCard
+          key={statCard.id}
+          cardIcon={statCard.cardIcon}
+          labelContent={statCard.labelContent}
+          cardValue={statCard.cardValue}
+        />
+      ))}
     </div>
   );
 }

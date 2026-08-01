@@ -1,14 +1,11 @@
 import DoctorFilter from "./DoctorFilter";
 import DoctorList from "./DoctorList";
+import DoctorPanelHeader from "./DoctorPanel/DoctorPanelHeader";
 
 export default function DoctorPanel() {
   return (
     <div className="doctor-panel">
-      <div className="doctor-panel-header">
-        <h3 className="card-title">Our Doctors</h3>
-        <p className="count-pill">8</p>
-      </div>
-
+      <DoctorPanelHeader />
       <DoctorFilter />
       <DoctorList />
     </div>
