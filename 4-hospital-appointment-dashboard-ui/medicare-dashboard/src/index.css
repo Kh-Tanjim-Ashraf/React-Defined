@@ -138,8 +138,8 @@ header {
   } */
 
   .main-grid-right-container {
-    height: 100vh;
-    background-color: #90ffb7;
+    display: grid;
+    gap: 24px;
   }
 }
 
@@ -325,5 +325,90 @@ header {
     border-color: var(--border);
     background-color: var(--surface-card);
     color: var(--text-muted);
+  }
+}
+
+.appointment-list-container {
+  height: 500px;
+  background-color: #f8ffc8;
+}
+
+.appointment-form {
+  padding: 10px 20px 20px 20px;
+  background-color: var(--surface-card);
+  border-radius: 12px;
+  display: grid;
+  gap: 10px;
+
+  .appointment-form-title {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  & > form-group {
+    display: grid;
+    gap: 5px;
+  }
+
+  label.patient-name,
+  label.phone-number,
+  label.doctor,
+  label.appointment-date,
+  label.appointment-time {
+    position: relative;
+    display: grid;
+  }
+
+  label.patient-name span::after,
+  label.phone-number span::after,
+  label.doctor span::after,
+  label.appointment-date span::after,
+  label.appointment-time span::after {
+    content: "*";
+    position: absolute;
+    color: var(--danger);
+    font-weight: 700;
+    margin-left: 5px;
+  }
+
+  div.date-time {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+
+    & > form-group {
+      display: grid;
+      gap: 5px;
+    }
+  }
+
+  & > form-group.form-action-buttons {
+    display: grid;
+    grid-template-columns: 0.8fr 1fr;
+
+    .action-buttons-wrapper {
+      display: grid;
+      grid-template-columns: auto auto;
+      gap: 12px;
+    }
+
+    .book-appointment-btn,
+    .appointment-reset-btn {
+      padding: 9px 0;
+      border-radius: 8px;
+    }
+
+    .book-appointment-btn {
+      border: none;
+      background-color: var(--primary);
+      color: var(--surface-card);
+    }
+
+    .appointment-reset-btn {
+      border-style: solid;
+      border-width: 1px;
+      border-color: var(--border);
+      background-color: var(--surface-card);
+    }
   }
 }
