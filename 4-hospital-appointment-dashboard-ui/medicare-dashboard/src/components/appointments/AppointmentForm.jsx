@@ -1,26 +1,40 @@
 import Button from "../ui/Button";
+import { useState } from "react";
 
 export default function AppointmentForm() {
+  const [dateInputType, setDateInputType] = useState("text");
+  const [timeInputType, setTimeInputType] = useState("text");
+
   return (
     <form className="appointment-form">
       <h3 className="appointment-form-title">Book New Appointment</h3>
 
-      <form-group>
+      <form-group className="fg-patient-name">
         <label htmlFor="patient-name" className="patient-name">
           <span>Patient Name</span>
         </label>
-        <input type="text" id="patient-name" name="patient-name" />
+        <input
+          type="text"
+          id="patient-name"
+          name="patient-name"
+          placeholder="Enter patient name"
+        />
       </form-group>
 
-      <form-group>
+      <form-group className="fg-phone-number">
         <label htmlFor="phone-number" className="phone-number">
           <span>Phone Number</span>
         </label>
-        <input type="phone" id="phone-number" name="phone-number" />
+        <input
+          type="phone"
+          id="phone-number"
+          name="phone-number"
+          placeholder="017XXXXXXXX"
+        />
         <output>Enter a valid 11-digit phone number.</output>
       </form-group>
 
-      <form-group>
+      <form-group className="fg-doctor">
         <label htmlFor="doctor" className="doctor">
           <span>Doctor</span>
         </label>
@@ -38,14 +52,38 @@ export default function AppointmentForm() {
           <label htmlFor="appointment-date" className="appointment-date">
             <span>Date</span>
           </label>
-          <input type="date" id="appointment-date" name="appointment-date" />
+          <input
+            type={dateInputType}
+            id="appointment-date"
+            name="appointment-date"
+            placeholder="dd / mm / yyyy"
+            required
+            onFocus={(e) => setDateInputType("date")}
+            onBlur={(e) => {
+              if (!e.target.value) {
+                setDateInputType("text");
+              }
+            }}
+          />
         </form-group>
 
         <form-group>
           <label htmlFor="appointment-time" className="appointment-time">
             <span>Time</span>
           </label>
-          <input type="date" id="appointment-time" name="appointment-time" />
+          <input
+            type={timeInputType}
+            id="appointment-time"
+            name="appointment-time"
+            placeholder="--:-- --"
+            required
+            onFocus={(e) => setTimeInputType("time")}
+            onBlur={(e) => {
+              if (!e.target.value) {
+                setTimeInputType("text");
+              }
+            }}
+          />
         </form-group>
       </div>
 
@@ -53,7 +91,7 @@ export default function AppointmentForm() {
         <label htmlFor="note" className="note">
           <span>Note (optional)</span>
         </label>
-        <input
+        <textarea
           type="text"
           id="note"
           name="note"
@@ -68,7 +106,7 @@ export default function AppointmentForm() {
         <input type="file" id="report-file" name="report-file" />
       </form-group>
 
-      <form-group className="form-action-buttons">
+      <form-group className="fg-action-buttons">
         <div className="action-buttons-wrapper">
           <Button
             type="submit"

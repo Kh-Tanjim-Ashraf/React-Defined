@@ -15,8 +15,11 @@
   --cancelled-text: #b91c1c;
   --cancelled-text-bg: #fee2e2;
   --danger: #dc2626;
+  --placeholder-text: #999da1;
 
-  font-family: "Inter", system-ui, sans-serif;
+  --inter-sans: "Inter", system-ui, sans-serif;
+
+  font-family: var(--inter-sans);
 }
 
 body {
@@ -198,7 +201,7 @@ header {
       border-style: solid;
       border-width: 1px;
       border-color: var(--border);
-      padding: 10px 12px 10px 35px;
+      padding: 10px 12px 10px 35px; /* Made the left-padding 35px, so that the search-icon doesn't overlap with the text */
       font-size: 14px;
       grid-column: 1fr;
     }
@@ -227,6 +230,7 @@ header {
       border-style: solid;
       border-width: 1px;
       border-color: var(--border);
+      cursor: pointer;
     }
   }
 }
@@ -282,7 +286,7 @@ header {
     .not-available-badge {
       background-color: var(--cancelled-text-bg);
       color: var(--cancelled-text);
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 700;
       border-radius: 999px;
       padding: 3px 12px;
@@ -295,6 +299,7 @@ header {
     }
 
     .doctor-meta-info {
+      font-size: 13px;
       font-weight: 500;
       color: var(--text-muted);
       margin-bottom: 10px;
@@ -338,7 +343,7 @@ header {
   background-color: var(--surface-card);
   border-radius: 12px;
   display: grid;
-  gap: 10px;
+  gap: 14px;
 
   .appointment-form-title {
     font-size: 16px;
@@ -348,6 +353,82 @@ header {
   & > form-group {
     display: grid;
     gap: 5px;
+  }
+
+  & > form-group > label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+  }
+
+  & > form-group > input,
+  & > form-group > textarea {
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--border);
+    padding: 10px 12px;
+  }
+
+  & > form-group > input::placeholder,
+  & > form-group > textarea::placeholder {
+    color: var(--text-muted);
+  }
+
+  & > form-group.fg-doctor {
+    select#doctor {
+      font-size: 14px;
+      font-weight: 400;
+      border-radius: 8px;
+      border-style: solid;
+      border-width: 1px;
+      border-color: var(--border);
+      padding: 10px 12px;
+      cursor: pointer;
+    }
+  }
+
+  & > form-group > textarea[id="note"] {
+    height: 60px;
+    resize: none;
+    font-family: var(--inter-sans);
+  }
+
+  & > form-group > textarea[id="note"]::placeholder {
+    font-family: var(--inter-sans);
+    color: var(--placeholder-text);
+  }
+
+  & > form-group > input[type="file"] {
+    background-color: #f8fafc;
+    border-style: dashed;
+    border-width: 1px;
+    border-color: var(--border);
+    color: transparent;
+    position: relative;
+    cursor: pointer;
+  }
+
+  & > form-group > input[type="file"]::file-selector-button {
+    border: none;
+    background-color: inherit; /* Soft gray background replacement */
+    color: var(--text-muted);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  & > form-group > input[type="file"]::after {
+    content: "No file chosen";
+    position: absolute;
+    color: var(--placeholder-text);
+    font-size: 13px;
+    font-weight: 100;
+    margin-left: -90px;
+    margin-top: 1px;
   }
 
   label.patient-name,
@@ -380,9 +461,61 @@ header {
       display: grid;
       gap: 5px;
     }
+
+    & > form-group label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    & > form-group > input {
+      font-size: 14px;
+      font-weight: 400;
+      border-radius: 8px;
+      border-style: solid;
+      border-width: 1px;
+      border-color: var(--border);
+      padding: 10px 12px;
+    }
+
+    & > form-group > input[id="appointment-date"],
+    & > form-group > input[id="appointment-time"] {
+      cursor: pointer;
+    }
+
+    & > form-group > input[id="appointment-date"]::placeholder,
+    & > form-group > input[id="appointment-time"]::placeholder {
+      color: var(--placeholder-text);
+    }
+
+    /* TODO: Experiment Later; Change with interactivity */
+    /*
+    & > form-group > input[id="appointment-date"]:focus {
+      font-size: 14px;
+      font-weight: 400;
+      color: #dc2626;
+    } */
   }
 
-  & > form-group.form-action-buttons {
+  & > form-group.fg-patient-name {
+    & > input::placeholder {
+      color: var(--placeholder-text);
+    }
+  }
+
+  & > form-group.fg-phone-number {
+    output {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--danger);
+    }
+
+    & > input::placeholder {
+      color: var(--placeholder-text);
+    }
+  }
+
+  & > form-group.fg-action-buttons {
     display: grid;
     grid-template-columns: 0.8fr 1fr;
 
@@ -396,6 +529,7 @@ header {
     .appointment-reset-btn {
       padding: 9px 0;
       border-radius: 8px;
+      cursor: pointer;
     }
 
     .book-appointment-btn {
