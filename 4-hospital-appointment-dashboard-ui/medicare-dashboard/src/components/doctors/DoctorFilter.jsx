@@ -3,7 +3,7 @@ import Departments from "../../data/departments";
 import DoctorSearch from "./doctorFilter/DoctorSearch";
 import DepartmentFilter from "./doctorFilter/DepartmentFilter";
 
-export default function DoctorFilter() {
+export default function DoctorFilter({ doctors }) {
   const [inputValue, setInputValue] = useState("");
   const [departments, setDepartments] = useState(Departments);
 

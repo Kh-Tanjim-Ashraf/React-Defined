@@ -4,13 +4,8 @@ import CalendarLogo from "../../assets/calendar.png";
 import HourglassLogo from "../../assets/hourglass.png";
 import CheckmarkLogo from "../../assets/check-mark.png";
 import { useState } from "react";
-import Doctors from "../../data/doctors";
-import Appointments from "../../data/appointments";
 
-export default function StatGrid() {
-  const [doctors, setDoctors] = useState(Doctors);
-  const [appointments, setAppointments] = useState(Appointments);
-
+export default function StatGrid({ doctors, appointments }) {
   const pendingAppointments = appointments.filter(
     (appointment) => appointment.status == "Pending",
   );

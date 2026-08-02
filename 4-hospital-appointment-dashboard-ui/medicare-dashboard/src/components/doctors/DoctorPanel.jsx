@@ -2,11 +2,11 @@ import DoctorFilter from "./DoctorFilter";
 import DoctorList from "./DoctorList";
 import DoctorPanelHeader from "./doctorPanel/DoctorPanelHeader";
 
-export default function DoctorPanel() {
+export default function DoctorPanel({ doctors }) {
   return (
     <div className="doctor-panel">
-      <DoctorPanelHeader />
-      <DoctorFilter />
+      <DoctorPanelHeader doctors={doctors} />
+      <DoctorFilter doctors={doctors} />
       <DoctorList />
     </div>
   );
