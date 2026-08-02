@@ -1,6 +1,6 @@
 import DoctorFilter from "./DoctorFilter";
 import DoctorList from "./DoctorList";
-import DoctorPanelHeader from "./DoctorPanel/DoctorPanelHeader";
+import DoctorPanelHeader from "./doctorPanel/DoctorPanelHeader";
 
 export default function DoctorPanel() {
   return (

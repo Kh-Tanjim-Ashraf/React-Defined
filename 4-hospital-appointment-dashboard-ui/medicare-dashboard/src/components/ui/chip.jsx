@@ -1,3 +1,3 @@
-export default function Chip({ chipName, className }) {
-  return <div className={className}>{chipName}</div>;
+export default function Chip({ children, className }) {
+  return <div className={className}>{children}</div>;
 }

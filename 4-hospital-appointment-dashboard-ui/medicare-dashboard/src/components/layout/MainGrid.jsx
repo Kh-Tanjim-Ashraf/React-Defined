@@ -1,5 +1,6 @@
 import DoctorPanel from "../doctors/DoctorPanel";
 import AppointmentForm from "../appointments/AppointmentForm";
+import AppointmentList from "../appointments/AppointmentList";
 
 export default function MainGrid() {
   return (
@@ -11,7 +12,7 @@ export default function MainGrid() {
       {/* Appointment Form & List Container */}
       <div className="main-grid-right-container">
         <AppointmentForm />
-        <div className="appointment-list-container"></div>
+        <AppointmentList />
       </div>
     </div>
   );

@@ -146,13 +146,15 @@ header {
   }
 }
 
-.doctor-panel {
+.doctor-panel,
+.appointment-list {
   padding: 0 20px;
   background-color: var(--surface-card);
   border-radius: 12px;
 }
 
-.doctor-panel-header {
+.doctor-panel-header,
+.appointment-list-header {
   display: grid;
   grid-template-columns: 16fr 1fr;
   align-items: center;
@@ -173,7 +175,7 @@ header {
   }
 }
 
-.doctor-filter-container {
+.doctor-list-filter-container {
   display: grid;
   gap: 10px;
   border-bottom: 1px solid var(--border);
@@ -331,11 +333,6 @@ header {
     background-color: var(--surface-card);
     color: var(--text-muted);
   }
-}
-
-.appointment-list-container {
-  height: 500px;
-  background-color: #f8ffc8;
 }
 
 .appointment-form {
@@ -544,5 +541,32 @@ header {
       border-color: var(--border);
       background-color: var(--surface-card);
     }
+  }
+}
+
+.appointment-status-filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  gap: 10px;
+
+  div:nth-child(1) {
+    background-color: var(--primary);
+    color: var(--surface-card);
+  }
+
+  .appointment-filter-chip {
+    width: max-content;
+    flex: 0 0 auto;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 999px;
+    padding: 6px 14px;
+    background-color: var(--surface-card);
+    color: var(--text-muted);
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--border);
+    cursor: pointer;
   }
 }

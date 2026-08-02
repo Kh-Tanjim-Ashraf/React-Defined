@@ -8,7 +8,7 @@ export default function DoctorFilter() {
   const [departments, setDepartments] = useState(Departments);
 
   return (
-    <div className="doctor-filter-container">
+    <div className="doctor-list-filter-container">
       <DoctorSearch inputValue={inputValue} setInputValue={setInputValue} />
       <DepartmentFilter departments={departments} />
     </div>
