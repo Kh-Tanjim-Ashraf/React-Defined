@@ -134,11 +134,6 @@ header {
   grid-template-columns: 2fr 3fr;
   gap: 24px;
   margin-top: 24px;
-  /* 
-  .main-grid-left-container {
-    height: 100vh;
-    background-color: #ff9090;
-  } */
 
   .main-grid-right-container {
     display: grid;
@@ -249,11 +244,11 @@ header {
   scrollbar-width: none;
 }
 
-.doctor-list-card {
+.doctor-card {
   display: grid;
   grid-template-columns: 0.8fr 4fr 1fr;
   border-radius: 10px;
-  padding: 15px 10px;
+  padding: 12px 10px;
   border-style: solid;
   border-width: 1px;
   border-color: var(--border);
@@ -277,12 +272,25 @@ header {
   }
 
   .doctor-card-information {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 0.1fr 0.1fr 1fr;
+
+    .doctor-name {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 700;
+    }
 
     .meta-info-and-availability-badge-container {
       display: flex;
       flex-wrap: wrap;
+      margin-top: -10px;
+    }
+
+    .doctor-meta-info {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-muted);
     }
 
     .not-available-badge {
@@ -294,21 +302,15 @@ header {
       padding: 3px 12px;
     }
 
-    & > p {
-      margin: 0;
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .doctor-meta-info {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text-muted);
-      margin-bottom: 10px;
+    .consultation-fees-container {
+      display: flex;
+      flex-direction: column;
+      margin-top: -10px;
     }
 
     .consultation-fees {
-      margin-top: 10px;
+      font-weight: 700;
+      margin-bottom: 0px;
     }
   }
 
@@ -544,6 +546,10 @@ header {
   }
 }
 
+.appointment-list {
+  padding-bottom: 20px;
+}
+
 .appointment-status-filter-container {
   display: flex;
   flex-wrap: wrap;
@@ -568,5 +574,88 @@ header {
     border-width: 1px;
     border-color: var(--border);
     cursor: pointer;
+  }
+}
+
+.appointment-table-container {
+  overflow-y: auto;
+  max-height: 520px;
+  scrollbar-width: none;
+}
+
+.appointment-table {
+  margin-top: 20px;
+  width: 100%;
+  font-size: 12px;
+
+  th,
+  td {
+    padding: 12px 8px;
+  }
+
+  .table-header-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    border-color: var(--border);
+
+    & > th {
+      justify-self: start;
+    }
+  }
+
+  .table-body-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+    & > td {
+      display: grid;
+      justify-content: start;
+      align-content: start;
+    }
+
+    & > td > span {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+
+    & > td.table-data-name {
+      font-weight: 700;
+    }
+
+    & > td.table-data-status > .pending-badge {
+      background-color: var(--pending-text-bg);
+      color: var(--pending-text);
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 3px 12px;
+      justify-self: start;
+      margin-bottom: 3px;
+    }
+
+    select.change-appointment-status {
+      padding: 8px 2px;
+      border-radius: 8px;
+      border-style: solid;
+      border-width: 1px;
+      border-color: var(--border);
+      cursor: pointer;
+    }
+
+    & > td.table-data-action > .appointment-list-delete-button {
+      align-self: center;
+      background-color: transparent;
+      padding: 8px 10px;
+      color: var(--danger);
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+    }
   }
 }

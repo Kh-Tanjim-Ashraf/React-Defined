@@ -10,7 +10,9 @@ export default function DoctorCardInformation({ availability }) {
           <Badge badgeName="Not available" className="not-available-badge" />
         )}
       </div>
-      <p className="consultation-fees">Fee ৳ 1,200</p>
+      <div className="consultation-fees-container">
+        <p className="consultation-fees">Fee ৳ 1,200</p>
+      </div>
     </div>
   );
 }

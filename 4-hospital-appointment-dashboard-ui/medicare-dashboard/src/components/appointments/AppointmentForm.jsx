@@ -18,6 +18,7 @@ export default function AppointmentForm() {
           id="patient-name"
           name="patient-name"
           placeholder="Enter patient name"
+          required
         />
       </form-group>
 
@@ -30,6 +31,7 @@ export default function AppointmentForm() {
           id="phone-number"
           name="phone-number"
           placeholder="017XXXXXXXX"
+          required
         />
         <output>Enter a valid 11-digit phone number.</output>
       </form-group>
@@ -38,7 +40,7 @@ export default function AppointmentForm() {
         <label htmlFor="doctor" className="doctor">
           <span>Doctor</span>
         </label>
-        <select id="doctor" name="doctor">
+        <select id="doctor" name="doctor" required>
           <option value="1">Dr. Ayesha Rahman - Cardiology</option>
           <option value="1">Dr. Ayesha Rahman - Cardiology</option>
           <option value="1">Dr. Ayesha Rahman - Cardiology</option>

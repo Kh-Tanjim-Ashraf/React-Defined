@@ -9,7 +9,7 @@ export default function DoctorCard() {
   return (
     <div className="doctor-list-card-wrapper">
       {/* Static Repeated Card */}
-      <Card className="doctor-list-card">
+      <Card className="doctor-card">
         <DoctorCardAvatar />
         <DoctorCardInformation availability={availability} />
         <DoctorCardSelectButton
@@ -17,7 +17,7 @@ export default function DoctorCard() {
           className="doctor-card-select-button-selected"
         />
       </Card>
-      <Card className="doctor-list-card">
+      <Card className="doctor-card">
         <DoctorCardAvatar />
         <DoctorCardInformation availability={availability} />
         <DoctorCardSelectButton
@@ -25,7 +25,7 @@ export default function DoctorCard() {
           className="doctor-card-select-button"
         />
       </Card>
-      <Card className="doctor-list-card">
+      <Card className="doctor-card">
         <DoctorCardAvatar />
         <DoctorCardInformation availability={availability} />
         <DoctorCardSelectButton
@@ -33,7 +33,7 @@ export default function DoctorCard() {
           className="doctor-card-select-button"
         />
       </Card>
-      <Card className="doctor-list-card">
+      <Card className="doctor-card">
         <DoctorCardAvatar />
         <DoctorCardInformation availability={false} />
         <DoctorCardSelectButton
@@ -41,7 +41,7 @@ export default function DoctorCard() {
           className="doctor-card-select-button"
         />
       </Card>
-      <Card className="doctor-list-card">
+      <Card className="doctor-card">
         <DoctorCardAvatar />
         <DoctorCardInformation availability={availability} />
         <DoctorCardSelectButton
@@ -49,7 +49,7 @@ export default function DoctorCard() {
           className="doctor-card-select-button"
         />
       </Card>
-      <Card className="doctor-list-card">
+      <Card className="doctor-card">
         <DoctorCardAvatar />
         <DoctorCardInformation availability={availability} />
         <DoctorCardSelectButton
