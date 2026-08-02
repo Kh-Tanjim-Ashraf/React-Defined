@@ -110,10 +110,14 @@ export default function AppointmentForm() {
         <div className="action-buttons-wrapper">
           <Button
             type="submit"
-            className="book-appointment-btn"
+            className="appointment-form-submit-btn"
             buttonName="Book Appointment"
           />
-          <Button className="appointment-reset-btn" buttonName="Reset" />
+          <Button
+            type="reset"
+            className="appointment-form-reset-btn"
+            buttonName="Reset"
+          />
         </div>
       </form-group>
     </form>

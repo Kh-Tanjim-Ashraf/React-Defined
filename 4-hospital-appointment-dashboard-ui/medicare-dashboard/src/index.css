@@ -522,20 +522,20 @@ header {
       gap: 12px;
     }
 
-    .book-appointment-btn,
-    .appointment-reset-btn {
+    .appointment-form-submit-btn,
+    .appointment-form-reset-btn {
       padding: 9px 0;
       border-radius: 8px;
       cursor: pointer;
     }
 
-    .book-appointment-btn {
+    .appointment-form-submit-btn {
       border: none;
       background-color: var(--primary);
       color: var(--surface-card);
     }
 
-    .appointment-reset-btn {
+    .appointment-form-reset-btn {
       border-style: solid;
       border-width: 1px;
       border-color: var(--border);
