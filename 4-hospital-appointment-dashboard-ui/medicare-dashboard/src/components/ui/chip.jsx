@@ -1,3 +1,7 @@
-export default function Chip({ children, className }) {
-  return <div className={className}>{children}</div>;
+export default function Chip({ children, className, onClick }) {
+  return (
+    <div className={className} onClick={onClick}>
+      {children}
+    </div>
+  );
 }
