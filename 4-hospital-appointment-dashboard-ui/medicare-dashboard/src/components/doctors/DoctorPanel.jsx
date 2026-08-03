@@ -17,7 +17,11 @@ export default function DoctorPanel({ doctors }) {
 
     event.target.className = "department-filter-chip-selected";
 
-    console.log(event.target.innerText);
+    // console.log(event.target.innerText);
+
+    console.log(
+      doctors.filter((doctor) => doctor.department === event.target.innerText),
+    );
   };
 
   return (
@@ -28,7 +32,7 @@ export default function DoctorPanel({ doctors }) {
         onClick={handleFilterDoctorsByDepartment}
         ref={departmentFilterContainerRef}
       />
-      <DoctorList />
+      <DoctorList doctors={doctors} />
     </div>
   );
 }

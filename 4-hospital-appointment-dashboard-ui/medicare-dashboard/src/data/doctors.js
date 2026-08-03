@@ -5,7 +5,7 @@ const Doctors = [
     department: "Cardiology",
     specialization: "MBBS, FCPS (Cardiology)",
     visitingFee: 1200,
-    available: true,
+    available: false,
   },
   {
     id: 2,
