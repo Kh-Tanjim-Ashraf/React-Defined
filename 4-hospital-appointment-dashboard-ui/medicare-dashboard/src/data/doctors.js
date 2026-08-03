@@ -90,9 +90,9 @@ const Doctors = [
   {
     id: 12,
     name: "Dr. Rashedul Alam",
-    department: "Urology",
-    specialization: "MBBS, MS (Urology)",
-    visitingFee: 1450,
+    department: "Cardiology",
+    specialization: "MBBS, FCPS (Cardiology)",
+    visitingFee: 1200,
     available: true,
   },
   {
