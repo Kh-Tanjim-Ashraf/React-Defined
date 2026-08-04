@@ -4,7 +4,8 @@ import DoctorList from "./DoctorList";
 import DoctorPanelHeader from "./doctorPanel/DoctorPanelHeader";
 
 export default function DoctorPanel({ doctors }) {
-  const [filteredDoctors, setFilteredDoctors] = useState(doctors);
+  const [selectedDepartment, setSelectedDepartment] = useState("All");
+  const [searchInputValue, setSearchInputValue] = useState(""); // React State: Search Input Field
   const departmentFilterContainerRef = useRef(null);
 
   const handleFilterDoctorsByDepartment = (event) => {
@@ -20,24 +21,30 @@ export default function DoctorPanel({ doctors }) {
     // Select the currently clicked department chip
     event.target.className = "department-filter-chip-selected";
 
-    // Render all the doctors if the filter-query="All", otherwise filter by department
-    if (event.target.innerText === "All") {
-      setFilteredDoctors(doctors);
-    } else {
-      setFilteredDoctors(
-        doctors.filter(
-          (doctor) => doctor.department === event.target.innerText,
-        ),
-      );
-    }
+    // Change the value of selectedDepartment state
+    setSelectedDepartment(event.target.innerText);
   };
+
+  const query = searchInputValue.trim().toLowerCase();
+
+  // Filter doctors by department/search-query
+  const filteredDoctors = doctors.filter((doctor) => {
+    const matchesDepartment =
+      selectedDepartment === "All" || doctor.department === selectedDepartment;
+
+    const matchesSearch = doctor.name.toLowerCase().includes(query);
+
+    return matchesDepartment && matchesSearch;
+  });
 
   return (
     <div className="doctor-panel">
       <DoctorPanelHeader doctors={doctors} />
       <DoctorFilter
-        onClick={handleFilterDoctorsByDepartment}
+        searchInputValue={searchInputValue}
+        setSearchInputValue={setSearchInputValue}
         ref={departmentFilterContainerRef}
+        onClick={handleFilterDoctorsByDepartment}
       />
       <DoctorList doctors={filteredDoctors} />
     </div>

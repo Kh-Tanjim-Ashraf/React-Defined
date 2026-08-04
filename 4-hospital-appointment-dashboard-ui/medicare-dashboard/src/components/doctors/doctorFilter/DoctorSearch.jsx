@@ -1,9 +1,13 @@
 import SearchIcon from "../../../assets/search.png";
 
-export default function DoctorSearch({ inputValue, setInputValue }) {
+export default function DoctorSearch({
+  searchInputValue,
+  setSearchInputValue,
+}) {
   return (
     <div className="doctor-search-wrapper">
-      {inputValue === "" && (
+      {/* Render the search-icon when the search-input field is empty */}
+      {searchInputValue === "" && (
         <div className="search-icon-container">
           <img
             src={SearchIcon}
@@ -16,8 +20,8 @@ export default function DoctorSearch({ inputValue, setInputValue }) {
         type="text"
         className="doctor-search-input"
         name="doctor-search-input"
-        value={inputValue}
-        onChange={(event) => setInputValue(event.target.value)}
+        value={searchInputValue}
+        onChange={(event) => setSearchInputValue(event.target.value)}
         placeholder="Search doctor by name..."
       />
     </div>
