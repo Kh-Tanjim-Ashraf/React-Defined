@@ -246,6 +246,32 @@ header {
   max-height: 520px;
   overflow: scroll;
   scrollbar-width: none;
+  margin: 0;
+  padding: 10px 0;
+
+  .no-doctor-found {
+    display: grid;
+    grid-template-rows: 0.1fr 0.1fr 0.1fr;
+    justify-items: center;
+
+    img {
+      width: 30px;
+    }
+
+    h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin: inherit;
+      padding: 5px 0;
+    }
+
+    p {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-muted);
+      margin: inherit;
+    }
+  }
 }
 
 .doctor-card {

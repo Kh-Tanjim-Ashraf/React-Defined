@@ -28,6 +28,19 @@ export default function DoctorPanel({ doctors }) {
   const query = searchInputValue.trim().toLowerCase();
 
   // Filter doctors by department/search-query
+  /*
+    NOTE: The doctors will always be filtered whenever this component gets rendered (even if in the first page load).
+    
+    SCENE-1: Nothing is typed in the search input, nor any department is selected. The `selectedDepartment` state will always be evaluated as `true` bacause of the default state value & JS won't execute the next `||` part for `matchesDepartment`. The `matchesSearch` will also be evaluated as `true` since `.includes()` will always return `true` on empty string in this scenario. Thus every doctors from the array will be returned by the `.filter()` function since `matchesDepartment=true` & `matchesSearch=true`.
+
+    SCENE-2: A department is selected but nothing is typed in the search input. The `selectedDepartment==="All"` will be evaluated as `false` & JS will try to evaluate the current doctor's deparment with the selected department. Then the `matchesDepartment` will store the boolean value as `true/false` accordingly. Lastly `.includes()` will return `true` on empty string for the doctor's name, thus `matchesSearch` will store `true` always in this case. The `matchesDepartment=true/false` & `matchesSearch=true`.
+
+    SCENE-3: A doctor's name is typed in the search input but no department is selected. The `selectedDepartment==="All"` will be evaluated as `true` & store this boolean value into the `matchesDepartment` variable. The doctor name will try to match with the query, if found then it'll return `true` & `matchesSearch` will store `true`, otherwise `false`. Thus `matchesDepartment=true` & `matchesSearch=true/false`.
+
+    SCENE-4: A doctor's name is typed in the search input, also a department is selected. The `selectedDepartment==="All"` will be evaluated as `false` & JS will evaluate the current doc's department with the `selectedDepartment` & store the boolean value accordingly into `matchesDepartment` variable. Lastly JS will evaluate if the query value exists in current doc's name using the `.includes()` method, returns boolean value accordingly & stores that into `matchesSearch` variable. Thus `matchesDepartment=true/false` & `matchesSearch=true/false`.
+
+    FINALLY, only those doctors will be returned through the `.filter()` method, who paas the criteria of `matchesDepartment=true` & `matchesSearch=true` & will be showed in the list accordingly.
+  */
   const filteredDoctors = doctors.filter((doctor) => {
     const matchesDepartment =
       selectedDepartment === "All" || doctor.department === selectedDepartment;
