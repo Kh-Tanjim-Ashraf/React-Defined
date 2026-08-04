@@ -5,6 +5,9 @@ import DoctorCardSelectButton from "./doctorList/DoctorCardSelectButton";
 import SearchIcon from "../../assets/search.png";
 
 export default function DoctorCard({ doctors }) {
+  const handleSelectDoctor = (doctorId) =>
+    console.log("Selected! ID:", doctorId);
+
   return (
     <div className="doctor-list-card-wrapper">
       {/* Static Repeated Card */}
@@ -13,10 +16,18 @@ export default function DoctorCard({ doctors }) {
           <Card key={doctor.id} className="doctor-card">
             <DoctorCardAvatar />
             <DoctorCardInformation doctor={doctor} />
-            <DoctorCardSelectButton
-              buttonName="Select"
-              className="doctor-card-select-button"
-            />
+            {doctor.available ? (
+              <DoctorCardSelectButton
+                buttonName="Select"
+                className="doctor-card-select-button"
+                onClick={() => handleSelectDoctor(doctor.id)}
+              />
+            ) : (
+              <DoctorCardSelectButton
+                buttonName="Select"
+                className="doctor-card-select-button-disabled"
+              />
+            )}
           </Card>
         ))
       ) : (

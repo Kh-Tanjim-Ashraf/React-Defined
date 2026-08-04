@@ -308,6 +308,12 @@ header {
   &:hover {
     border-color: var(--primary);
     box-shadow: 0 4px 10px rgba(15, 23, 42, 0.1);
+
+    .doctor-card-select-button {
+      border: none;
+      background-color: var(--primary);
+      color: var(--surface-card);
+    }
   }
 
   .doctor-card-avatar {
@@ -358,7 +364,8 @@ header {
   }
 
   .doctor-card-select-button-selected,
-  .doctor-card-select-button {
+  .doctor-card-select-button,
+  .doctor-card-select-button-disabled {
     border-radius: 8px;
     padding: 9px 16px;
     cursor: pointer;
@@ -371,12 +378,18 @@ header {
     color: var(--surface-card);
   }
 
-  .doctor-card-select-button {
+  .doctor-card-select-button,
+  .doctor-card-select-button-disabled {
     border-style: solid;
     border-width: 1px;
     border-color: var(--border);
     background-color: var(--surface-card);
     color: var(--text-muted);
+  }
+
+  .doctor-card-select-button-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 }
 
