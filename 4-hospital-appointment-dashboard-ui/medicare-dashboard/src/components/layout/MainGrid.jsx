@@ -11,7 +11,7 @@ export default function MainGrid({ doctors, appointments }) {
       </div>
       {/* Appointment Form & List Container */}
       <div className="main-grid-right-container">
-        <AppointmentForm />
+        <AppointmentForm doctors={doctors} />
         <AppointmentList />
       </div>
     </div>

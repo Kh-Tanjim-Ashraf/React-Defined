@@ -1,7 +1,7 @@
 import Button from "../ui/Button";
 import { useState } from "react";
 
-export default function AppointmentForm() {
+export default function AppointmentForm({ doctors }) {
   const [dateInputType, setDateInputType] = useState("text");
   const [timeInputType, setTimeInputType] = useState("text");
 
@@ -41,11 +41,11 @@ export default function AppointmentForm() {
           <span>Doctor</span>
         </label>
         <select id="doctor" name="doctor" required>
-          <option value="1">Dr. Ayesha Rahman - Cardiology</option>
-          <option value="1">Dr. Ayesha Rahman - Cardiology</option>
-          <option value="1">Dr. Ayesha Rahman - Cardiology</option>
-          <option value="1">Dr. Ayesha Rahman - Cardiology</option>
-          <option value="1">Dr. Ayesha Rahman - Cardiology</option>
+          {doctors.map((doctor) => (
+            <option key={doctor.id} value={doctor.id}>
+              {doctor.name} • {doctor.department} • {doctor.specialization}
+            </option>
+          ))}
         </select>
       </form-group>
 
