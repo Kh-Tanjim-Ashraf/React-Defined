@@ -202,6 +202,20 @@ header {
       font-size: 14px;
       grid-column: 1fr;
     }
+
+    .clear-search-input-container {
+      grid-area: stack;
+      z-index: 1;
+      justify-self: end;
+      padding-right: 15px;
+      width: 15px;
+    }
+
+    .clear-search-input {
+      text-align: center;
+      font-weight: 600;
+      cursor: pointer;
+    }
   }
 
   .department-filter-container {

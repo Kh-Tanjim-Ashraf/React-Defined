@@ -4,6 +4,8 @@ export default function DoctorSearch({
   searchInputValue,
   setSearchInputValue,
 }) {
+  const clearSearchInput = () => setSearchInputValue("");
+
   return (
     <div className="doctor-search-wrapper">
       {/* Render the search-icon when the search-input field is empty */}
@@ -24,6 +26,13 @@ export default function DoctorSearch({
         onChange={(event) => setSearchInputValue(event.target.value)}
         placeholder="Search doctor by name..."
       />
+      {searchInputValue !== "" && (
+        <div className="clear-search-input-container">
+          <p className="clear-search-input" onClick={clearSearchInput}>
+            X
+          </p>
+        </div>
+      )}
     </div>
   );
 }
