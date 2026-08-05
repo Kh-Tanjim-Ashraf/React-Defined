@@ -27,7 +27,7 @@ export default function MainGrid({ doctors, appointments }) {
           selectedDoctor={selectedDoctor}
           setSelectedDoctor={setSelectedDoctor}
         />
-        <AppointmentList />
+        <AppointmentList doctors={doctors} appointments={appointments} />
       </div>
     </div>
   );

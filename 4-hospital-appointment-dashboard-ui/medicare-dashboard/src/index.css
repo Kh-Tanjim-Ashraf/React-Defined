@@ -662,6 +662,10 @@ header {
     & > th {
       justify-self: start;
     }
+
+    & > th:nth-last-child(1) {
+      justify-self: center;
+    }
   }
 
   .table-body-row {
@@ -684,15 +688,36 @@ header {
       font-weight: 700;
     }
 
-    & > td.table-data-status > .pending-badge {
-      background-color: var(--pending-text-bg);
-      color: var(--pending-text);
+    & > td.table-data-status > .pending-badge,
+    & > td.table-data-status > .confirmed-badge,
+    & > td.table-data-status > .completed-badge,
+    & > td.table-data-status > .cancelled-badge {
       font-size: 12px;
       font-weight: 700;
       border-radius: 999px;
       padding: 3px 12px;
       justify-self: start;
       margin-bottom: 3px;
+    }
+
+    & > td.table-data-status > .pending-badge {
+      background-color: var(--pending-text-bg);
+      color: var(--pending-text);
+    }
+
+    & > td.table-data-status > .confirmed-badge {
+      background-color: var(--confirmed-text-bg);
+      color: var(--confirmed-text);
+    }
+
+    & > td.table-data-status > .completed-badge {
+      background-color: var(--completed-text-bg);
+      color: var(--completed-text);
+    }
+
+    & > td.table-data-status > .cancelled-badge {
+      background-color: var(--cancelled-text-bg);
+      color: var(--cancelled-text);
     }
 
     select.change-appointment-status {
@@ -704,14 +729,24 @@ header {
       cursor: pointer;
     }
 
+    & > td.table-data-action {
+      align-content: center;
+      justify-content: center;
+    }
+
     & > td.table-data-action > .appointment-list-delete-button {
-      align-self: center;
       background-color: transparent;
       padding: 8px 10px;
       color: var(--danger);
       font-weight: 700;
       border: none;
       border-radius: 8px;
+      cursor: pointer;
+    }
+
+    & > td.table-data-action > .appointment-list-delete-button:hover {
+      background-color: var(--danger);
+      color: var(--surface-card);
     }
   }
 }
