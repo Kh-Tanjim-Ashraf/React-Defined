@@ -3,12 +3,21 @@ import AppointmentForm from "../appointments/AppointmentForm";
 import AppointmentList from "../appointments/AppointmentList";
 import { useState } from "react";
 
-export default function MainGrid({ doctors, appointments }) {
+export default function MainGrid({ doctors, appointments, setAppointments }) {
   const [selectedDoctor, setSelectedDoctor] = useState("");
 
   const handleSelectDoctor = (doctorId) => {
-    const doctor = doctors.filter((doctor) => doctor.id === doctorId)[0];
+    const doctor = doctors.find((doctor) => doctor.id === doctorId);
     setSelectedDoctor(doctor.name);
+  };
+
+  const handleAppointmentStatus = (appointmentId, newAppointmentStatus) => {
+    const index = appointments.findIndex(
+      (appointment) => appointment.id === appointmentId,
+    );
+    const appointmentsCopy = [...appointments];
+    appointmentsCopy[index].status = newAppointmentStatus;
+    setAppointments(appointmentsCopy);
   };
 
   return (
@@ -27,7 +36,11 @@ export default function MainGrid({ doctors, appointments }) {
           selectedDoctor={selectedDoctor}
           setSelectedDoctor={setSelectedDoctor}
         />
-        <AppointmentList doctors={doctors} appointments={appointments} />
+        <AppointmentList
+          doctors={doctors}
+          appointments={appointments}
+          handleAppointmentStatus={handleAppointmentStatus}
+        />
       </div>
     </div>
   );

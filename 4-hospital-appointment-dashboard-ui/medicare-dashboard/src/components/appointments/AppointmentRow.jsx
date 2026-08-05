@@ -1,7 +1,11 @@
 import SingleAppointmentRow from "./AppointmentRow/SingleAppointmentRow";
 
-export default function AppointmentRow({ doctors, appointments }) {
-  const doctorById = Object.fromEntries(
+export default function AppointmentRow({
+  doctors,
+  appointments,
+  handleAppointmentStatus,
+}) {
+  const doctorsById = Object.fromEntries(
     doctors.map((doctor) => [doctor.id, doctor]),
   );
 
@@ -22,9 +26,10 @@ export default function AppointmentRow({ doctors, appointments }) {
           {appointments.map((appointment) => (
             <SingleAppointmentRow
               key={appointment.id}
-              doctorName={doctorById[appointment.doctorId].name}
-              doctorDepartment={doctorById[appointment.doctorId].department}
+              doctorName={doctorsById[appointment.doctorId].name}
+              doctorDepartment={doctorsById[appointment.doctorId].department}
               appointment={appointment}
+              handleAppointmentStatus={handleAppointmentStatus}
             />
           ))}
         </tbody>

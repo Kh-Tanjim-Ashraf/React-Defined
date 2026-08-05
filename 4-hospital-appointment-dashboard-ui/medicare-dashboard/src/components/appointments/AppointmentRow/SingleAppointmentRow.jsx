@@ -6,10 +6,9 @@ export default function SingleAppointmentRow({
   doctorName,
   doctorDepartment,
   appointment,
+  handleAppointmentStatus,
 }) {
-  const [appointmentStatus, setAppointmentStatus] = useState(
-    appointment.status || "Pending",
-  );
+  const [appointmentStatus, setAppointmentStatus] = useState("Change");
 
   return (
     <tr key={appointment.id} className="table-body-row">
@@ -42,14 +41,17 @@ export default function SingleAppointmentRow({
       </td>
       <td className="table-data-status">
         <Badge
-          badgeName={appointmentStatus}
-          className={`badge ${appointmentStatus.toLowerCase()}-badge`}
+          badgeName={appointment.status}
+          className={`badge ${appointment.status.toLowerCase()}-badge`}
         />
         <select
           name="change-appointment-status"
           className="change-appointment-status"
           value={appointmentStatus}
-          onChange={(e) => setAppointmentStatus(e.target.value)}
+          onChange={(e) => {
+            setAppointmentStatus(e.target.value);
+            handleAppointmentStatus(appointment.id, e.target.value);
+          }}
         >
           <option value="">Change</option>
           <option value="Pending">Pending</option>

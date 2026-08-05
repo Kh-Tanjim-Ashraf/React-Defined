@@ -18,7 +18,11 @@ function App() {
       <PageContainer>
         <StatGrid doctors={doctors} appointments={appointments} />
 
-        <MainGrid doctors={doctors} appointments={appointments} />
+        <MainGrid
+          doctors={doctors}
+          appointments={appointments}
+          setAppointments={setAppointments}
+        />
       </PageContainer>
     </>
   );
