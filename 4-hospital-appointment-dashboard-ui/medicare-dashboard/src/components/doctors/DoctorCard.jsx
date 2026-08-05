@@ -4,10 +4,7 @@ import DoctorCardInformation from "./doctorList/DoctorCardInformation";
 import DoctorCardSelectButton from "./doctorList/DoctorCardSelectButton";
 import SearchIcon from "../../assets/search.png";
 
-export default function DoctorCard({ doctors }) {
-  const handleSelectDoctor = (doctorId) =>
-    console.log("Selected! ID:", doctorId);
-
+export default function DoctorCard({ doctors, handleSelectDoctor }) {
   return (
     <div className="doctor-list-card-wrapper">
       {/* Static Repeated Card */}

@@ -3,7 +3,7 @@ import DoctorFilter from "./DoctorFilter";
 import DoctorList from "./DoctorList";
 import DoctorPanelHeader from "./doctorPanel/DoctorPanelHeader";
 
-export default function DoctorPanel({ doctors }) {
+export default function DoctorPanel({ doctors, handleSelectDoctor }) {
   const [selectedDepartment, setSelectedDepartment] = useState("All");
   const [searchInputValue, setSearchInputValue] = useState(""); // React State: Search Input Field
   const departmentFilterContainerRef = useRef(null);
@@ -59,7 +59,10 @@ export default function DoctorPanel({ doctors }) {
         ref={departmentFilterContainerRef}
         onClick={handleFilterDoctorsByDepartment}
       />
-      <DoctorList doctors={filteredDoctors} />
+      <DoctorList
+        doctors={filteredDoctors}
+        handleSelectDoctor={handleSelectDoctor}
+      />
     </div>
   );
 }
