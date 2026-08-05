@@ -6,7 +6,7 @@ export default function AppointmentList({ doctors, appointments }) {
   return (
     <div className="appointment-list">
       <AppointmentListHeader />
-      <AppointmentStatusFilter />
+      <AppointmentStatusFilter appointments={appointments} />
       <AppointmentRow doctors={doctors} appointments={appointments} />
     </div>
   );
