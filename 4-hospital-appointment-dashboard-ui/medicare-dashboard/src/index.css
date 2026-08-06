@@ -612,24 +612,32 @@ header {
   justify-content: start;
   gap: 10px;
 
-  div:nth-child(1) {
+  /* div:nth-child(1) {
     background-color: var(--primary);
     color: var(--surface-card);
-  }
+  } */
 
-  .appointment-filter-chip {
+  & > .chip {
     width: max-content;
     flex: 0 0 auto;
     font-size: 13px;
     font-weight: 600;
     border-radius: 999px;
     padding: 6px 14px;
-    background-color: var(--surface-card);
-    color: var(--text-muted);
     border-style: solid;
     border-width: 1px;
     border-color: var(--border);
     cursor: pointer;
+  }
+
+  .appointment-filter-chip {
+    background-color: var(--surface-card);
+    color: var(--text-muted);
+  }
+
+  .appointment-filter-chip-selected {
+    background-color: var(--primary);
+    color: var(--surface-card);
   }
 }
 

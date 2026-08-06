@@ -8,6 +8,7 @@ export default function DoctorPanel({ doctors, handleSelectDoctor }) {
   const [searchInputValue, setSearchInputValue] = useState(""); // React State: Search Input Field
   const departmentFilterContainerRef = useRef(null);
 
+  // Handler Function: Visually change the styling of department-filter chips & update the value of state variable `selectedDepartment`
   const handleFilterDoctorsByDepartment = (event) => {
     const departmentFilterContainerElem = departmentFilterContainerRef.current;
 
@@ -21,13 +22,13 @@ export default function DoctorPanel({ doctors, handleSelectDoctor }) {
     // Select the currently clicked department chip
     event.target.className = "department-filter-chip-selected";
 
-    // Change the value of selectedDepartment state
+    // Change the value of `selectedDepartment` state variable based on the `innerText` of the selected-department-chip
     setSelectedDepartment(event.target.innerText);
   };
 
   const query = searchInputValue.trim().toLowerCase();
 
-  // Filter doctors by department/search-query
+  // Filter doctors by department/search-query based on the `selectedDepartment` state variable before every render of this component
   /*
     NOTE: The doctors will always be filtered whenever this component gets rendered (even if in the first page load).
     

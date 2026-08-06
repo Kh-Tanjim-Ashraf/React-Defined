@@ -6,18 +6,10 @@ import { useState } from "react";
 export default function MainGrid({ doctors, appointments, setAppointments }) {
   const [selectedDoctor, setSelectedDoctor] = useState("");
 
+  // Handler Function: Click the `Select` button in a card from the doctor's list, which makes a side effect of auto selecting the 'Doctor' in the appointment form
   const handleSelectDoctor = (doctorId) => {
     const doctor = doctors.find((doctor) => doctor.id === doctorId);
     setSelectedDoctor(doctor.name);
-  };
-
-  const handleAppointmentStatus = (appointmentId, newAppointmentStatus) => {
-    const index = appointments.findIndex(
-      (appointment) => appointment.id === appointmentId,
-    );
-    const appointmentsCopy = [...appointments];
-    appointmentsCopy[index].status = newAppointmentStatus;
-    setAppointments(appointmentsCopy);
   };
 
   return (
@@ -39,7 +31,7 @@ export default function MainGrid({ doctors, appointments, setAppointments }) {
         <AppointmentList
           doctors={doctors}
           appointments={appointments}
-          handleAppointmentStatus={handleAppointmentStatus}
+          setAppointments={setAppointments}
         />
       </div>
     </div>

@@ -1,6 +1,10 @@
 import Chip from "../../ui/chip";
 
-export default function AppointmentStatusFilter({ appointments }) {
+export default function AppointmentStatusFilter({
+  appointments,
+  ref,
+  onClick,
+}) {
   const pendingAppointments = appointments.filter(
     (appointment) => appointment.status === "Pending",
   );
@@ -15,17 +19,21 @@ export default function AppointmentStatusFilter({ appointments }) {
   );
 
   const appointmentStatuses = [
-    { status: "All", id: 1 },
-    { status: "Pending", count: pendingAppointments.length, id: 2 },
-    { status: "Confirmed", count: confirmedAppointments.length, id: 3 },
-    { status: "Completed", count: completedAppointments.length, id: 4 },
-    { status: "Cancelled", count: cancelledAppointments.length, id: 5 },
+    { status: "Pending", count: pendingAppointments.length, id: 1 },
+    { status: "Confirmed", count: confirmedAppointments.length, id: 2 },
+    { status: "Completed", count: completedAppointments.length, id: 3 },
+    { status: "Cancelled", count: cancelledAppointments.length, id: 4 },
   ];
 
   return (
-    <div className="appointment-status-filter-container">
+    <div
+      className="appointment-status-filter-container"
+      ref={ref}
+      onClick={onClick}
+    >
+      <Chip className="chip appointment-filter-chip-selected">All</Chip>
       {appointmentStatuses.map((apts) => (
-        <Chip key={apts.id} className="appointment-filter-chip">
+        <Chip key={apts.id} className="chip appointment-filter-chip">
           {apts.status} {apts?.count !== undefined && `(${apts.count})`}
         </Chip>
       ))}
