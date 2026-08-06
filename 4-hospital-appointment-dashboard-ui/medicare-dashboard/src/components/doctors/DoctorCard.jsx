@@ -4,9 +4,13 @@ import DoctorCardInformation from "./doctorList/DoctorCardInformation";
 import DoctorCardSelectButton from "./doctorList/DoctorCardSelectButton";
 import SearchIcon from "../../assets/search.png";
 
-export default function DoctorCard({ doctors, handleSelectDoctor }) {
+export default function DoctorCard({
+  doctors,
+  handleSelectDoctor,
+  doctorListCardWrapperRef,
+}) {
   return (
-    <div className="doctor-list-card-wrapper">
+    <div className="doctor-list-card-wrapper" ref={doctorListCardWrapperRef}>
       {/* Static Repeated Card */}
       {doctors.length > 0 ? (
         doctors.map((doctor) => (
@@ -17,7 +21,7 @@ export default function DoctorCard({ doctors, handleSelectDoctor }) {
               <DoctorCardSelectButton
                 buttonName="Select"
                 className="doctor-card-select-button"
-                onClick={() => handleSelectDoctor(doctor.id)}
+                onClick={(event) => handleSelectDoctor(doctor.id, event)}
               />
             ) : (
               <DoctorCardSelectButton
