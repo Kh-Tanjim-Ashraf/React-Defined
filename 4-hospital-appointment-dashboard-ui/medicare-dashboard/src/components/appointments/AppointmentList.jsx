@@ -10,7 +10,13 @@ export default function AppointmentList({
 }) {
   const [selectedAppointmentStatus, setSelectedAppointmentStatus] =
     useState("All");
+
+  // Store selected appointment record in state variable, which will later be displayed in delete-confirmation-modal
+  const [selectedAppointment, setSelectedAppointment] = useState(null);
+
   const appointmentStatusFilterContainerRef = useRef(null);
+
+  const appointmentDeleteConfirmationModalRef = useRef(null);
 
   const totalAppointments = appointments.length;
 
@@ -54,6 +60,41 @@ export default function AppointmentList({
     return matchesAppointmentStatus;
   });
 
+  // Assign the `className` for the appointment delete confirmation modal, since the modal will be invoked to display by delete button.
+  appointmentDeleteConfirmationModalRef.className =
+    "appointment-delete-confirmation-modal-ref";
+
+  // Handler Function: Open appointment delete confirmation modal; Delete record from appointments array based on it's id;
+  const handleOpenConfirmationModalDeleteAppointment = (appointmentId) => {
+    const appointment = appointments.find(
+      (appointment) => appointment.id === appointmentId,
+    );
+
+    // Store the selected appointment record in state variable to display in delete-confirmation-modal
+    setSelectedAppointment(appointment);
+
+    const appointmentDeleteConfirmationModalElem =
+      appointmentDeleteConfirmationModalRef.current;
+
+    appointmentDeleteConfirmationModalElem.showModal();
+  };
+
+  // Handler Function: Close appointment delete confirmation modal;
+  const handleCloseConfirmationModalDeleteAppointment = () =>
+    appointmentDeleteConfirmationModalRef.current.close();
+
+  // Handler Function: Delete specific appointment record
+  const handleAppointmentDelete = (appointmentId) => {
+    const appointmentsCopy = [...appointments];
+    const appointmentsModified = appointmentsCopy.filter(
+      (appointment) => appointment.id !== appointmentId,
+    );
+    setAppointments(appointmentsModified);
+
+    // Close the modal after deleting the record
+    appointmentDeleteConfirmationModalRef.current.close();
+  };
+
   return (
     <div className="appointment-list">
       <AppointmentListHeader totalAppointments={totalAppointments} />
@@ -65,7 +106,16 @@ export default function AppointmentList({
       <AppointmentRow
         doctors={doctors}
         appointments={filteredAppointments}
+        appointment={selectedAppointment}
         handleAppointmentStatus={handleAppointmentStatus}
+        handleOpenConfirmationModalDeleteAppointment={
+          handleOpenConfirmationModalDeleteAppointment
+        }
+        handleCloseConfirmationModalDeleteAppointment={
+          handleCloseConfirmationModalDeleteAppointment
+        }
+        handleAppointmentDelete={handleAppointmentDelete}
+        ref={appointmentDeleteConfirmationModalRef}
       />
     </div>
   );

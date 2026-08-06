@@ -1,12 +1,14 @@
 import { useState } from "react";
 import Badge from "../../ui/Badge";
 import Button from "../../ui/Button";
+import { timeFormat } from "../../../utils/format";
 
 export default function SingleAppointmentRow({
   doctorName,
   doctorDepartment,
   appointment,
   handleAppointmentStatus,
+  handleOpenConfirmationModalDeleteAppointment,
 }) {
   const [appointmentStatus, setAppointmentStatus] = useState("Change");
 
@@ -22,22 +24,7 @@ export default function SingleAppointmentRow({
       </td>
       <td>
         {appointment.date}
-        <span>
-          {(() => {
-            const date = new Date();
-
-            date.setHours(
-              parseInt(appointment.time.split(":")[0]),
-              parseInt(appointment.time.split(":")[1]),
-            );
-
-            return date.toLocaleTimeString("en-US", {
-              hour: "2-digit",
-              minute: "2-digit",
-              hour12: true,
-            });
-          })()}
-        </span>
+        <span>{timeFormat(appointment.time)}</span>
       </td>
       <td className="table-data-status">
         <Badge
@@ -65,6 +52,9 @@ export default function SingleAppointmentRow({
           type="button"
           buttonName="Delete"
           className="appointment-list-delete-button"
+          onClick={(e) =>
+            handleOpenConfirmationModalDeleteAppointment(appointment.id)
+          }
         />
       </td>
     </tr>

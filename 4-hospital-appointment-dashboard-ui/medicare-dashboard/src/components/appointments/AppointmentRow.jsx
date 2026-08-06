@@ -1,9 +1,15 @@
 import SingleAppointmentRow from "./AppointmentRow/SingleAppointmentRow";
+import AppointmentDeleteConfirmationModal from "./AppointmentRow/AppointmentDeleteConfirmationModal";
 
 export default function AppointmentRow({
   doctors,
   appointments,
+  appointment,
   handleAppointmentStatus,
+  handleOpenConfirmationModalDeleteAppointment,
+  handleCloseConfirmationModalDeleteAppointment,
+  handleAppointmentDelete,
+  ref,
 }) {
   const doctorsById = Object.fromEntries(
     doctors.map((doctor) => [doctor.id, doctor]),
@@ -11,6 +17,15 @@ export default function AppointmentRow({
 
   return (
     <div className="appointment-table-container">
+      {/* Appointment Delete Confirmation Modal */}
+      <AppointmentDeleteConfirmationModal
+        handleCloseConfirmationModalDeleteAppointment={
+          handleCloseConfirmationModalDeleteAppointment
+        }
+        handleAppointmentDelete={handleAppointmentDelete}
+        appointment={appointment}
+        ref={ref}
+      />
       <table className="appointment-table">
         <thead>
           <tr className="table-header-row">
@@ -30,6 +45,9 @@ export default function AppointmentRow({
               doctorDepartment={doctorsById[appointment.doctorId].department}
               appointment={appointment}
               handleAppointmentStatus={handleAppointmentStatus}
+              handleOpenConfirmationModalDeleteAppointment={
+                handleOpenConfirmationModalDeleteAppointment
+              }
             />
           ))}
         </tbody>
