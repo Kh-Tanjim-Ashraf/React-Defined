@@ -585,10 +585,16 @@ header {
       padding: 9px 0;
       border-radius: 8px;
       cursor: pointer;
+      font-weight: 600;
     }
 
     .appointment-form-submit-btn {
       border: none;
+      background-color: rgb(from var(--primary) r g b / 0.95);
+      color: rgb(from var(--surface-card) r g b / 0.95);
+    }
+
+    .appointment-form-submit-btn:hover {
       background-color: var(--primary);
       color: var(--surface-card);
     }
@@ -598,6 +604,12 @@ header {
       border-width: 1px;
       border-color: var(--border);
       background-color: var(--surface-card);
+      color: var(--text-muted);
+    }
+
+    .appointment-form-reset-btn:hover {
+      background-color: var(--primary);
+      color: var(--surface-card);
     }
   }
 }
@@ -645,6 +657,52 @@ header {
   overflow-y: auto;
   max-height: 520px;
   scrollbar-width: none;
+
+  & > .appointment-delete-confirmation-modal {
+    width: 400px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--border);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.1);
+    padding: 20px;
+
+    & > h2 {
+      margin: 0;
+    }
+
+    & > .appointment-delete-modal-buttons-container {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    & > .appointment-delete-modal-buttons-container > button {
+      border-radius: 8px;
+      padding: 9px 16px;
+      cursor: pointer;
+      align-self: end;
+      border-style: solid;
+      border-width: 1px;
+      border-color: var(--border);
+      background-color: var(--surface-card);
+      color: var(--text-muted);
+    }
+
+    &
+      > .appointment-delete-modal-buttons-container
+      > button.appointment-record-delete-btn:hover {
+      background-color: var(--danger);
+      color: var(--surface-card);
+    }
+
+    &
+      > .appointment-delete-modal-buttons-container
+      > button.appointment-record-delete-modal-close-btn:hover {
+      background-color: var(--primary);
+      color: var(--surface-card);
+    }
+  }
 }
 
 .appointment-table {

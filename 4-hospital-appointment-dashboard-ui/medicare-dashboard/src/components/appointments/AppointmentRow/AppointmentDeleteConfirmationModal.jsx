@@ -10,7 +10,7 @@ export default function AppointmentDeleteConfirmationModal({
   ref,
 }) {
   return (
-    <Modal className="appointment-delete-confirmation-modal" ref={ref}>
+    <Modal className={className} ref={ref}>
       {appointment ? (
         <>
           <h2>Delete Appointment?</h2>
@@ -30,18 +30,20 @@ export default function AppointmentDeleteConfirmationModal({
           <p>
             <strong>Status:</strong> {appointment.status}
           </p>
-          <Button
-            type="button"
-            className="appointment-record-delete-btn"
-            onClick={(e) => handleAppointmentDelete(appointment.id)}
-            buttonName="Delete"
-          />
-          <Button
-            type="button"
-            className="appointment-record-delete-modal-close-btn"
-            onClick={handleCloseConfirmationModalDeleteAppointment}
-            buttonName="Close"
-          />
+          <div className="appointment-delete-modal-buttons-container">
+            <Button
+              type="button"
+              className="appointment-record-delete-btn"
+              onClick={(e) => handleAppointmentDelete(appointment.id)}
+              buttonName="Delete"
+            />
+            <Button
+              type="button"
+              className="appointment-record-delete-modal-close-btn"
+              onClick={handleCloseConfirmationModalDeleteAppointment}
+              buttonName="Close"
+            />
+          </div>
         </>
       ) : (
         <h2>No appointment found!</h2>

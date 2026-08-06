@@ -19,6 +19,7 @@ export default function AppointmentRow({
     <div className="appointment-table-container">
       {/* Appointment Delete Confirmation Modal */}
       <AppointmentDeleteConfirmationModal
+        className="appointment-delete-confirmation-modal"
         handleCloseConfirmationModalDeleteAppointment={
           handleCloseConfirmationModalDeleteAppointment
         }
