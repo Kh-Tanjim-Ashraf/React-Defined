@@ -5,21 +5,23 @@ import { useRef, useState } from "react";
 
 export default function MainGrid({ doctors, appointments, setAppointments }) {
   const [selectedDoctor, setSelectedDoctor] = useState("");
-  const [formData, setFormData] = useState({
+  const initialFormState = {
     patientName: "",
     phoneNumber: "",
     appointmentDate: "",
     appointmentTime: "",
     note: "",
-  });
+  };
+  const [formData, setFormData] = useState(initialFormState);
   const doctorListCardWrapperRef = useRef(null);
 
   // Handler Function: Click the `Select` button in a card from the doctor's list, which makes a side effect of auto selecting the 'Doctor' in the appointment form
   const handleSelectDoctor = (doctorId, event) => {
     const doctor = doctors.find((doctor) => doctor.id === doctorId);
 
-    // Un-select previously selected doctor card
+    // Un-select previously selected doctor card, including the selected button inside the card
     const doctorListCardWrapperElem = doctorListCardWrapperRef.current;
+
     doctorListCardWrapperElem.childNodes.forEach((dlCard) => {
       if (dlCard.className === "doctor-card-selected") {
         dlCard.className = "doctor-card";
@@ -33,7 +35,7 @@ export default function MainGrid({ doctors, appointments, setAppointments }) {
       }
     });
 
-    // Updated the styling of the selected doctor card
+    // Updated the styling of the currently selected doctor card
     event.target.innerText = "Selected";
     event.target.className = "doctor-card-select-button-selected";
     event.target.parentElement.className = "doctor-card-selected";
@@ -70,7 +72,30 @@ export default function MainGrid({ doctors, appointments, setAppointments }) {
       note: note,
     };
 
+    // Add a new appointment into the array
     setAppointments([...appointments, newAppointment]);
+
+    // Reset the form's input fields
+    setFormData(initialFormState);
+
+    // Reset the selected-doctor-card & state
+    setSelectedDoctor("");
+
+    const doctorListCardWrapperElem = doctorListCardWrapperRef.current;
+
+    // Un-select previously selected doctor card, including the selected button inside the card
+    doctorListCardWrapperElem.childNodes.forEach((dlCard) => {
+      if (dlCard.className === "doctor-card-selected") {
+        dlCard.className = "doctor-card";
+        // dlCard.button.innerText = "Select";
+        dlCard.childNodes.forEach((dlcChild) => {
+          if (dlcChild.tagName === "BUTTON") {
+            dlcChild.className = "doctor-card-select-button";
+            dlcChild.innerText = "Select";
+          }
+        });
+      }
+    });
   };
 
   return (
