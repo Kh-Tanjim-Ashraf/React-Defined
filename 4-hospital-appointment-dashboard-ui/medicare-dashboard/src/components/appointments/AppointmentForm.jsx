@@ -5,12 +5,15 @@ export default function AppointmentForm({
   doctors,
   selectedDoctor,
   setSelectedDoctor,
+  formData,
+  handleChangeAppointmentFormInput,
+  handleSubmitAppointmentForm,
 }) {
   const [dateInputType, setDateInputType] = useState("text");
   const [timeInputType, setTimeInputType] = useState("text");
 
   return (
-    <form className="appointment-form">
+    <form className="appointment-form" onSubmit={handleSubmitAppointmentForm}>
       <h3 className="appointment-form-title">Book New Appointment</h3>
 
       <form-group className="fg-patient-name">
@@ -20,8 +23,10 @@ export default function AppointmentForm({
         <input
           type="text"
           id="patient-name"
-          name="patient-name"
+          name="patientName"
           placeholder="Enter patient name"
+          value={formData.patientName}
+          onChange={handleChangeAppointmentFormInput}
           required
         />
       </form-group>
@@ -33,8 +38,10 @@ export default function AppointmentForm({
         <input
           type="phone"
           id="phone-number"
-          name="phone-number"
+          name="phoneNumber"
           placeholder="017XXXXXXXX"
+          value={formData.phoneNumber}
+          onChange={handleChangeAppointmentFormInput}
           required
         />
         <output>Enter a valid 11-digit phone number.</output>
@@ -53,7 +60,7 @@ export default function AppointmentForm({
         >
           <option>--- Please select a doctor ---</option>
           {doctors.map((doctor) => (
-            <option key={doctor.id} value={doctor.name}>
+            <option key={doctor.id} value={doctor.id}>
               {doctor.name} • {doctor.department} • {doctor.specialization}
             </option>
           ))}
@@ -68,9 +75,11 @@ export default function AppointmentForm({
           <input
             type={dateInputType}
             id="appointment-date"
-            name="appointment-date"
+            name="appointmentDate"
             placeholder="dd / mm / yyyy"
             required
+            value={formData.appointmentDate}
+            onChange={handleChangeAppointmentFormInput}
             onFocus={(e) => setDateInputType("date")}
             onBlur={(e) => {
               if (!e.target.value) {
@@ -87,9 +96,11 @@ export default function AppointmentForm({
           <input
             type={timeInputType}
             id="appointment-time"
-            name="appointment-time"
+            name="appointmentTime"
             placeholder="--:-- --"
             required
+            value={formData.appointmentTime}
+            onChange={handleChangeAppointmentFormInput}
             onFocus={(e) => setTimeInputType("time")}
             onBlur={(e) => {
               if (!e.target.value) {
@@ -108,6 +119,8 @@ export default function AppointmentForm({
           type="text"
           id="note"
           name="note"
+          value={formData.note}
+          onChange={handleChangeAppointmentFormInput}
           placeholder="Write a short note... (max 200 characters)"
         />
       </form-group>
@@ -116,7 +129,7 @@ export default function AppointmentForm({
         <label htmlFor="report-file" className="report-file">
           <span>Report File (optional)</span>
         </label>
-        <input type="file" id="report-file" name="report-file" />
+        <input type="file" id="report-file" name="reportFile" />
       </form-group>
 
       <form-group className="fg-action-buttons">
