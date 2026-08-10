@@ -98,6 +98,7 @@ src/ <br/>
 │ &emsp;&emsp;└── watchlist/ &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;WatchlistContext.jsx, WatchlistProvider.jsx, useWatchlist.js <br/>
 ├── hooks/ &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; useCharacters.js, useCharacter.js, useDebouncedValue.js, useRenderCount.js, usePrevious.js, useExpensiveCache.js <br/>
 ├── pages/ &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; DashboardPage.jsx, CharacterListPage.jsx, CharacterDetailPage.jsx, EpisodeListPage.jsx, LocationListPage.jsx, WatchlistPage.jsx, ComparePage.jsx, SettingsPage.jsx, NotFoundPage.jsx <br/>
+├── styles/ &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; variables.css <br/>
 ├── utils/ &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp; logger.js, format.js, statusToken.js <br/>
 ├── App.jsx <br/>
 ├── main.jsx <br/>

@@ -1,0 +1,139 @@
+:root {
+  --page-background: #f8fafc;
+  --surface: #ffffff; /* cards, topbar, inputs */
+  --border: #e2e8f0;
+  --sidebar: #0b1220;
+  --sidebar-raised: #151f35;
+  --primary: #4f46ef;
+  --primary-soft: #eef2ff;
+  --text-primary: #0f172a;
+  --text-muted: #64748b;
+  --danger: #dc2626;
+  --status-alive: #047857;
+  --status-alive-bg: #d1fae5;
+  --status-dead: #b91c1c;
+  --status-dead-bg: #fee2e2;
+  --status-unknown: #475569;
+  --status-unknown-bg: #e2e8f0;
+  --query-stale-fetching: #b45309;
+  --query-stale-fetching-bg: #fef3c7;
+  --media-gradient: linear-gradient(45deg, #e0e7ff, #cffafe);
+  --subtitle: #94a3b8;
+  --navlink-inactive: #cbd5e1;
+
+  --sans: inter, system-ui, sans-serif;
+
+  color-scheme: light dark;
+  color: var(--text-primary);
+  background: var(--page-background);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Typography, Spacing & Shape */
+  .page-title {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .stat-value {
+    font-size: 28px;
+    font-weight: 700;
+  }
+
+  .card-title {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .nav-item {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .secondary-chip {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-muted);
+  }
+
+  .secondary-chip--semi-bold {
+    /* BEM (Block, Element, Modifier) Naming Convention */
+    font-weight: 600;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .badge-pill {
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  /* Spacing, Radius, Elevation */
+  .page-stats-sections {
+    /* Page sections & stats */
+    padding: 24px;
+    gap: 20px;
+  }
+
+  .card {
+    gap: 16px;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+  }
+
+  .button-input-select {
+    border-radius: 10px;
+  }
+
+  .pagination-button {
+    border-radius: 8px;
+  }
+
+  .chip-badge-radius {
+    border-radius: 999px;
+  }
+
+  .control-height {
+    height: 38px;
+  }
+
+  .hover-shadow:hover {
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.1);
+  }
+
+  .right-rail-width {
+    width: 320px;
+  }
+
+  /* @media (max-width: 1024px) {
+    font-size: 16px;
+  } */
+}
+
+/* @media (prefers-color-scheme: light) {
+  :root {
+    --text: #9ca3af;
+    --text-h: #f3f4f6;
+    --bg: #16171d;
+    --border: #2e303a;
+    --code-bg: #1f2028;
+    --accent: #c084fc;
+    --accent-bg: rgba(192, 132, 252, 0.15);
+    --accent-border: rgba(192, 132, 252, 0.5);
+    --social-bg: rgba(47, 48, 58, 0.5);
+    --shadow:
+      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  }
+
+  #social .button-icon {
+    filter: invert(1) brightness(2);
+  }
+} */

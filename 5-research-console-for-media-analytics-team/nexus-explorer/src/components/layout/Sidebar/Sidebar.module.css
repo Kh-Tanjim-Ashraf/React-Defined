@@ -1,0 +1,65 @@
+.sidebar {
+  width: 248px;
+  background-color: var(--sidebar);
+  padding: 24px 18px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  a {
+    text-decoration: none;
+  }
+
+  .brandContainer {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr;
+    grid-template-rows: auto auto;
+    align-items: flex-start;
+
+    & > img {
+      width: 34px;
+      border-radius: 10px;
+      grid-row: 1 / span 2;
+    }
+
+    & > h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--surface);
+      gap: 10px;
+    }
+
+    .subtitle {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--subtitle);
+    }
+  }
+
+  .navLinkContainer {
+    flex-grow: 1;
+    padding: 20px 0;
+
+    .navLinksGroupHeader {
+      color: var(--subtitle);
+      text-transform: uppercase;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+    }
+
+    ul.navLinksList {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .navLinksList > li {
+      color: var(--navlink-inactive);
+    }
+  }
+
+  .cacheStatusBoxContainer {
+    background-color: #ffbfbf;
+  }
+}
