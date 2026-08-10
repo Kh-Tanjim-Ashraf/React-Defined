@@ -20,6 +20,7 @@
   --media-gradient: linear-gradient(45deg, #e0e7ff, #cffafe);
   --subtitle: #94a3b8;
   --navlink-inactive: #cbd5e1;
+  --navlink-pill-bg-active: #756eea;
 
   --sans: inter, system-ui, sans-serif;
 
@@ -68,11 +69,6 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-  }
-
-  .badge-pill {
-    font-size: 11px;
-    font-weight: 700;
   }
 
   /* Spacing, Radius, Elevation */
