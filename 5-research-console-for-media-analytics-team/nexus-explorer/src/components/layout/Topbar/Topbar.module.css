@@ -1,7 +1,21 @@
 .topbar {
   background-color: var(--surface);
   height: 64px;
+  padding: 0 24px;
   border-style: solid;
   border-width: 0 0 1px 0;
   border-color: var(--border);
+  display: grid;
+  grid-template-columns: 1fr 0.5fr;
+  grid-template-rows: 1fr;
+
+  & > .topbarLeftContainer {
+    /* background-color: #ffa0a0; */
+    display: flex;
+  }
+
+  & > .topbarRightContainer {
+    background-color: #ffe59f;
+    align-content: center;
+  }
 }
