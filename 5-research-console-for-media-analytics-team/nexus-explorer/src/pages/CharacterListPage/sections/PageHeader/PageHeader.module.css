@@ -1,0 +1,49 @@
+.pageHeader {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+
+  & > .pageTitleContainer {
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0.03px;
+      margin-top: 6px;
+    }
+
+    .metaInfo {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+  }
+
+  & > .buttonsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+
+    button {
+      height: 38px;
+      background-color: var(--surface);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--page-header-button-text);
+      cursor: pointer;
+    }
+
+    button.viewWatchlistButton {
+      background: var(--primary);
+      color: var(--surface);
+      border: 1px solid var(--primary);
+    }
+
+    button:hover {
+      background-color: var(--primary);
+      color: var(--surface);
+      border: 1px solid var(--primary);
+    }
+  }
+}

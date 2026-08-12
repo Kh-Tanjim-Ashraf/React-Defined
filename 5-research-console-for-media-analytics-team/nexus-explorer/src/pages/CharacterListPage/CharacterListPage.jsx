@@ -1,9 +1,14 @@
 import styles from "./CharacterListPage.module.css";
+import Breadcrumbs from "../../components/layout/Breadcrumbs/Breadcrumbs";
+import PageHeader from "./sections/PageHeader/PageHeader";
 
 export default function CharacterListPage() {
   return (
     <div className={styles.characterList}>
-      <h1>Character List Page</h1>
+      {/* Breadcrumbs Navigation */}
+      <Breadcrumbs />
+      {/* Page Header: Page title, sort, filter & watchlist button */}
+      <PageHeader />
     </div>
   );
 }

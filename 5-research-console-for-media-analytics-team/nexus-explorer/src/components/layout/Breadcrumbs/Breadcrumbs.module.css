@@ -1,0 +1,28 @@
+.breadcrumbs {
+  font-size: 12px;
+  font-weight: 400;
+
+  & > ol {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    /* gap: 15px; */
+
+    li > a {
+      text-decoration: none;
+      color: var(--text-muted);
+    }
+
+    li > .separator {
+      padding: 0 5px;
+      color: var(--text-muted);
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    li > .activeBreadcrumb {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+  }
+}
