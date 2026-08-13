@@ -1,0 +1,58 @@
+.statCardContainer {
+  background-color: var(--surface);
+  padding: 20px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  box-shadow: var(--stat-card-box-shadow);
+
+  & > .statHeader {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .iconTile {
+      height: 34px;
+      width: 34px;
+      border-radius: 10px;
+      padding: 8px;
+    }
+
+    .totalIconTile {
+      background-color: var(--primary-soft);
+    }
+
+    .aliveIconTile {
+      background-color: var(--status-alive-bg);
+    }
+
+    .deadIconTile {
+      background-color: var(--status-dead-bg);
+    }
+
+    .watchlistIconTile {
+      background-color: var(--query-stale-fetching-bg);
+    }
+
+    .cardTitle {
+      flex-grow: 1;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+    }
+  }
+
+  & > .statValue {
+    font-size: 28px;
+    font-weight: 700;
+    margin-top: 9px;
+  }
+
+  & > .statHelperLine {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+}

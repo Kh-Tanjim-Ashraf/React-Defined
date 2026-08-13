@@ -1,6 +1,7 @@
 import styles from "./CharacterListPage.module.css";
 import Breadcrumbs from "../../components/layout/Breadcrumbs/Breadcrumbs";
 import PageHeader from "./sections/PageHeader/PageHeader";
+import StatGrid from "../../components/stats/StatGrid/StatGrid";
 
 export default function CharacterListPage() {
   return (
@@ -9,6 +10,8 @@ export default function CharacterListPage() {
       <Breadcrumbs />
       {/* Page Header: Page title, sort, filter & watchlist button */}
       <PageHeader />
+      {/* Stat Grid */}
+      <StatGrid />
     </div>
   );
 }

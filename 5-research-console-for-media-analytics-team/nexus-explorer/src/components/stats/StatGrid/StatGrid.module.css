@@ -1,0 +1,13 @@
+.statGridContainer {
+  padding: 20px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+/* This style actually renderes in "StatCard" component */
+.statHelperLineBadge {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--status-alive);
+}

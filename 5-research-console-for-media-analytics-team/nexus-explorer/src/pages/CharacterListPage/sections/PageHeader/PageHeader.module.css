@@ -1,10 +1,10 @@
 .pageHeader {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  align-items: center;
+  align-items: end;
 
   & > .pageTitleContainer {
-    h1 {
+    h2 {
       font-size: 24px;
       font-weight: 700;
       letter-spacing: 0.03px;

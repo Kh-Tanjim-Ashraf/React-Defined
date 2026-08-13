@@ -6,7 +6,7 @@ export default function PageHeader() {
   return (
     <div className={styles.pageHeader}>
       <div className={styles.pageTitleContainer}>
-        <h1>Characters</h1>
+        <h2>Characters</h2>
         <Badge
           className={styles.metaInfo}
           badgeName="Browse 826 characters • filtered results update the URL so the view is shareable."
