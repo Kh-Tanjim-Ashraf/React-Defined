@@ -1,4 +1,9 @@
 .characterList {
   background-color: #fed4d4;
   padding: 24px;
+
+  .pageContent {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
 }

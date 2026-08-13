@@ -1,7 +1,12 @@
-import styles from "./CharacterListPage.module.css";
 import Breadcrumbs from "../../components/layout/Breadcrumbs/Breadcrumbs";
 import PageHeader from "./sections/PageHeader/PageHeader";
 import StatGrid from "../../components/stats/StatGrid/StatGrid";
+import StatusFilter from "./sections/StatusFilter/StatusFilter";
+import CharactersList from "./sections/CharactersList/CharactersList";
+import Watchlist from "./sections/Watchlist/Watchlist";
+import RecentlyViewed from "./sections/RecentlyViewed/RecentlyViewed";
+import DataFreshness from "./sections/DataFreshness/DataFreshness";
+import styles from "./CharacterListPage.module.css";
 
 export default function CharacterListPage() {
   return (
@@ -12,6 +17,18 @@ export default function CharacterListPage() {
       <PageHeader />
       {/* Stat Grid */}
       <StatGrid />
+      {/* Page Content */}
+      <div className={styles.pageContent}>
+        <div className="leftSideContainer">
+          <StatusFilter />
+          <CharactersList />
+        </div>
+        <div className="rightSideContainer">
+          <Watchlist />
+          <RecentlyViewed />
+          <DataFreshness />
+        </div>
+      </div>
     </div>
   );
 }
