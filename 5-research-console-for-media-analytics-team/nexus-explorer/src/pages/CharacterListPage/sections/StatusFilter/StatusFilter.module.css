@@ -1,3 +1,128 @@
 .statusFilter {
-  background-color: #8fff8f;
+  background-color: var(--surface);
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+
+  .filterChipsContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+
+    .sectionHeader {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .chip {
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: 13px;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      background-color: var(--surface);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    /* Mock: Chip active */
+    .chipActive {
+      background-color: var(--primary);
+      color: var(--surface);
+      font-weight: 600;
+      border: 1px solid transparent;
+    }
+
+    .chipCounter {
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 999px;
+      background-color: var(--status-filter-chip-bg);
+      padding: 0 10px;
+    }
+
+    /* Mock: Chip counter active */
+    .chipCounterActive {
+      background-color: var(--status-filter-chip-conter-raised);
+      color: var(--surface);
+    }
+
+    .selectControl {
+      height: 38px;
+      font-size: 13px;
+      font-weight: 400;
+      padding: 7px 14px;
+      background-color: var(--surface);
+      color: var(--text-muted);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+    }
+
+    .selectControl:focus {
+      border: 1px solid transparent;
+      outline: 2px solid var(--primary);
+    }
+
+    .selectControl > option {
+      color: var(--text-muted);
+    }
+
+    .selectControl > option:checked {
+      font-weight: 500;
+      color: var(--surface) !important;
+      background-color: var(--primary);
+      outline: 2px solid var(--primary);
+    }
+  }
+
+  .divider {
+    border: 0;
+    height: 1px;
+    background-color: color-mix(in srgb, var(--border) 50%, transparent);
+    margin: 15px 0;
+  }
+
+  .filterQueryMetaContainer {
+    font-size: 12px;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+
+    .activeQueryString {
+      display: flex;
+      gap: 5px;
+    }
+
+    p {
+      color: var(--text-muted);
+    }
+
+    pre {
+      background-color: var(--status-filter-chip-bg);
+      color: var(--text-primary);
+      border: none;
+      border-radius: 6px;
+      padding: 2px 10px;
+      display: inline-block;
+    }
+
+    p > .charactersBatchCount,
+    p > .charactersTotalCount {
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+
+    p > .MetaInfoBadge {
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 700;
+    }
+  }
 }

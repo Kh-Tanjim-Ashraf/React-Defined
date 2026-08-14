@@ -1,3 +1,5 @@
 .charactersList {
   background-color: #9eefff;
+  display: flex;
+  flex-direction: column;
 }

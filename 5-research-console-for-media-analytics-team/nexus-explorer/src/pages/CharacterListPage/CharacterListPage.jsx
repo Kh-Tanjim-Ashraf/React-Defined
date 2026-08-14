@@ -19,7 +19,7 @@ export default function CharacterListPage() {
       <StatGrid />
       {/* Page Content */}
       <div className={styles.pageContent}>
-        <div className="leftSideContainer">
+        <div className={styles.leftSideContainer}>
           <StatusFilter />
           <CharactersList />
         </div>
