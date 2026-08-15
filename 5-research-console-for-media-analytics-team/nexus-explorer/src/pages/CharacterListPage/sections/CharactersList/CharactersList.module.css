@@ -2,11 +2,18 @@
   background-color: #9eefff;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+
+  .header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 20px;
+  }
 
   .divider {
     border: 0;
     height: 1px;
     background-color: var(--text-primary);
-    margin: 15px 0;
   }
 }

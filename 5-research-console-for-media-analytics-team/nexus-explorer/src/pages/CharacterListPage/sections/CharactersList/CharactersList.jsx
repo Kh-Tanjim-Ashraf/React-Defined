@@ -6,7 +6,7 @@ import styles from "./CharactersList.module.css";
 export default function CharactersList() {
   return (
     <div className={styles.charactersList}>
-      <div className="header">
+      <div className={styles.header}>
         <SectionHeader />
       </div>
       <hr className={styles.divider} />

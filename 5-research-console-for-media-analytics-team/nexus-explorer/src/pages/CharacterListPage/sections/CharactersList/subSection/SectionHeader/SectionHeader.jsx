@@ -1,13 +1,17 @@
 import Badge from "../../../../../../components/ui/Badge";
+import styles from "./SectionHeader.module.css";
 
 export default function SectionHeader() {
   return (
     <>
-      <div className="headerTextContainer">
+      <div className={styles.headerTextContainer}>
         <h3>Results</h3>
-        <Badge badgeName="background refetching" />
+        <Badge
+          className={styles.backgroundRefetch}
+          badgeName="background refetching..."
+        />
       </div>
-      <div className="prefetchAction">Prefetch next page▸</div>
+      <div className={styles.prefetchAction}>Prefetch next page▸</div>
     </>
   );
 }
