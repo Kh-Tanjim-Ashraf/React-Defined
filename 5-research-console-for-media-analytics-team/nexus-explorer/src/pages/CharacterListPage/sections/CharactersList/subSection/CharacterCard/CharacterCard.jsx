@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import Card from "../../../../../components/ui/Card";
-import Image from "../../../../../components/ui/Image";
-import Badge from "../../../../../components/ui/Badge";
-import CharacterIcon from "../../../../../asset/statCardIcons/characters.png";
+import Card from "../../../../../../components/ui/Card";
+import Image from "../../../../../../components/ui/Image";
+import Badge from "../../../../../../components/ui/Badge";
+import CharacterIcon from "../../../../../../asset/statCardIcons/characters.png";
 
 export default function CharacterCard() {
   return (
