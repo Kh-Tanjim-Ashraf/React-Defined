@@ -1,20 +1,22 @@
 .charactersList {
-  background-color: #ffffff;
+  background-color: var(--surface);
   display: flex;
   flex-direction: column;
   justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 14px;
 
   .header {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    padding: 20px;
+    padding: 15px 20px;
   }
 
   .divider {
     border: 0;
     height: 1px;
-    background-color: var(--text-primary);
+    background-color: color-mix(in srgb, var(--border) 50%, transparent);
   }
 
   .characterCardsContainer {
