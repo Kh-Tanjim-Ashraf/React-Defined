@@ -18,7 +18,7 @@ export default function CharactersList() {
         ))}
       </div>
       <hr className={styles.divider} />
-      <div className="footer">
+      <div className={styles.footer}>
         <SectionFooter />
       </div>
     </div>

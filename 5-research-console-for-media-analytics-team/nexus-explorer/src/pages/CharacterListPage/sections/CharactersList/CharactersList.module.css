@@ -24,4 +24,11 @@
     gap: 16px;
     padding: 20px;
   }
+
+  .footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 15px 20px;
+  }
 }

@@ -1,0 +1,39 @@
+.pagination {
+  display: flex;
+  gap: 10px;
+
+  .button {
+    height: 34px;
+    width: 34px;
+    border-radius: 8px;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--page-header-button-text);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .button:nth-child(2) {
+    background-color: var(--primary);
+    color: var(--surface);
+  }
+
+  .previousNextPage {
+    width: auto;
+    padding: 0 10px;
+  }
+
+  /* Mock Data: Inactive Previous Button */
+  .previousNextPage:nth-child(1) {
+    opacity: 45%;
+    cursor: not-allowed;
+  }
+}
+
+.metaInfo {
+  justify-self: end;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-muted);
+}
