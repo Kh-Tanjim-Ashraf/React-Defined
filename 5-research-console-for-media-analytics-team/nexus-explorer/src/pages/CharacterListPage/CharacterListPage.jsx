@@ -23,7 +23,7 @@ export default function CharacterListPage() {
           <StatusFilter />
           <CharactersList />
         </div>
-        <div className="rightSideContainer">
+        <div className={styles.rightSideContainer}>
           <Watchlist />
           <RecentlyViewed />
           <DataFreshness />

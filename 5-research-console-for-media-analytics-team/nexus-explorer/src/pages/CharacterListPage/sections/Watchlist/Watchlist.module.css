@@ -1,3 +1,82 @@
 .watchlist {
-  background-color: #a490ff;
+  background-color: var(--surface);
+  border-radius: 14px;
+  overflow: hidden;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    padding: 15px 20px;
+
+    h2 {
+      font-size: 16px;
+    }
+
+    p {
+      font-size: 13px;
+      color: var(--primary);
+    }
+  }
+
+  .divider {
+    background-color: color-mix(in srgb, var(--border) 50%, transparent);
+    height: 1px;
+    /* border: 0;
+    margin: 15px 0; */
+  }
+
+  .watchListContainer {
+    padding: 20px 24px;
+
+    ul {
+      list-style-type: none;
+    }
+
+    ul > .listElement {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    ul > .listElement > .leftSideContainer {
+      display: grid;
+      grid-template-columns: auto 2fr;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .listElement > .leftSideContainer > .characterIcon {
+      background-color: var(--primary-soft);
+      border-radius: 10px;
+      padding: 4px;
+    }
+
+    .leftSideContainer > .nameMetaInfo {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .leftSideContainer > .nameMetaInfo > p {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .leftSideContainer > .nameMetaInfo > .metaInfo {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+
+    .rightSideContainer > .removeAction {
+      color: var(--danger);
+    }
+
+    ul > .listDivider {
+      background-color: color-mix(in srgb, var(--border) 50%, transparent);
+      height: 1px;
+      margin: 10px 0;
+    }
+  }
 }
