@@ -1,0 +1,87 @@
+.characterCard {
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+
+  .imageContainer {
+    display: grid;
+    grid-template-areas: "stack";
+    background-color: #87ff91;
+    justify-content: center;
+
+    .characterImage {
+      grid-area: stack;
+      max-width: 100%;
+      height: 245px;
+      display: block;
+      background-color: #77dfdd;
+      object-fit: cover;
+    }
+
+    .watchlistBadge {
+      grid-area: stack;
+      justify-self: end;
+      background-color: var(--watchlist-toggle-button-bg);
+      height: 28px;
+      width: 28px;
+      border-radius: 50%;
+      font-size: 18px;
+      text-align: center;
+      align-content: center;
+      margin-top: 10px;
+      margin-right: 10px;
+    }
+  }
+
+  .informationContainer {
+    padding: 14px;
+
+    .cardHeader {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .headerSubtitle {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+
+    .cardBottom {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      margin-top: 15px;
+
+      .characterStatus {
+        font-size: 11px;
+        font-weight: 700;
+        border-radius: 999px;
+        padding: 3px 10px;
+        background-color: var(--status-alive-bg);
+        color: var(--status-alive);
+        align-content: center;
+      }
+
+      .detailLink {
+        justify-self: end;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 600;
+        border-radius: 999px;
+        padding: 5px 10px;
+        color: var(--primary);
+      }
+
+      .detailLink:hover {
+        font-weight: 700;
+        background-color: var(--primary);
+        color: var(--surface);
+      }
+    }
+  }
+}
+
+.characterCard:hover {
+  border: 1px solid var(--primary);
+  box-shadow: var(--character-card-hover-shadow);
+}

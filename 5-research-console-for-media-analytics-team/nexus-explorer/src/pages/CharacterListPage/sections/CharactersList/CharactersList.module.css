@@ -1,5 +1,5 @@
 .charactersList {
-  background-color: #9eefff;
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,5 +15,13 @@
     border: 0;
     height: 1px;
     background-color: var(--text-primary);
+  }
+
+  .characterCardsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 16px;
+    padding: 20px;
   }
 }

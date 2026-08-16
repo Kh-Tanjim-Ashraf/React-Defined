@@ -3,19 +3,29 @@ import Card from "../../../../../../components/ui/Card";
 import Image from "../../../../../../components/ui/Image";
 import Badge from "../../../../../../components/ui/Badge";
 import CharacterIcon from "../../../../../../asset/statCardIcons/characters.png";
+import styles from "./CharacterCard.module.css";
 
 export default function CharacterCard() {
   return (
-    <Card className="characterCard">
-      <div className="imageContainer">
-        <Image src={CharacterIcon} alt="Character Image" height="132" />
-        <Badge className="watchlistBadge" badgeName="★" />
+    <Card className={styles.characterCard}>
+      <div className={styles.imageContainer}>
+        <Image
+          src={CharacterIcon}
+          alt="Character Image"
+          className={styles.characterImage}
+        />
+        <Badge className={styles.watchlistBadge} badgeName="★" />
       </div>
-      <p className="cardHeader">Rick Sanchez</p>
-      <Badge className="headerSubtitle" badgeName="Human • Male • C-137" />
-      <div className="cardBottom">
-        <Badge className="characterStatus" badgeName="Alive" />
-        <Link className="detailLink">Details →</Link>
+      <div className={styles.informationContainer}>
+        <p className={styles.cardHeader}>Rick Sanchez</p>
+        <Badge
+          className={styles.headerSubtitle}
+          badgeName="Human • Male • C-137"
+        />
+        <div className={styles.cardBottom}>
+          <Badge className={styles.characterStatus} badgeName="Alive" />
+          <Link className={styles.detailLink}>Details →</Link>
+        </div>
       </div>
     </Card>
   );
