@@ -1,5 +1,5 @@
 .characterList {
-  background-color: #fed4d4;
+  background-color: var(--page-background);
   padding: 24px;
 
   .pageContent {
@@ -9,6 +9,13 @@
 
     .leftSideContainer {
       display: grid;
+      gap: 20px;
+      grid-template-rows: 130px 1fr;
+    }
+
+    .rightSideContainer {
+      display: grid;
+      grid-template-rows: 299px 243px 221px;
       gap: 20px;
     }
   }
