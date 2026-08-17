@@ -23,35 +23,35 @@
       list-style-type: none;
     }
 
-    ul > .listElement {
+    ul > .listElement > li {
       display: flex;
       gap: 10px;
       align-items: center;
     }
 
-    ul > .listElement > .characterIcon {
+    ul > .listElement > li > .characterIcon {
       background-color: var(--primary-soft);
       border-radius: 10px;
       padding: 4px;
     }
 
-    ul > .listElement > .nameMetaInfo {
+    ul > .listElement > li > .nameMetaInfo {
       display: flex;
       flex-direction: column;
     }
 
-    .listElement > .nameMetaInfo > p {
+    .listElement > li > .nameMetaInfo > p {
       font-size: 14px;
       font-weight: 700;
     }
 
-    .listElement > .nameMetaInfo > .metaInfo {
-      font-size: 11px;
+    .listElement > li > .nameMetaInfo > .metaInfo {
+      font-size: 12px;
       font-weight: 400;
       color: var(--text-muted);
     }
 
-    ul > .listDivider {
+    ul > .listElement > .listDivider {
       background-color: color-mix(in srgb, var(--border) 50%, transparent);
       height: 1px;
       margin: 10px 0;

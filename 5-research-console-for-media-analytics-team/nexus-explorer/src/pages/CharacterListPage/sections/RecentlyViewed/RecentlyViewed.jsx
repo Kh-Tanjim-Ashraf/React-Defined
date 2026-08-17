@@ -16,8 +16,8 @@ export default function RecentlyViewed() {
       <div className={styles.recentlyViewedContainer}>
         <ul>
           {recentlyViewed.map((rv, index) => (
-            <>
-              <li key={index} className={styles.listElement}>
+            <div key={index} className={styles.listElement}>
+              <li>
                 <img
                   src={CharacterIcon}
                   alt="Recently Viewed Icon"
@@ -32,7 +32,7 @@ export default function RecentlyViewed() {
               {index < recentlyViewed.length - 1 ? (
                 <hr className={`${styles.divider} ${styles.listDivider}`} />
               ) : null}
-            </>
+            </div>
           ))}
         </ul>
       </div>
