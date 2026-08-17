@@ -20,8 +20,8 @@ export default function Watchlist() {
       <div className={styles.watchListContainer}>
         <ul>
           {watchList.map((wl, index) => (
-            <>
-              <li key={index} className={styles.listElement}>
+            <div key={index} className={styles.listElement}>
+              <li>
                 <div className={styles.leftSideContainer}>
                   <img
                     src={CharacterIcon}
@@ -41,10 +41,10 @@ export default function Watchlist() {
                   <Badge className={styles.removeAction} badgeName="✖" />
                 </div>
               </li>
-              {index === watchList.length - 1 ? null : (
+              {index < watchList.length - 1 ? (
                 <hr className={`${styles.divider} ${styles.listDivider}`} />
-              )}
-            </>
+              ) : null}
+            </div>
           ))}
         </ul>
       </div>
