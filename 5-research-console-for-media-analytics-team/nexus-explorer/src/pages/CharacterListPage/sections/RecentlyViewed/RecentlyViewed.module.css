@@ -1,3 +1,60 @@
 .recentlyViewed {
-  background-color: #ca5959;
+  /* background-color: #887aa7; */
+  background-color: var(--surface);
+  border-radius: 14px;
+  overflow: hidden;
+
+  .header {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 15px 20px;
+    color: var(--text-black);
+  }
+
+  .divider {
+    background-color: var(--border);
+    height: 1px;
+  }
+
+  .recentlyViewedContainer {
+    padding: 20px 24px;
+
+    ul {
+      list-style-type: none;
+    }
+
+    ul > .listElement {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    ul > .listElement > .characterIcon {
+      background-color: var(--primary-soft);
+      border-radius: 10px;
+      padding: 4px;
+    }
+
+    ul > .listElement > .nameMetaInfo {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .listElement > .nameMetaInfo > p {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .listElement > .nameMetaInfo > .metaInfo {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+
+    ul > .listDivider {
+      background-color: color-mix(in srgb, var(--border) 50%, transparent);
+      height: 1px;
+      margin: 10px 0;
+    }
+  }
 }
