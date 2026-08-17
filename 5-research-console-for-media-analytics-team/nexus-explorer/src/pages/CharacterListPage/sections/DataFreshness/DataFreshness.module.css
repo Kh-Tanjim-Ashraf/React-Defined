@@ -1,3 +1,69 @@
 .dataFreshness {
-  background-color: #71b9dc;
+  background-color: var(--surface);
+  border-radius: 14px;
+  overflow: hidden;
+
+  .header {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 15px 20px;
+    color: var(--text-black);
+  }
+
+  .divider {
+    background-color: var(--border);
+    height: 1px;
+  }
+
+  .footerDivider {
+    background-color: color-mix(in srgb, var(--border) 50%, transparent);
+    margin: 10px 0;
+  }
+
+  .dataFreshnessContainer {
+    padding: 20px 24px;
+
+    ul {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    ul > .listElement {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    ul > .listElement > .typeName {
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 3px 10px;
+      align-content: center;
+    }
+
+    ul > .listElement > .typeNameFresh {
+      background-color: var(--status-alive-bg);
+      color: var(--status-alive);
+    }
+
+    ul > .listElement > .typeNameStale {
+      background-color: var(--query-stale-fetching-bg);
+      color: var(--query-stale-fetching);
+    }
+
+    ul > .listElement > .typeNameIdle {
+      background-color: var(--status-unknown-bg);
+      color: var(--status-unknown);
+    }
+
+    ul > .listElement > .metaInfo,
+    .metaInfo {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+  }
 }
