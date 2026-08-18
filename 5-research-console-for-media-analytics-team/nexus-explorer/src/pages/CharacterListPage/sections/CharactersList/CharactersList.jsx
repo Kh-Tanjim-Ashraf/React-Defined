@@ -3,8 +3,8 @@ import CharacterCard from "./subSection/CharacterCard/CharacterCard";
 import SectionFooter from "./subSection/SectionFooter/SectionFooter";
 import styles from "./CharactersList.module.css";
 
-export default function CharactersList() {
-  const characters = [1, 2, 3, 4, 5, 6, 7, 8];
+export default function CharactersList({ characters }) {
+  const isLoading = !characters; // If characters null then isLoading=true, otherwise false
 
   return (
     <div className={styles.charactersList}>
@@ -13,9 +13,13 @@ export default function CharactersList() {
       </div>
       <hr className={styles.divider} />
       <div className={styles.characterCardsContainer}>
-        {characters.map((character, index) => (
-          <CharacterCard key={index} />
-        ))}
+        {isLoading ? (
+          <h3>Loading data...</h3>
+        ) : (
+          characters.results.map((character, index) => (
+            <CharacterCard key={character.id} character={character} />
+          ))
+        )}
       </div>
       <hr className={styles.divider} />
       <div className={styles.footer}>

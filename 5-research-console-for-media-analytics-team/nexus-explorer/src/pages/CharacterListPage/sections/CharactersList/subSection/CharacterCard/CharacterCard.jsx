@@ -5,7 +5,7 @@ import Badge from "../../../../../../components/ui/Badge";
 import CharacterIcon from "../../../../../../asset/statCardIcons/characters.png";
 import styles from "./CharacterCard.module.css";
 
-export default function CharacterCard() {
+export default function CharacterCard({ character }) {
   return (
     <Card className={styles.characterCard}>
       <div className={styles.imageContainer}>
@@ -17,13 +17,16 @@ export default function CharacterCard() {
         <Badge className={styles.watchlistBadge} badgeName="★" />
       </div>
       <div className={styles.informationContainer}>
-        <p className={styles.cardHeader}>Rick Sanchez</p>
+        <p className={styles.cardHeader}>{character.name}</p>
         <Badge
           className={styles.headerSubtitle}
-          badgeName="Human • Male • C-137"
+          badgeName={`${character.species} • ${character.gender} • ${character.origin.name}`}
         />
         <div className={styles.cardBottom}>
-          <Badge className={styles.characterStatus} badgeName="Alive" />
+          <Badge
+            className={styles.characterStatus}
+            badgeName={`${character.status}`}
+          />
           <Link className={styles.detailLink}>Details →</Link>
         </div>
       </div>

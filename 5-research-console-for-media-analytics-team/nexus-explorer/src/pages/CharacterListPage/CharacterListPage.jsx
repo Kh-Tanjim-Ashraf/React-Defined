@@ -39,8 +39,6 @@ export default function CharacterListPage() {
 
   // console.log("characters-alive:", charactersAlive.info);
 
-  // characters ? console.log("characters:", characters.info) : null;
-
   return (
     <div className={styles.characterList}>
       {/* Breadcrumbs Navigation */}
@@ -57,7 +55,7 @@ export default function CharacterListPage() {
       <div className={styles.pageContent}>
         <div className={styles.leftSideContainer}>
           <StatusFilter />
-          <CharactersList />
+          <CharactersList characters={characters} />
         </div>
         <div className={styles.rightSideContainer}>
           <Watchlist />
