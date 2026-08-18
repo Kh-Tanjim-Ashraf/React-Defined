@@ -6,12 +6,28 @@ import CharacterDeadIcon from "../../../asset/statCardIcons/character-dead.png";
 import WatchlistIcon from "../../../asset/statCardIcons/watchlist.png";
 import styles from "./StatGrid.module.css";
 
-export default function StatGrid() {
+export default function StatGrid({
+  charactersInfo,
+  charactersAliveInfo,
+  charactersDeadInfo,
+}) {
+  const totalCharacters = charactersInfo ? charactersInfo.count : null;
+
+  const totalCharactersAlive = charactersAliveInfo
+    ? charactersAliveInfo.count
+    : null;
+
+  const totalCharactersDead = charactersDeadInfo
+    ? charactersDeadInfo.count
+    : null;
+
+  const totalCharacterPages = charactersInfo ? charactersInfo.pages : null;
+
   const cards = [
     {
       id: 0,
       cardTitle: "Total Characters",
-      value: 826,
+      value: totalCharacters,
       statHelperLineValue: (
         <>
           from
@@ -19,7 +35,7 @@ export default function StatGrid() {
             className={styles.statHelperLineBadge}
             badgeName=" /character "
           />
-          meta • 42 pages
+          meta • {totalCharacterPages} pages
         </>
       ),
       icon: CharacterIcon,
@@ -28,10 +44,13 @@ export default function StatGrid() {
     {
       id: 1,
       cardTitle: "Alive",
-      value: 439,
+      value: totalCharactersAlive,
       statHelperLineValue: (
         <>
-          <Badge className={styles.statHelperLineBadge} badgeName="53.1% " />
+          <Badge
+            className={styles.statHelperLineBadge}
+            badgeName={`${((totalCharactersAlive / totalCharacters) * 100).toFixed(1)}% `}
+          />
           of all characters
         </>
       ),
@@ -41,10 +60,13 @@ export default function StatGrid() {
     {
       id: 2,
       cardTitle: "Dead",
-      value: 287,
+      value: totalCharactersDead,
       statHelperLineValue: (
         <>
-          <Badge className={styles.statHelperLineBadge} badgeName="34.7% " />
+          <Badge
+            className={styles.statHelperLineBadge}
+            badgeName={`${((totalCharactersDead / totalCharacters) * 100).toFixed(1)}% `}
+          />
           of all characters
         </>
       ),
@@ -68,7 +90,7 @@ export default function StatGrid() {
           key={card.id}
           icon={card.icon}
           cardTitle={card.cardTitle}
-          value={card.value}
+          value={card.value || ""} // Returns the first truthy value it encounters from left to right.
           statHelperLineValue={card.statHelperLineValue}
           iconVariant={card.iconVariant}
         />

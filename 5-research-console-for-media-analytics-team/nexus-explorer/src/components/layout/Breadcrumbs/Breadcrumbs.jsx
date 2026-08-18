@@ -3,7 +3,7 @@ import Badge from "../../ui/Badge";
 import styles from "./Breadcrumbs.module.css";
 
 export default function Breadcrumbs() {
-  const location = useLocation();
+  const location = useLocation(); // Retrieves URL string from the browser
   const paths = location.pathname.split("/").filter(Boolean);
 
   return (
