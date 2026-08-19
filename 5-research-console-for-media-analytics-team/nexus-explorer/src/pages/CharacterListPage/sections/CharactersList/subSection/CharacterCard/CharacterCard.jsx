@@ -24,8 +24,8 @@ export default function CharacterCard({ character }) {
         />
         <div className={styles.cardBottom}>
           <Badge
-            className={styles.characterStatus}
-            badgeName={`${character.status}`}
+            className={`${styles.characterStatus} ${styles[`chStat${character.status === "unknown" ? "Unknown" : character.status}`]}`}
+            badgeName={`${character.status === "unknown" ? "Unknown" : character.status}`}
           />
           <Link className={styles.detailLink}>Details →</Link>
         </div>

@@ -60,9 +60,22 @@
         font-weight: 700;
         border-radius: 999px;
         padding: 3px 10px;
+        align-content: center;
+      }
+
+      .chStatAlive {
         background-color: var(--status-alive-bg);
         color: var(--status-alive);
-        align-content: center;
+      }
+
+      .chStatDead {
+        background-color: var(--status-dead-bg);
+        color: var(--status-dead);
+      }
+
+      .chStatUnknown {
+        background-color: var(--status-unknown-bg);
+        color: var(--status-unknown);
       }
 
       .detailLink {
