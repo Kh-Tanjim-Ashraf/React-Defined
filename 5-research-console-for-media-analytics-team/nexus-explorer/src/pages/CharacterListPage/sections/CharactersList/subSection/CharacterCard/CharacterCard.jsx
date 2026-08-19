@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import Card from "../../../../../../components/ui/Card";
 import Image from "../../../../../../components/ui/Image";
 import Badge from "../../../../../../components/ui/Badge";
-import CharacterIcon from "../../../../../../asset/statCardIcons/characters.png";
 import styles from "./CharacterCard.module.css";
 
 export default function CharacterCard({ character }) {
@@ -10,7 +9,7 @@ export default function CharacterCard({ character }) {
     <Card className={styles.characterCard}>
       <div className={styles.imageContainer}>
         <Image
-          src={CharacterIcon}
+          src={character.image}
           alt="Character Image"
           className={styles.characterImage}
         />

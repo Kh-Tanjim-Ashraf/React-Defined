@@ -37,8 +37,6 @@ export default function CharacterListPage() {
     fetchDeadCharacters();
   }, []);
 
-  // console.log("characters-alive:", charactersAlive.info);
-
   return (
     <div className={styles.characterList}>
       {/* Breadcrumbs Navigation */}

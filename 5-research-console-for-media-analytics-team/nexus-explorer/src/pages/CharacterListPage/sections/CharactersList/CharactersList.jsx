@@ -4,7 +4,7 @@ import SectionFooter from "./subSection/SectionFooter/SectionFooter";
 import styles from "./CharactersList.module.css";
 
 export default function CharactersList({ characters }) {
-  const isLoading = !characters; // If characters null then isLoading=true, otherwise false
+  const isLoading = !characters; // If characters null then isLoading=true, otherwise isLoading=false
 
   return (
     <div className={styles.charactersList}>
