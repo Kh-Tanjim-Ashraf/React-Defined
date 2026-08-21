@@ -3,8 +3,8 @@ import CharacterCard from "./subSection/CharacterCard/CharacterCard";
 import SectionFooter from "./subSection/SectionFooter/SectionFooter";
 import styles from "./CharactersList.module.css";
 
-export default function CharactersList({ characters }) {
-  const isLoading = !characters; // If characters null then isLoading=true, otherwise isLoading=false
+export default function CharactersList({ characters, handlePageNumberClick }) {
+  const isLoading = !characters; // If characters null then isLoading=true, otherwise false
 
   return (
     <div className={styles.charactersList}>
@@ -23,7 +23,10 @@ export default function CharactersList({ characters }) {
       </div>
       <hr className={styles.divider} />
       <div className={styles.footer}>
-        <SectionFooter />
+        <SectionFooter
+          charactersInfo={characters.info}
+          handlePageNumberClick={handlePageNumberClick}
+        />
       </div>
     </div>
   );

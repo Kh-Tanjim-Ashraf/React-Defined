@@ -4,7 +4,7 @@ import styles from "./Breadcrumbs.module.css";
 
 export default function Breadcrumbs() {
   const location = useLocation(); // Retrieves URL string from the browser
-  const paths = location.pathname.split("/").filter(Boolean);
+  const paths = location.pathname.split("/").filter(Boolean); // Filtered out any empty list elements using the `filter(Boolean)` function
 
   return (
     <nav aria-label="Breadcrumb" className={styles.breadcrumbs}>

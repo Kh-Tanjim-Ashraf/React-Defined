@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import Breadcrumbs from "../../components/layout/Breadcrumbs/Breadcrumbs";
 import PageHeader from "./sections/PageHeader/PageHeader";
 import StatGrid from "../../components/stats/StatGrid/StatGrid";
@@ -15,10 +16,17 @@ export default function CharacterListPage() {
   const [characters, setCharacters] = useState("");
   const [charactersAlive, setCharactersAlive] = useState("");
   const [charactersDead, setCharactersDead] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams(""); // Retrieves the query-param(s) from the URL
 
+  // Re-runs when "searchParams" changes
   useEffect(() => {
     async function fetchCharacters() {
-      const data = await get(endpoints.characters);
+      const data = await get(
+        searchParams
+          ? endpoints.charactersFiltered("page", searchParams.get("page"))
+          : endpoints.characters,
+      );
+
       setCharacters(data);
     }
 
@@ -35,7 +43,21 @@ export default function CharacterListPage() {
     fetchCharacters();
     fetchAlivedCharacters();
     fetchDeadCharacters();
-  }, []);
+  }, [searchParams]);
+
+  // Implemented only the previous/next page navigation
+  function handlePageNumberClick(direction) {
+    // If there isn't any "page" query initially the page load & the visitor wants to go to the nexty page, then provide them with number "1" to navigate pages by increasing & decreasing the integer number.
+    const pageNumber = parseInt(searchParams.get("page") || 1);
+
+    if (direction === "Previous") {
+      setSearchParams({ ...searchParams, page: pageNumber - 1 });
+    }
+
+    if (direction === "Next") {
+      setSearchParams({ ...searchParams, page: pageNumber + 1 });
+    }
+  }
 
   return (
     <div className={styles.characterList}>
@@ -53,7 +75,10 @@ export default function CharacterListPage() {
       <div className={styles.pageContent}>
         <div className={styles.leftSideContainer}>
           <StatusFilter />
-          <CharactersList characters={characters} />
+          <CharactersList
+            characters={characters}
+            handlePageNumberClick={handlePageNumberClick}
+          />
         </div>
         <div className={styles.rightSideContainer}>
           <Watchlist />

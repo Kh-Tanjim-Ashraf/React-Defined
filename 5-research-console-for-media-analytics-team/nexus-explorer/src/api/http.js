@@ -6,5 +6,5 @@ export async function get(url, options = {}) {
 
   if (!response.ok) throw new Error(`Request failed: ${response.status}`);
 
-  return await response.json(); // Since the response might delay, thus define `await` to convert a JSON-object literal into native JS object
+  return await response.json(); // Since the response might delay, thus defined `await` to convert the JSON-object literal into native JS object
 }

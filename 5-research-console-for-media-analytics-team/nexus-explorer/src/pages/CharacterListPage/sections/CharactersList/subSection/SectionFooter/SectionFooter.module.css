@@ -14,7 +14,7 @@
     font-weight: 600;
   }
 
-  .button:nth-child(2) {
+  .buttonSelected {
     background-color: var(--primary);
     color: var(--surface);
   }
@@ -24,8 +24,8 @@
     padding: 0 10px;
   }
 
-  /* Mock Data: Inactive Previous Button */
-  .previousNextPage:nth-child(1) {
+  /* Conditionally rendered */
+  .notAllowed {
     opacity: 45%;
     cursor: not-allowed;
   }
