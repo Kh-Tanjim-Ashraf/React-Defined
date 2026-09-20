@@ -1,0 +1,65 @@
+import { useState } from "react";
+
+function TaskForm() {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [status, setStatus] = useState("");
+  const [priority, setPriority] = useState("");
+
+  return (
+    <form action="" className="bg-emerald-200 py-6 flex flex-col">
+      <h2 className="text-2xl text-slate-500 text-center">New Task Form</h2>
+      <div className="form-group flex justify-center">
+        <label htmlFor="task">Task</label>
+        <input
+          id="task"
+          type="text"
+          className="rounded border border-black focus:outline-black"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          autoComplete="off"
+        />
+      </div>
+      <div className="form-group flex justify-center">
+        <label htmlFor="description">Description</label>
+        <input
+          id="description"
+          type="textarea"
+          className="rounded border border-black focus:outline-black"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          autoComplete="off"
+        />
+      </div>
+      <div className="form-group flex justify-center">
+        <label htmlFor="status">Status</label>
+        <input
+          id="status"
+          type="text"
+          className="rounded border border-black focus:outline-black"
+          value={status}
+          onChange={(e) => setStatus(e.target.value)}
+          autoComplete="off"
+        />
+      </div>
+      <div className="form-group flex justify-center">
+        <label htmlFor="priority">Priority</label>
+        <input
+          id="priority"
+          type="text"
+          className="rounded border border-black focus:outline-black"
+          value={priority}
+          onChange={(e) => setPriority(e.target.value)}
+          autoComplete="off"
+        />
+      </div>
+      <div className="form-group flex justify-center">
+        <button type="submit" className="bg-amber-500 rounded p-2">
+          + Add task
+        </button>
+      </div>
+    </form>
+  );
+}
+
+export default TaskForm;
