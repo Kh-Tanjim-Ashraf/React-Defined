@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function TaskForm() {
+export default function TaskForm() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [status, setStatus] = useState("");
@@ -8,7 +8,9 @@ function TaskForm() {
 
   return (
     <form action="" className="bg-emerald-200 py-6 flex flex-col">
-      <h2 className="text-2xl text-slate-500 text-center">New Task Form</h2>
+      <h2 className="text-2xl font-semibold text-slate-500 text-center">
+        New Task Form
+      </h2>
       <div className="form-group flex justify-center">
         <label htmlFor="task">Task</label>
         <input
@@ -54,12 +56,10 @@ function TaskForm() {
         />
       </div>
       <div className="form-group flex justify-center">
-        <button type="submit" className="bg-amber-500 rounded p-2">
+        <button type="submit" className="bg-amber-500 rounded py-1 px-3">
           + Add task
         </button>
       </div>
     </form>
   );
 }
-
-export default TaskForm;

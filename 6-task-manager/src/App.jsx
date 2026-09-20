@@ -1,5 +1,5 @@
-import TaskForm from "./components/TaskForm";
-import TaskList from "./components/TaskList";
+import TaskForm from "./components/task-form/TaskForm";
+import TaskList from "./components/task-list/TaskList";
 
 function App() {
   return (
@@ -7,12 +7,12 @@ function App() {
       <header className="h-20 bg-amber-100">
         <h1 className="text-6xl">Task Management System</h1>
       </header>
-      <main className="flex-1">
+      <main className="flex-1 flex flex-col">
         <TaskForm />
-        <TaskList />
+        <TaskList className="grow" />
       </main>
       <footer className="bg-slate-200 h-10">
-        <p className="text-slate-600">Sitemap</p>
+        <p className="text-slate-600 text-center">Sitemap</p>
       </footer>
     </div>
   );
