@@ -1,13 +1,29 @@
 import { useState } from "react";
 
-export default function TaskForm() {
+export default function TaskForm({ onAdd }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [status, setStatus] = useState("");
   const [priority, setPriority] = useState("");
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onAdd({
+      title: title,
+      description: description,
+      status: status,
+      priority: priority,
+    });
+
+    // Clear the form input fields after form submission
+    setTitle("");
+    setDescription("");
+    setStatus("");
+    setPriority("");
+  };
+
   return (
-    <form action="" className="bg-emerald-200 py-6 flex flex-col">
+    <form onSubmit={handleSubmit} className="bg-emerald-200 py-6 flex flex-col">
       <h2 className="text-2xl font-semibold text-slate-500 text-center">
         New Task Form
       </h2>

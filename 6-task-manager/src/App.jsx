@@ -9,22 +9,34 @@ function App() {
   const [error, setError] = useState(null);
   const [tasksIsLoading, setTasksIsLoading] = useState(false);
 
+  // Load tasks
+  const handleLoadTasks = async () => {
+    // Toggle loading to true & clear out the error state (thus it removes any previous error msg)
+    setTasksIsLoading(true);
+    setError(null);
+    try {
+      const result = await getTasks();
+      setTasks(result?.tasks);
+    } catch (err) {
+      setError(err);
+    } finally {
+      setTasksIsLoading(false); // Loading is finished; Either it successfully retrieves data from the server or failed
+    }
+  };
+
   useEffect(() => {
-    const handleLoadTasks = async () => {
-      // Toggle loading to true & clear out the error state (thus it removes any previous error msg)
-      setTasksIsLoading(true);
-      setError(null);
-      try {
-        const result = await getTasks();
-        setTasks(result);
-      } catch (err) {
-        setError(err);
-      } finally {
-        setTasksIsLoading(false); // Loading is finished; Either it successfully retrieves data from the server or failed
-      }
-    };
     handleLoadTasks();
   }, []);
+
+  // Create a new task
+  const handleCreateTask = async (task) => {
+    try {
+      const newTask = await addTask(task); // Sent POST request to create data into the DB
+      setTasks([...tasks, newTask?.task]); // Update the tasks array
+    } catch (error) {
+      setError(error.message);
+    }
+  };
 
   return (
     <div className="bg-slate-50 h-screen flex flex-col">
@@ -32,11 +44,11 @@ function App() {
         <h1 className="text-6xl">Task Management System</h1>
       </header>
       <main className="flex-1 flex flex-col">
-        <TaskForm />
+        <TaskForm onAdd={handleCreateTask} />
         <TaskList
           className="grow"
           tasksIsLoading={tasksIsLoading}
-          tasks={tasks?.tasks}
+          tasks={tasks}
           error={error}
         />
       </main>
