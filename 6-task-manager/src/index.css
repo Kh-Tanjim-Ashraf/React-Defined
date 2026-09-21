@@ -1,1 +1,63 @@
 @import "tailwindcss";
+
+@theme {
+  --color-shadow-grey-50: #f0f0f5;
+  --color-shadow-grey-100: #e1e2ea;
+  --color-shadow-grey-200: #c3c4d5;
+  --color-shadow-grey-300: #a5a7c0;
+  --color-shadow-grey-400: #8789ab;
+  --color-shadow-grey-500: #696c96;
+  --color-shadow-grey-600: #545678;
+  --color-shadow-grey-700: #3f415a;
+  --color-shadow-grey-800: #2a2b3c;
+  --color-shadow-grey-900: #15161e;
+  --color-shadow-grey-950: #0f0f15;
+
+  --color-vintage-grape-50: #f2f1f4;
+  --color-vintage-grape-100: #e5e2e9;
+  --color-vintage-grape-200: #cbc5d3;
+  --color-vintage-grape-300: #b1a9bc;
+  --color-vintage-grape-400: #978ca6;
+  --color-vintage-grape-500: #7d6f90;
+  --color-vintage-grape-600: #645973;
+  --color-vintage-grape-700: #4b4356;
+  --color-vintage-grape-800: #322c3a;
+  --color-vintage-grape-900: #19161d;
+  --color-vintage-grape-950: #111014;
+
+  --color-vintage-lavender-50: #f2f0f4;
+  --color-vintage-lavender-100: #e5e2e9;
+  --color-vintage-lavender-200: #cbc4d4;
+  --color-vintage-lavender-300: #b2a7be;
+  --color-vintage-lavender-400: #988aa8;
+  --color-vintage-lavender-500: #7e6c93;
+  --color-vintage-lavender-600: #655775;
+  --color-vintage-lavender-700: #4c4158;
+  --color-vintage-lavender-800: #322b3b;
+  --color-vintage-lavender-900: #19161d;
+  --color-vintage-lavender-950: #120f15;
+
+  --color-lavender-grey-50: #eeeff7;
+  --color-lavender-grey-100: #dcdfef;
+  --color-lavender-grey-200: #babfde;
+  --color-lavender-grey-300: #979ece;
+  --color-lavender-grey-400: #747ebe;
+  --color-lavender-grey-500: #525ead;
+  --color-lavender-grey-600: #414b8b;
+  --color-lavender-grey-700: #313868;
+  --color-lavender-grey-800: #212645;
+  --color-lavender-grey-900: #101323;
+  --color-lavender-grey-950: #0b0d18;
+
+  --color-steel-blue-50: #ebf2fa;
+  --color-steel-blue-100: #d7e6f4;
+  --color-steel-blue-200: #aecdea;
+  --color-steel-blue-300: #86b4df;
+  --color-steel-blue-400: #5e9bd4;
+  --color-steel-blue-500: #3682c9;
+  --color-steel-blue-600: #2b68a1;
+  --color-steel-blue-700: #204e79;
+  --color-steel-blue-800: #153451;
+  --color-steel-blue-900: #0b1a28;
+  --color-steel-blue-950: #07121c;
+}
