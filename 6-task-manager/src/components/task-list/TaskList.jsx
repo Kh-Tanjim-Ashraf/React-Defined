@@ -1,17 +1,16 @@
 import TaskCard from "./TaskCard";
 
-export default function TaskList({ className, tasks }) {
+export default function TaskList({ className, tasksIsLoading, tasks, error }) {
   return (
     <div className={`py-6 flex flex-col ${className} gap-3`}>
-      {/* 
-      1. tasks is undefined when there is issue in the server.
-      2. Thus to check the length of 'tasks' array, the pre-condition is to ensure the 'tasks' is not undefined.
-      */}
-      {tasks !== undefined && tasks.length ? (
-        // Task cards
-        tasks.map((task, index) => <TaskCard task={task} key={index} />)
+      {error ? (
+        <p className="text-center">{error?.message}</p>
+      ) : tasksIsLoading ? (
+        <p className="text-center">Loading...</p>
+      ) : !tasks?.length ? (
+        <p className="text-center">No task yet</p>
       ) : (
-        <p className="text-center text-slate-400">No tasks yet</p>
+        tasks.map((task, index) => <TaskCard task={task} key={index} />)
       )}
     </div>
   );

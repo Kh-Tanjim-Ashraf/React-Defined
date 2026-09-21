@@ -11,11 +11,16 @@ function App() {
 
   useEffect(() => {
     const handleLoadTasks = async () => {
+      // Toggle loading to true & clear out the error state (thus it removes any previous error msg)
+      setTasksIsLoading(true);
+      setError(null);
       try {
         const result = await getTasks();
         setTasks(result);
       } catch (err) {
         setError(err);
+      } finally {
+        setTasksIsLoading(false); // Loading is finished; Either it successfully retrieves data from the server or failed
       }
     };
     handleLoadTasks();
@@ -28,7 +33,12 @@ function App() {
       </header>
       <main className="flex-1 flex flex-col">
         <TaskForm />
-        <TaskList className="grow" tasks={tasks?.tasks} />
+        <TaskList
+          className="grow"
+          tasksIsLoading={tasksIsLoading}
+          tasks={tasks?.tasks}
+          error={error}
+        />
       </main>
       <footer className="bg-slate-200 h-10">
         <p className="text-slate-600 text-center">Sitemap</p>
