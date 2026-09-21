@@ -38,6 +38,13 @@ function App() {
     }
   };
 
+  // Delete an existing task
+  const handleDeleteTask = async (id) => {
+    await deleteTask(id);
+    const updatedTasks = tasks.filter((task) => task.id !== id);
+    setTasks([...updatedTasks]);
+  };
+
   return (
     <div className="bg-slate-50 h-screen flex flex-col">
       <header className="h-20 bg-amber-100">
@@ -49,6 +56,7 @@ function App() {
           className="grow"
           tasksIsLoading={tasksIsLoading}
           tasks={tasks}
+          onDelete={handleDeleteTask}
           error={error}
         />
       </main>

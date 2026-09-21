@@ -48,7 +48,7 @@ export async function addTask(task) {
 
 // Delete task | Single
 export async function deleteTask(id) {
-  const response = await fetch(BASE_URL + `/${id}`, {
+  const response = await fetch(BASE_URL + `/tasks/${id}`, {
     method: "DELETE",
   });
   if (!response.ok) {

@@ -1,6 +1,12 @@
-import TaskCard from "./TaskCard";
+import TaskCard from "./section/TaskCard";
 
-export default function TaskList({ className, tasksIsLoading, tasks, error }) {
+export default function TaskList({
+  className,
+  tasksIsLoading,
+  tasks,
+  onDelete,
+  error,
+}) {
   return (
     <div className={`py-6 flex flex-col ${className} gap-3`}>
       {error ? (
@@ -10,7 +16,9 @@ export default function TaskList({ className, tasksIsLoading, tasks, error }) {
       ) : !tasks?.length ? (
         <p className="text-center">No task yet</p>
       ) : (
-        tasks.map((task, index) => <TaskCard task={task} key={index} />)
+        tasks.map((task, index) => (
+          <TaskCard task={task} onDelete={onDelete} key={index} />
+        ))
       )}
     </div>
   );
