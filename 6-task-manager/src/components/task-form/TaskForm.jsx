@@ -33,7 +33,7 @@ export default function TaskForm({ onAdd }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className=" bg-white py-6 flex flex-col gap-4"
+      className="self-center min-w-7xl bg-white flex flex-col gap-4 py-4 px-8 rounded-2xl"
     >
       <h2 className="text-2xl text-shadow-grey-600 self-center">
         New Task Form
@@ -47,7 +47,7 @@ export default function TaskForm({ onAdd }) {
           <input
             id="task"
             type="text"
-            className="rounded text-shadow-grey-800 placeholder:font-light placeholder-shadow-grey-200 focus:placeholder:font-light border-[.2px] border-shadow-grey-100 focus:outline-[.2px] focus:outline-shadow-grey-200"
+            className="rounded text-shadow-grey-800 px-2 py-1.5 placeholder:font-light placeholder-shadow-grey-200 focus:placeholder:font-light border-[.2px] border-shadow-grey-100 focus:outline-[.2px] focus:outline-shadow-grey-200"
             placeholder="Task name..."
             value={title}
             onChange={(e) => setTitle(e.target.value)}
@@ -61,7 +61,7 @@ export default function TaskForm({ onAdd }) {
           </label>
           <select
             id="status"
-            className="rounded text-shadow-grey-800 border-[.2px] border-shadow-grey-100 focus:outline-[.2px] focus:outline-shadow-grey-200"
+            className="rounded text-shadow-grey-800 px-2 py-1.5 border-[.2px] border-shadow-grey-100 focus:outline-[.2px] focus:outline-shadow-grey-200"
             value={status}
             onChange={(e) => handleStatusChange(e.target.value)}
             autoComplete="off"
@@ -84,7 +84,7 @@ export default function TaskForm({ onAdd }) {
           </label>
           <select
             id="priority"
-            className="rounded text-shadow-grey-800 border-[.2px] border-shadow-grey-100 focus:outline-[.2px] focus:outline-shadow-grey-200"
+            className="rounded text-shadow-grey-800 px-2 py-1.5 border-[.2px] border-shadow-grey-100 focus:outline-[.2px] focus:outline-shadow-grey-200"
             value={priority}
             onChange={(e) => handlePriorityChange(e.target.value)}
             autoComplete="off"
@@ -109,7 +109,7 @@ export default function TaskForm({ onAdd }) {
         <textarea
           id="description"
           type="textarea"
-          className="h-32 w-auto resize-none overflow-scroll scrollbar-none rounded text-shadow-grey-800 placeholder:font-light placeholder-shadow-grey-200 focus:placeholder:font-light border-[.2px] border-shadow-grey-100 focus:outline-[.2px] focus:outline-shadow-grey-200"
+          className="h-32 w-auto resize-none overflow-scroll scrollbar-none rounded text-shadow-grey-800 px-2 py-1.5 placeholder:font-light placeholder-shadow-grey-200 focus:placeholder:font-light border-[.2px] border-shadow-grey-100 focus:outline-[.2px] focus:outline-shadow-grey-200"
           placeholder="What needs to be done?"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
@@ -117,7 +117,10 @@ export default function TaskForm({ onAdd }) {
         />
       </div>
       <div className="form-group flex justify-center">
-        <button type="submit" className="bg-amber-500 rounded py-1 px-3">
+        <button
+          type="submit"
+          className="bg-vintage-grape-600 hover:bg-vintage-grape-500 text-white rounded py-1 px-3"
+        >
           + Add task
         </button>
       </div>

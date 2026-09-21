@@ -1,6 +1,6 @@
 export default function TaskCard({ task, onDelete }) {
   return (
-    <div className="mx-auto bg-slate-100 p-2 rounded-xl min-w-lg max-w-md">
+    <div className="min-w-xl mx-auto bg-white py-2 px-4 rounded-xl max-w-md border border-white hover:border-lavender-grey-200">
       <div className="flex">
         {/* Task card information */}
         <div className="grow">
@@ -10,7 +10,7 @@ export default function TaskCard({ task, onDelete }) {
         {/* Delete button */}
         <button
           onClick={() => onDelete(task.id)}
-          className="cursor-pointer self-start p-2 rounded transition-colors duration-200 ease-in-out text-slate-500 hover:text-slate-800 hover:bg-rose-400 focus:outline-0"
+          className="cursor-pointer self-start p-2 rounded transition-colors duration-200 ease-in-out text-slate-500 hover:text-white hover:bg-vintage-lavender-600 focus:outline-0"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -46,11 +46,13 @@ function App() {
   };
 
   return (
-    <div className="bg-slate-50 h-screen flex flex-col">
-      <header className="h-20 bg-amber-100">
-        <h1 className="text-6xl">Task Management System</h1>
+    <div className="bg-shadow-grey-50 min-h-screen flex flex-col gap-10">
+      <header className="h-20 border-shadow-grey-100 py-6">
+        <h1 className="text-6xl text-center text-shadow-grey-700">
+          Task Management System
+        </h1>
       </header>
-      <main className="flex-1 flex flex-col">
+      <main className="flex-1 flex flex-col min-h-0">
         <TaskForm onAdd={handleCreateTask} />
         <TaskList
           className="grow"
@@ -60,8 +62,8 @@ function App() {
           error={error}
         />
       </main>
-      <footer className="bg-slate-200 h-10">
-        <p className="text-slate-600 text-center">Sitemap</p>
+      <footer className="bg-shadow-grey-100 h-10">
+        <p className="text-vintage-grape-500 text-center">Sitemap</p>
       </footer>
     </div>
   );
