@@ -35,9 +35,7 @@ export default function TaskForm({ onAdd }) {
       onSubmit={handleSubmit}
       className="self-center min-w-7xl bg-white flex flex-col gap-4 py-4 px-8 rounded-2xl"
     >
-      <h2 className="text-2xl text-shadow-grey-600 self-center">
-        New Task Form
-      </h2>
+      {/* Task Title, Status, Priority */}
       <div className="form-group flex gap-4">
         {/* Task Name */}
         <div className="flex-1 flex flex-col">
@@ -116,6 +114,7 @@ export default function TaskForm({ onAdd }) {
           autoComplete="off"
         />
       </div>
+      {/* Crate Button */}
       <div className="form-group flex justify-center">
         <button
           type="submit"

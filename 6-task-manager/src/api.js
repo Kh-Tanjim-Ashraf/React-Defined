@@ -87,3 +87,29 @@ export async function getTask(id) {
     throw error;
   }
 }
+
+// Task Update | Patch
+export async function updateTask(id, task) {
+  try {
+    const response = await fetch(BASE_URL + `/tasks/${id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(task),
+    });
+    if (!response.ok) {
+      throw new Error("Couldn't update task detail");
+    }
+    return response.json();
+  } catch (error) {
+    if (error.name === "TypeError" && error.message.includes("fetch")) {
+      console.error("Network Error: Server is unreachable or stopped!");
+      throw new Error(
+        "সার্ভারটি বর্তমানে বন্ধ আছে বা নেটওয়ার্ক সমস্যা। অনুগ্রহ করে কিছুক্ষণ পর আবার চেষ্টা করুন।",
+      );
+    }
+    // Handle error other than the error of server is stopped/unreachable
+    throw error;
+  }
+}

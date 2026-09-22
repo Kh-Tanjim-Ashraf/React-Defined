@@ -40,9 +40,13 @@ export default function TaskListPage() {
 
   // Delete an existing task
   const handleDeleteTask = async (id) => {
-    await deleteTask(id);
-    const updatedTasks = tasks.filter((task) => task.id !== id);
-    setTasks([...updatedTasks]);
+    try {
+      await deleteTask(id);
+      const updatedTasks = tasks.filter((task) => task.id !== id);
+      setTasks([...updatedTasks]);
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
   return (

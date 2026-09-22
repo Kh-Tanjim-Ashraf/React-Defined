@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 
 export default function TaskCard({ task, onDelete }) {
   return (
-    <div className="min-w-xl mx-auto bg-white py-2 px-4 rounded-xl max-w-md border border-white hover:border-lavender-grey-200">
+    // Note: `min-w-xl` will define the least minimum width (576px), although there's a minimal content. Conversely, the `max-w-xl` will define the max width (576px) of the card regardless of the long content size.
+    <div className="min-w-xl max-w-xl mx-auto bg-white py-2 px-4 rounded-xl border border-white hover:border-lavender-grey-200">
       <div className="flex">
         <Link to={`/tasks/detail/${task.id}`} className="grow">
           <div>
