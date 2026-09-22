@@ -1,4 +1,4 @@
-import TaskCard from "./section/TaskCard";
+import TaskCard from "./sub-section/TaskCard";
 
 export default function TaskList({
   className,
