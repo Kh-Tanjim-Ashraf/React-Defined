@@ -48,11 +48,42 @@ export async function addTask(task) {
 
 // Delete task | Single
 export async function deleteTask(id) {
-  const response = await fetch(BASE_URL + `/tasks/${id}`, {
-    method: "DELETE",
-  });
-  if (!response.ok) {
-    throw new Error("Couldn't delete task");
+  try {
+    const response = await fetch(BASE_URL + `/tasks/${id}`, {
+      method: "DELETE",
+    });
+    if (!response.ok) {
+      throw new Error("Couldn't delete task");
+    }
+    return response.json();
+  } catch (error) {
+    if (error.name === "TypeError" && error.message.includes("fetch")) {
+      console.error("Network Error: Server is unreachable or stopped!");
+      throw new Error(
+        "সার্ভারটি বর্তমানে বন্ধ আছে বা নেটওয়ার্ক সমস্যা। অনুগ্রহ করে কিছুক্ষণ পর আবার চেষ্টা করুন।",
+      );
+    }
+    // Handle error other than the error of server is stopped/unreachable
+    throw error;
   }
-  return response.json();
+}
+
+// Task Detail
+export async function getTask(id) {
+  try {
+    const response = await fetch(BASE_URL + `/tasks/${id}`);
+    if (!response.ok) {
+      throw new Error("Couldn't fetch task detail");
+    }
+    return response.json();
+  } catch (error) {
+    if (error.name === "TypeError" && error.message.includes("fetch")) {
+      console.error("Network Error: Server is unreachable or stopped!");
+      throw new Error(
+        "সার্ভারটি বর্তমানে বন্ধ আছে বা নেটওয়ার্ক সমস্যা। অনুগ্রহ করে কিছুক্ষণ পর আবার চেষ্টা করুন।",
+      );
+    }
+    // Handle error other than the error of server is stopped/unreachable
+    throw error;
+  }
 }

@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import TaskForm from "./section/task-form/TaskForm";
 import TaskList from "./section/task-list/TaskList";
@@ -48,8 +47,6 @@ export default function TaskListPage() {
 
   return (
     <main className="flex-1 flex flex-col min-h-0">
-      <NavLink to="/tasks/detail">Task Detail</NavLink>
-
       <TaskForm onAdd={handleCreateTask} />
       <TaskList
         className="grow"
