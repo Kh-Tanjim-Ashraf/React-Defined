@@ -7,7 +7,9 @@ export default function TaskCard({ task, onDelete }) {
         <Link to={`/tasks/detail/${task.id}`} className="grow">
           <div>
             <h3 className="text-lg font-semibold">{task.title}</h3>
-            <p className="text-xs text-slate-700">{task.description}</p>
+            <p className="text-xs text-slate-700 line-clamp-2">
+              {task.description}
+            </p>
           </div>
           <div className="flex mt-3 gap-3 justify-start">
             <span className="text-[10px] font-medium bg-amber-300 p-1 rounded-full">
