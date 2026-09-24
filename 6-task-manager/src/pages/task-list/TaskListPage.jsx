@@ -3,11 +3,14 @@ import TaskForm from "./section/task-form/TaskForm";
 import TaskList from "./section/task-list/TaskList";
 import { getTasks, addTask, deleteTask } from "../../api";
 
-export default function TaskListPage() {
+export default function TaskListPage({
+  error,
+  setError,
+  tasksIsLoading,
+  setTasksIsLoading,
+}) {
   // Defined the state variables with their default values
   const [tasks, setTasks] = useState([]);
-  const [error, setError] = useState(null);
-  const [tasksIsLoading, setTasksIsLoading] = useState(false);
 
   // Load tasks
   const handleLoadTasks = async () => {
@@ -33,8 +36,8 @@ export default function TaskListPage() {
     try {
       const newTask = await addTask(task); // Sent POST request to create data into the DB
       setTasks([...tasks, newTask?.task]); // Update the tasks array
-    } catch (error) {
-      setError(error.message);
+    } catch (err) {
+      setError(err);
     }
   };
 
@@ -44,8 +47,8 @@ export default function TaskListPage() {
       await deleteTask(id);
       const updatedTasks = tasks.filter((task) => task.id !== id);
       setTasks([...updatedTasks]);
-    } catch (error) {
-      setError(error.message);
+    } catch (err) {
+      setError(err);
     }
   };
 

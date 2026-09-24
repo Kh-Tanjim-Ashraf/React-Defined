@@ -1,4 +1,11 @@
 import { useState } from "react";
+import Form from "../../../../components/ui/Form";
+import Button from "../../../../components/ui/Button";
+import Label from "../../../../components/ui/Label";
+import Input from "../../../../components/ui/Input";
+import Select from "../../../../components/ui/Select";
+import Option from "../../../../components/ui/Option";
+import Textarea from "../../../../components/ui/Textarea";
 
 export default function TaskForm({ onAdd }) {
   const [title, setTitle] = useState("");
@@ -31,7 +38,7 @@ export default function TaskForm({ onAdd }) {
   };
 
   return (
-    <form
+    <Form
       onSubmit={handleSubmit}
       className="self-center min-w-7xl bg-white flex flex-col gap-4 py-4 px-8 rounded-2xl"
     >
@@ -39,10 +46,10 @@ export default function TaskForm({ onAdd }) {
       <div className="form-group flex gap-4">
         {/* Task Name */}
         <div className="flex-1 flex flex-col">
-          <label htmlFor="task" className="text-sm text-shadow-grey-500">
+          <Label htmlFor="task" className="text-sm text-shadow-grey-500">
             Task
-          </label>
-          <input
+          </Label>
+          <Input
             id="task"
             type="text"
             className="rounded text-shadow-grey-800 px-2 py-1.5 placeholder:font-light placeholder-shadow-grey-200 focus:placeholder:font-light border-[.2px] border-shadow-grey-100 focus:outline-[.2px] focus:outline-shadow-grey-200"
@@ -54,57 +61,57 @@ export default function TaskForm({ onAdd }) {
         </div>
         {/* Task Status */}
         <div className="flex flex-col">
-          <label htmlFor="status" className="text-sm text-shadow-grey-500">
+          <Label htmlFor="status" className="text-sm text-shadow-grey-500">
             Status
-          </label>
-          <select
+          </Label>
+          <Select
             id="status"
             className="rounded text-shadow-grey-800 px-2 py-1.5 border-[.2px] border-shadow-grey-100 focus:outline-[.2px] focus:outline-shadow-grey-200"
             value={status}
             onChange={(e) => handleStatusChange(e.target.value)}
             autoComplete="off"
           >
-            <option value="todo" className="text-shadow-grey-700">
+            <Option value="todo" className="text-shadow-grey-700">
               Todo
-            </option>
-            <option value="in_progress" className="text-shadow-grey-700">
+            </Option>
+            <Option value="todo" className="text-shadow-grey-700">
               In Progress
-            </option>
-            <option value="done" className="text-shadow-grey-700">
+            </Option>
+            <Option value="todo" className="text-shadow-grey-700">
               Done
-            </option>
-          </select>
+            </Option>
+          </Select>
         </div>
         {/* Task Priority */}
         <div className="flex flex-col">
-          <label htmlFor="priority" className="text-sm text-shadow-grey-500">
+          <Label htmlFor="priority" className="text-sm text-shadow-grey-500">
             Priority
-          </label>
-          <select
+          </Label>
+          <Select
             id="priority"
             className="rounded text-shadow-grey-800 px-2 py-1.5 border-[.2px] border-shadow-grey-100 focus:outline-[.2px] focus:outline-shadow-grey-200"
             value={priority}
             onChange={(e) => handlePriorityChange(e.target.value)}
             autoComplete="off"
           >
-            <option value="low" className="text-shadow-grey-700">
+            <Option value="low" className="text-shadow-grey-700">
               Low
-            </option>
-            <option value="medium" className="text-shadow-grey-700">
+            </Option>
+            <Option value="medium" className="text-shadow-grey-700">
               Medium
-            </option>
-            <option value="high" className="text-shadow-grey-700">
+            </Option>
+            <Option value="high" className="text-shadow-grey-700">
               High
-            </option>
-          </select>
+            </Option>
+          </Select>
         </div>
       </div>
       {/* Task Description */}
       <div className="form-group flex flex-col">
-        <label htmlFor="description" className="text-sm text-shadow-grey-500">
+        <Label htmlFor="description" className="text-sm text-shadow-grey-500">
           Description
-        </label>
-        <textarea
+        </Label>
+        <Textarea
           id="description"
           type="textarea"
           className="h-32 w-auto resize-none overflow-scroll scrollbar-none rounded text-shadow-grey-800 px-2 py-1.5 placeholder:font-light placeholder-shadow-grey-200 focus:placeholder:font-light border-[.2px] border-shadow-grey-100 focus:outline-[.2px] focus:outline-shadow-grey-200"
@@ -116,13 +123,14 @@ export default function TaskForm({ onAdd }) {
       </div>
       {/* Crate Button */}
       <div className="form-group flex justify-center">
-        <button
+        <Button
           type="submit"
           className="bg-vintage-grape-600 hover:bg-vintage-grape-500 text-white rounded py-1 px-3"
+          ariaLabel="Add new task button"
         >
           + Add task
-        </button>
+        </Button>
       </div>
-    </form>
+    </Form>
   );
 }
