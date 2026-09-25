@@ -18,11 +18,32 @@ export default function TaskCard({ task, onDelete }) {
           </div>
           {/* Task Status, Priority */}
           <div className="flex mt-3 gap-3 justify-start">
-            <Badge className="text-[10px] font-medium bg-amber-300 p-1 rounded-full">
+            <Badge
+              className={`text-[10px] font-medium inline-flex justify-center items-center ${
+                task.priority === "low"
+                  ? "bg-sky-100 text-sky-700"
+                  : task.priority === "medium"
+                    ? "bg-amber-100 text-amber-700"
+                    : "bg-red-100 text-red-700"
+              } py-0.75 px-2.5 rounded-full`}
+            >
               {task.priority}
             </Badge>
-            <Badge className="text-[10px] font-medium bg-teal-300 p-1 rounded-full">
-              {task.status}
+            <Badge
+              className={`text-[10px] font-medium inline-flex justify-center items-center ${
+                task.status === "todo"
+                  ? "bg-slate-100 text-slate-700"
+                  : task.status === "in_progress"
+                    ? "bg-blue-50 text-blue-700"
+                    : "bg-emerald-50 text-emerald-700"
+              }
+              py-0.75 px-2.5 rounded-full`}
+            >
+              {task.status === "todo"
+                ? "Todo"
+                : task.status === "in_progress"
+                  ? "In Progress"
+                  : "Done"}
             </Badge>
           </div>
         </Link>
