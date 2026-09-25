@@ -74,10 +74,10 @@ export default function TaskForm({ onAdd }) {
             <Option value="todo" className="text-shadow-grey-700">
               Todo
             </Option>
-            <Option value="todo" className="text-shadow-grey-700">
+            <Option value="in_progress" className="text-shadow-grey-700">
               In Progress
             </Option>
-            <Option value="todo" className="text-shadow-grey-700">
+            <Option value="done" className="text-shadow-grey-700">
               Done
             </Option>
           </Select>
