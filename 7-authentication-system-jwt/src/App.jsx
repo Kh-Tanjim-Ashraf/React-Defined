@@ -1,9 +1,18 @@
+import { Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Homepage from "./pages/Homepage";
+import NotFound from "./pages/NotFound";
+
 export default function App() {
   return (
-    <>
-      <h1 className="text-4xl text-sky-800 underline underline-offset-12">
-        Homepage
-      </h1>
-    </>
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/home" element={<Homepage />} />
+      {/* FALLBACK REDIRECT */}
+      {/* If route doesn't exist, redirect based on auth status */}
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 }
