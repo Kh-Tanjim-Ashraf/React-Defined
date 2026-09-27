@@ -1,8 +1,8 @@
-export default function Homepage() {
+export default function Dashboard() {
   return (
     <>
       <h1 className="text-4xl text-sky-800 underline underline-offset-12">
-        Homepage
+        Dashboard
       </h1>
     </>
   );
