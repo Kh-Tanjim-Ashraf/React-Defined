@@ -4,11 +4,9 @@ import { login } from "../services/auth.service";
 import { saveLogin } from "../utils/auth.utils";
 import { useNavigate } from "react-router-dom";
 
-export default function Login() {
+export default function Login({ error, setError, isLoading, setIsLoading }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
 
   const navigate = useNavigate();
 

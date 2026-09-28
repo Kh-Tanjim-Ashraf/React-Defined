@@ -6,8 +6,12 @@ export function saveLogin(token, user) {
   localStorage.setItem(AUTH_USER, JSON.stringify(user));
 }
 
+export function saveTokens(tokens) {
+  localStorage.setItem(AUTH_TOKENS, JSON.stringify(tokens));
+}
+
 export function getTokens() {
-  return localStorage.getItem(AUTH_TOKENS);
+  return JSON.parse(localStorage.getItem(AUTH_TOKENS));
 }
 
 export function getUser() {

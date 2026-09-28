@@ -1,13 +1,39 @@
 import { clearLogin } from "../utils/auth.utils";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { aboutMe } from "../services/auth.service";
 
-export default function Dashboard() {
+export default function Dashboard({
+  error,
+  setError,
+  isLoading,
+  setIsLoading,
+}) {
+  const [userProfile, setUserProfile] = useState({});
   const navigate = useNavigate();
 
   const handleLogout = () => {
     clearLogin();
     navigate("/login", { replace: true });
   };
+
+  useEffect(() => {
+    const fetchAboutMe = async () => {
+      setIsLoading(true);
+      try {
+        const data = await aboutMe();
+        setUserProfile(data);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchAboutMe();
+  }, []);
+
+  console.log(userProfile);
 
   return (
     <>
@@ -20,6 +46,37 @@ export default function Dashboard() {
       >
         Logout
       </button>
+
+      <h2 className="text-2xl text-sky-700">User Profile</h2>
+      {!isLoading ? (
+        <>
+          <p>id: {userProfile.id}</p>
+          <p>firstName: {userProfile.firstName}</p>
+          <p>lastName: {userProfile.lastName}</p>
+          <p>maidenName: {userProfile.maidenName}</p>
+          <p>gender: {userProfile.gender}</p>
+          <p>phone: {userProfile.phone}</p>
+          <p>username: {userProfile.username}</p>
+          <p>birthDate: {userProfile.birthDate}</p>
+          <p>image: {userProfile.image}</p>
+          <p>bloodGroup: {userProfile.bloodGroup}</p>
+          <p>height: {userProfile.height}</p>
+          <p>weight: {userProfile.weight}</p>
+          <p>hair color: {userProfile?.hair?.color}</p>
+          <p>hair type: {userProfile?.hair?.type}</p>
+          <p>ip: {userProfile.ip}</p>
+          <p>macAddress: {userProfile.macAddress}</p>
+          <p>university: {userProfile.university}</p>
+          <p>bank cardExpire: {userProfile?.bank?.cardExpire}</p>
+          <p>bank cardNumber: {userProfile?.bank?.cardNumber}</p>
+          <p>bank cardType: {userProfile?.bank?.cardType}</p>
+          <p>bank currency: {userProfile?.bank?.currency}</p>
+          <p>bank iban: {userProfile?.bank?.iban}</p>
+          <p>role: {userProfile.role}</p>
+        </>
+      ) : (
+        <>Loading...</>
+      )}
     </>
   );
 }
