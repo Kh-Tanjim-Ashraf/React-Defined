@@ -32,6 +32,7 @@ export default function App() {
       </Route>
       {/* PROTECTED/DASHBOARD ROUTES GROUP */}
       <Route element={<AuthLayout />}>
+        {/* Apply Sonner Toast */}
         <Route
           path="/dashboard"
           element={

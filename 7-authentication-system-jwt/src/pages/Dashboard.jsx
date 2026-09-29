@@ -2,6 +2,7 @@ import { clearLogin } from "../utils/auth.utils";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { aboutMe } from "../services/auth.service";
+import { Toaster, toast } from "sonner";
 
 export default function Dashboard({
   error,
@@ -33,10 +34,14 @@ export default function Dashboard({
     fetchAboutMe();
   }, []);
 
-  console.log(userProfile);
+  // Trigger Sonner
+  const handleToast = () => {
+    toast.success("Event has been created");
+  };
 
   return (
     <>
+      <Toaster richColors="true" closeButton="true" />
       <h1 className="text-4xl text-sky-800 underline underline-offset-12">
         Dashboard
       </h1>
@@ -45,6 +50,14 @@ export default function Dashboard({
         onClick={handleLogout}
       >
         Logout
+      </button>
+
+      {/* Sample toast notification */}
+      <button
+        className="w-auto bg-sky-500 mt-6 ml-2 p-2 rounded-lg text-white cursor-pointer"
+        onClick={handleToast}
+      >
+        Sample toast
       </button>
 
       <h2 className="text-2xl text-sky-700">User Profile</h2>
