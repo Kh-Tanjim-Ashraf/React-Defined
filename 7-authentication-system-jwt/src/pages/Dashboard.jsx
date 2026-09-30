@@ -3,15 +3,22 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { aboutMe } from "../services/auth.service";
 import { Toaster, toast } from "sonner";
+import { useContext } from "react";
+import { ErrorContext } from "../contexts/errorContext";
+import { LoadingContext } from "../contexts/loadingContext";
 
-export default function Dashboard({
-  error,
-  setError,
-  isLoading,
-  setIsLoading,
-}) {
+export default function Dashboard(
+  {
+    // error,
+    // setError,
+    // isLoading,
+    // setIsLoading,
+  },
+) {
   const [userProfile, setUserProfile] = useState({});
   const navigate = useNavigate();
+  const { error, setError } = useContext(ErrorContext);
+  const { isLoading, setIsLoading } = useContext(LoadingContext);
 
   const handleLogout = () => {
     clearLogin();
@@ -21,6 +28,7 @@ export default function Dashboard({
   useEffect(() => {
     const fetchAboutMe = async () => {
       setIsLoading(true);
+      setError(null);
       try {
         const data = await aboutMe();
         setUserProfile(data);
@@ -61,7 +69,9 @@ export default function Dashboard({
       </button>
 
       <h2 className="text-2xl text-sky-700">User Profile</h2>
-      {!isLoading ? (
+      {error ? (
+        <>Error...</>
+      ) : !isLoading ? (
         <>
           <p>id: {userProfile.id}</p>
           <p>firstName: {userProfile.firstName}</p>

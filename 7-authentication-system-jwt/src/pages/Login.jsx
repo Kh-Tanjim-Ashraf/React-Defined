@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { login } from "../services/auth.service";
 import { saveLogin } from "../utils/auth.utils";
 import { useNavigate } from "react-router-dom";
+import { ErrorContext } from "../contexts/errorContext";
+import { LoadingContext } from "../contexts/loadingContext";
 
-export default function Login({ error, setError, isLoading, setIsLoading }) {
+export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const { setError } = useContext(ErrorContext);
+  const { isLoading, setIsLoading } = useContext(LoadingContext);
 
   const navigate = useNavigate();
 
