@@ -3,7 +3,7 @@ import GuestLayout from "./layouts/GuestLayout";
 import AuthLayout from "./layouts/AuthLayout";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/dashboard/Dashboard";
 import { getTokens } from "./utils/auth.utils";
 import { useState } from "react";
 import { ErrorContext } from "./contexts/errorContext";
