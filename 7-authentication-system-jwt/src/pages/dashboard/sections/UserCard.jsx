@@ -10,7 +10,7 @@ import Button from "../../../component/ui/Button";
 
 export default function UserCard() {
   return (
-    <Card className="max-w-md bg-white flex flex-col rounded-xl ml-4 mt-4 shadow-[0_6px_6px_-6px_rgba(0,0,0,0.2)] hover:shadow-[0_8px_25px_-6px_rgba(0,0,0,0.2)] transition-all duration-100">
+    <Card className="bg-white flex flex-col rounded-xl shadow-[0_6px_6px_-6px_rgba(0,0,0,0.2)] hover:shadow-[0_8px_25px_-6px_rgba(0,0,0,0.2)] transition-all duration-100">
       {/* Header */}
       <CardHeader className="flex items-center rounded-t-xl px-4 pt-4 pb-2 border-t border-x border-slate-200">
         {/* Avatar */}

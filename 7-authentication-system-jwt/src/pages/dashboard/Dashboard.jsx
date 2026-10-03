@@ -71,8 +71,18 @@ export default function Dashboard(
 
       <h2 className="text-2xl text-sky-700">User List</h2>
 
-      {/* Card */}
-      <UserCard />
+      {/* User Card: Grid Panel */}
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-4 p-4">
+        {/* Card */}
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+      </div>
     </>
   );
 }
