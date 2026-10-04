@@ -1,3 +1,3 @@
-export default function Badge({ className, value }) {
-  return <span className={className}>{value}</span>;
+export default function Badge({ className, children }) {
+  return <span className={className}>{children}</span>;
 }

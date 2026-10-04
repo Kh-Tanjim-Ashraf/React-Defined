@@ -51,11 +51,19 @@ function sendRequest(method, path, body, accessToken) {
     headers.Authorization = `Bearer ${accessToken}`;
   }
 
-  return fetch(`${BASE_URL}${path}`, {
-    method,
-    headers,
-    body: JSON.stringify(body),
-  });
+  // `body` is not required to make GET request
+  if (Object.keys(body).length) {
+    return fetch(`${BASE_URL}${path}`, {
+      method,
+      headers,
+      body: JSON.stringify(body),
+    });
+  } else {
+    return fetch(`${BASE_URL}${path}`, {
+      method,
+      headers,
+    });
+  }
 }
 
 // Dynamic function
