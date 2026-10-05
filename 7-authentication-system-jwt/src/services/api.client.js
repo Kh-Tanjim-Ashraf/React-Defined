@@ -44,7 +44,9 @@ async function refreshTokens() {
   return refreshPromise;
 }
 
-function sendRequest(method, path, body, accessToken) {
+function sendRequest(method, path, body = {}, accessToken) {
+  // console.log("function invoked!");
+
   const headers = { "content-type": "application/json" };
 
   if (accessToken) {
@@ -52,23 +54,36 @@ function sendRequest(method, path, body, accessToken) {
   }
 
   // `body` is not required to make GET request
-  if (Object.keys(body).length) {
+  if (body && Object.keys(body).length) {
+    // console.log("function has body!");
+
     return fetch(`${BASE_URL}${path}`, {
       method,
       headers,
       body: JSON.stringify(body),
     });
   } else {
-    return fetch(`${BASE_URL}${path}`, {
+    // console.log("function doesn't have a body!");
+
+    const data = fetch(`${BASE_URL}${path}`, {
       method,
       headers,
     });
+
+    // console.log("data", data);
+
+    return data;
   }
 }
 
 // Dynamic function
-export async function request(method, path, body, useToken = true) {
+export async function request(method, path, body = {}, useToken = true) {
   const initialTokens = useToken ? getTokens() : null;
+  // console.log("token:", initialTokens?.accessToken);
+  // console.log("method:", method);
+  // console.log("path:", path);
+  // console.log("body:", body);
+
   const initialAccessToken = initialTokens?.accessToken;
   let response = await sendRequest(method, path, body, initialAccessToken);
 

@@ -6,10 +6,14 @@ import { useContext } from "react";
 import { ErrorContext } from "../../contexts/errorContext";
 import { LoadingContext } from "../../contexts/loadingContext";
 import UserCard from "./sections/UserCard";
+import { aboutMe } from "../../services/auth.service";
 import { userList } from "../../services/user.service";
 import Button from "../../component/ui/Button";
+import peoplepanelBannerLogo from "../../assets/peoplepanelBannerLogo.png";
+import Badge from "../../component/ui/Badge";
 
 export default function Dashboard() {
+  const [userProfile, setUserProfile] = useState();
   const [usersObject, setUsersObject] = useState({});
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
@@ -23,12 +27,33 @@ export default function Dashboard() {
   const queryLimit = searchParams.get("limit");
   const limit = Number.parseInt(queryLimit ?? "", 10) || 20;
 
+  const inputClass = "";
+
   const handleLogout = () => {
     clearLogin();
     navigate("/login", { replace: true });
   };
 
   useEffect(() => {
+    // Profile invoke service
+    const fetchProfile = async () => {
+      setIsLoading(true);
+      setError(null);
+      try {
+        const data = await aboutMe();
+        setUserProfile(data);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchProfile();
+  }, []);
+  console.log("User profile:", userProfile);
+
+  useEffect(() => {
+    // User list service
     const fetchUserList = async () => {
       setIsLoading(true);
       setError(null);
@@ -41,7 +66,6 @@ export default function Dashboard() {
         setIsLoading(false);
       }
     };
-
     fetchUserList();
   }, [searchParams]);
 
@@ -72,32 +96,145 @@ export default function Dashboard() {
   return (
     <>
       {/* Toast Notification */}
-      <Toaster richColors="true" closeButton="true" />
+      {/* <Toaster richColors="true" closeButton="true" />
       <Link
         to="/dashboard"
         className="text-4xl text-sky-800 underline underline-offset-12"
       >
         Dashboard
       </Link>
-      <button
-        className="w-auto mt-6 ml-2 p-2 rounded-lg bg-sky-800 text-white cursor-pointer"
-        onClick={handleLogout}
-      >
-        Logout
-      </button>
+      */}
 
       {/* Sample toast notification button */}
-      <button
+      {/* <button
         className="w-auto bg-sky-500 mt-6 ml-2 p-2 rounded-lg text-white cursor-pointer"
         onClick={handleToast}
       >
         Sample toast
-      </button>
+      </button> */}
 
-      <h2 className="text-2xl text-sky-700">User List</h2>
+      {/* <button
+        className="w-auto mt-6 ml-2 p-2 rounded-lg bg-sky-800 text-white cursor-pointer"
+        onClick={handleLogout}
+      >
+        Logout
+      </button> */}
+
+      {/* Header */}
+      <div className="min-h-20 flex items-center gap-32 px-5 bg-white border-b border-slate-200 shadow-md">
+        {/* Banner logo */}
+        <img
+          src={peoplepanelBannerLogo}
+          alt="banner-logo"
+          width="200"
+          height="75"
+        />
+        {/* Search Bar, Filter & Sorting */}
+        <div className="grow flex flex-col gap-3 py-4">
+          {/* Search Input Bar */}
+          <input
+            type="search"
+            placeholder="Search users..."
+            className="w-full px-3 py-2 text-sm rounded-lg bg-white border-[0.5px] border-slate-200 focus:outline-[0.5px] focus:outline-sky-700"
+          />
+          {/* Fliter & Sorting Button */}
+          <div className="flex gap-2 justify-end">
+            {/* Filter by name */}
+            <Button className="flex items-center gap-1 px-2 py-1 text-sm border border-slate-200 cursor-pointer rounded-lg hover:bg-sky-800 hover:border-sky-800 hover:text-white transition-all">
+              <Badge>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-4"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 13.5V3.75m0 9.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 9.75V10.5"
+                  />
+                </svg>
+              </Badge>
+              Filter by Name
+            </Button>
+            {/* Filter by location */}
+            <Button className="flex items-center gap-1 px-2 py-1 text-sm border border-slate-200 cursor-pointer rounded-lg hover:bg-sky-800 hover:border-sky-800 hover:text-white transition-all">
+              <Badge>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-4"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 13.5V3.75m0 9.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 9.75V10.5"
+                  />
+                </svg>
+              </Badge>
+              Filter by Location
+            </Button>
+            {/* Filter by blood group */}
+            <Button className="flex items-center gap-1 px-2 py-1 text-sm border border-slate-200 cursor-pointer rounded-lg hover:bg-sky-800 hover:border-sky-800 hover:text-white transition-all">
+              <Badge>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-4"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 13.5V3.75m0 9.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 9.75V10.5"
+                  />
+                </svg>
+              </Badge>
+              Filter by Blood Group
+            </Button>
+            {/* Filter by gender */}
+            <Button className="flex items-center gap-1 px-2 py-1 text-sm border border-slate-200 cursor-pointer rounded-lg hover:bg-sky-800 hover:border-sky-800 hover:text-white transition-all">
+              <Badge>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-4"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 13.5V3.75m0 9.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 9.75V10.5"
+                  />
+                </svg>
+              </Badge>
+              Filter by Gender
+            </Button>
+          </div>
+        </div>
+        {/* Avatar Logo */}
+        <div>
+          <img
+            src={userProfile?.image}
+            alt="user-avatar"
+            width="36"
+            height="36"
+            className="bg-blue-300 p-1 rounded-lg"
+          />
+        </div>
+      </div>
 
       {/* User Card: Grid Panel */}
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-4 p-4">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-4 p-4 mt-10">
         {/* Card */}
         {isLoading ? (
           <p>Loading...</p>
