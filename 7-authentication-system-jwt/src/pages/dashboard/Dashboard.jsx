@@ -15,6 +15,7 @@ import Badge from "../../component/ui/Badge";
 export default function Dashboard() {
   const [userProfile, setUserProfile] = useState();
   const [usersObject, setUsersObject] = useState({});
+  const [searchInput, setSearchInput] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
   const { error, setError } = useContext(ErrorContext);
@@ -27,7 +28,7 @@ export default function Dashboard() {
   const queryLimit = searchParams.get("limit");
   const limit = Number.parseInt(queryLimit ?? "", 10) || 20;
 
-  const inputClass = "";
+  const searchInputClass = `w-full ${!searchInput ? "p-[8px_12px_8px_36px]" : "p-[8px_12px_8px_12px]"} text-sm rounded-lg bg-white border-[0.5px] border-slate-200 focus:outline-[0.5px] focus:outline-sky-700 self-center [grid-area:stack]`;
 
   const handleLogout = () => {
     clearLogin();
@@ -50,7 +51,6 @@ export default function Dashboard() {
     };
     fetchProfile();
   }, []);
-  console.log("User profile:", userProfile);
 
   useEffect(() => {
     // User list service
@@ -95,31 +95,6 @@ export default function Dashboard() {
 
   return (
     <>
-      {/* Toast Notification */}
-      {/* <Toaster richColors="true" closeButton="true" />
-      <Link
-        to="/dashboard"
-        className="text-4xl text-sky-800 underline underline-offset-12"
-      >
-        Dashboard
-      </Link>
-      */}
-
-      {/* Sample toast notification button */}
-      {/* <button
-        className="w-auto bg-sky-500 mt-6 ml-2 p-2 rounded-lg text-white cursor-pointer"
-        onClick={handleToast}
-      >
-        Sample toast
-      </button> */}
-
-      {/* <button
-        className="w-auto mt-6 ml-2 p-2 rounded-lg bg-sky-800 text-white cursor-pointer"
-        onClick={handleLogout}
-      >
-        Logout
-      </button> */}
-
       {/* Header */}
       <div className="min-h-20 flex items-center gap-32 px-5 bg-white border-b border-slate-200 shadow-md">
         {/* Banner logo */}
@@ -128,15 +103,41 @@ export default function Dashboard() {
           alt="banner-logo"
           width="200"
           height="75"
+          className="self-start mt-4"
         />
         {/* Search Bar, Filter & Sorting */}
         <div className="grow flex flex-col gap-3 py-4">
-          {/* Search Input Bar */}
-          <input
-            type="search"
-            placeholder="Search users..."
-            className="w-full px-3 py-2 text-sm rounded-lg bg-white border-[0.5px] border-slate-200 focus:outline-[0.5px] focus:outline-sky-700"
-          />
+          {/* Search Bar */}
+          <div className="grid [grid-template-areas:'stack']">
+            {/* Search Icon */}
+            {!searchInput && (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                width="16"
+                height="16"
+                className="self-center [grid-area:stack] z-10 ml-4"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                />
+              </svg>
+            )}
+
+            {/* Serach Input */}
+            <input
+              type="search"
+              placeholder="Search users..."
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+              className={searchInputClass}
+            />
+          </div>
           {/* Fliter & Sorting Button */}
           <div className="flex gap-2 justify-end">
             {/* Filter by name */}
@@ -222,7 +223,7 @@ export default function Dashboard() {
           </div>
         </div>
         {/* Avatar Logo */}
-        <div>
+        <div className="self-start mt-4">
           <img
             src={userProfile?.image}
             alt="user-avatar"
