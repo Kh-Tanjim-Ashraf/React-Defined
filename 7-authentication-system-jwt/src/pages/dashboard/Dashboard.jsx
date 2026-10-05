@@ -9,8 +9,11 @@ import UserCard from "./sections/UserCard";
 import { aboutMe } from "../../services/auth.service";
 import { userList } from "../../services/user.service";
 import Button from "../../component/ui/Button";
-import peoplepanelBannerLogo from "../../assets/peoplepanelBannerLogo.png";
 import Badge from "../../component/ui/Badge";
+import PeoplepanelBannerLogo from "../../assets/PeoplepanelBannerLogo.png";
+import LinkedinLogo from "../../assets/LinkedinLogo.png";
+import GithubLogo from "../../assets/GithubLogo.png";
+import HashnodeLogo from "../../assets/HashnodeLogo.png";
 
 export default function Dashboard() {
   const [userProfile, setUserProfile] = useState();
@@ -96,14 +99,14 @@ export default function Dashboard() {
   return (
     <>
       {/* Header */}
-      <div className="min-h-20 flex items-center gap-32 px-5 bg-white border-b border-slate-200 shadow-md">
+      <div className="min-h-32 flex items-center gap-32 px-5 bg-white border-b border-slate-200 shadow-md">
         {/* Banner logo */}
         <img
-          src={peoplepanelBannerLogo}
+          src={PeoplepanelBannerLogo}
           alt="banner-logo"
           width="200"
           height="75"
-          className="self-start mt-4"
+          className="self-start mt-7"
         />
         {/* Search Bar, Filter & Sorting */}
         <div className="grow flex flex-col gap-3 py-4">
@@ -223,7 +226,7 @@ export default function Dashboard() {
           </div>
         </div>
         {/* Avatar Logo */}
-        <div className="self-start mt-4">
+        <div className="self-start mt-7">
           <img
             src={userProfile?.image}
             alt="user-avatar"
@@ -244,12 +247,12 @@ export default function Dashboard() {
             <UserCard user={user} key={user.id} />
           ))
         ) : (
-          <></>
+          <>No users available...</>
         )}
       </div>
 
       {/* // Navigation Button (Pagination)  */}
-      <div className="flex justify-center items-center gap-4 py-4 pb-8">
+      <div className="flex justify-center items-center gap-4 pt-4 pb-8">
         <Button
           className={`px-4 py-2 border cursor-pointer rounded-lg disabled:cursor-not-allowed ${isLoading || skip < 20 ? "text-slate-400 border-slate-200" : "border-slate-300 hover:bg-sky-800 hover:border-sky-800 hover:text-white transition-all"}`}
           onClick={handlePrev}
@@ -264,6 +267,69 @@ export default function Dashboard() {
         >
           Next
         </Button>
+      </div>
+
+      {/* Footer */}
+      <div className="flex items-center min-h-28 px-5 bg-white border-t-0.5 border-slate-100 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1),0_-2px_4px_-2px_rgba(0,0,0,0.1)]">
+        {/* Developer Info & Social Handles */}
+        <div className="grow flex items-center">
+          {/* Developer Info */}
+          <p className="text-sm text-slate-600">
+            © 2026 Kh Tanjim Ashraf. All rights reserved.
+          </p>
+          {/* Social Handles */}
+          <div className="grow flex justify-center items-center gap-8">
+            {/* LinkedIn */}
+            <Link
+              to="https://www.linkedin.com/in/kh-tanjim-ashraf-68873a381/"
+              target="_blank"
+              title="Visit my LinkedIn profile"
+            >
+              <img
+                src={LinkedinLogo}
+                alt="LinkedIn"
+                width="36"
+                height="36"
+                className="p-1 border border-slate-200 rounded-lg hover:border-slate-400 hover:cursor-pointer"
+              />
+            </Link>
+            {/* Github */}
+            <Link
+              to="https://github.com/Kh-Tanjim-Ashraf"
+              target="_blank"
+              title="Visit my GitHub profile"
+            >
+              <img
+                src={GithubLogo}
+                alt="GitHub"
+                width="36"
+                height="36"
+                className="p-0.5 border border-slate-200 rounded-lg hover:border-slate-400 hover:cursor-pointer"
+              />
+            </Link>
+            {/* Hashnode */}
+            <Link
+              to="https://hashnode.com/@tanjimashraf"
+              target="_blank"
+              title="Visit my Hashnode profile"
+            >
+              <img
+                src={HashnodeLogo}
+                alt="Hashnode"
+                width="36"
+                height="36"
+                className="p-0.5 border border-slate-200 rounded-lg hover:border-slate-400 hover:cursor-pointer"
+              />
+            </Link>
+          </div>
+        </div>
+        {/* Brand Logo */}
+        <img
+          src={PeoplepanelBannerLogo}
+          alt="banner-logo"
+          width="280"
+          height="75"
+        />
       </div>
     </>
   );
