@@ -237,36 +237,41 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* User Card: Grid Panel */}
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-4 p-4 mt-10">
-        {/* Card */}
-        {isLoading ? (
-          <p>Loading...</p>
-        ) : usersObject?.users ? (
-          usersObject.users.map((user) => (
-            <UserCard user={user} key={user.id} />
-          ))
-        ) : (
-          <>No users available...</>
-        )}
-      </div>
+      {/* Main Content */}
+      <div className="grow">
+        {/* User Card: Grid Panel */}
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-4 p-4 mt-10">
+          {/* Card */}
+          {isLoading ? (
+            <p>Loading...</p>
+          ) : usersObject?.users ? (
+            usersObject.users.map((user) => (
+              <UserCard user={user} key={user.id} />
+            ))
+          ) : (
+            <>Loading...</>
+          )}
+        </div>
 
-      {/* // Navigation Button (Pagination)  */}
-      <div className="flex justify-center items-center gap-4 pt-4 pb-8">
-        <Button
-          className={`px-4 py-2 border cursor-pointer rounded-lg disabled:cursor-not-allowed ${isLoading || skip < 20 ? "text-slate-400 border-slate-200" : "border-slate-300 hover:bg-sky-800 hover:border-sky-800 hover:text-white transition-all"}`}
-          onClick={handlePrev}
-          disabled={isLoading || skip < 20}
-        >
-          Prev
-        </Button>
-        <Button
-          className={`px-4 py-2 border cursor-pointer rounded-lg disabled:cursor-not-allowed ${isLoading || skip >= 200 ? "text-slate-400 border-slate-200" : "border-slate-300 hover:bg-sky-800 hover:border-sky-800 hover:text-white transition-all"}`}
-          onClick={handleNext}
-          disabled={isLoading || skip >= 200}
-        >
-          Next
-        </Button>
+        {/* // Navigation Button (Pagination)  */}
+        {!isLoading && usersObject?.users && (
+          <div className="flex justify-center items-center gap-4 pt-4 pb-8">
+            <Button
+              className={`px-4 py-2 border cursor-pointer rounded-lg disabled:cursor-not-allowed ${isLoading || skip < 20 ? "text-slate-400 border-slate-200" : "border-slate-300 hover:bg-sky-800 hover:border-sky-800 hover:text-white transition-all"}`}
+              onClick={handlePrev}
+              disabled={isLoading || skip < 20}
+            >
+              Prev
+            </Button>
+            <Button
+              className={`px-4 py-2 border cursor-pointer rounded-lg disabled:cursor-not-allowed ${isLoading || skip >= 200 ? "text-slate-400 border-slate-200" : "border-slate-300 hover:bg-sky-800 hover:border-sky-800 hover:text-white transition-all"}`}
+              onClick={handleNext}
+              disabled={isLoading || skip >= 200}
+            >
+              Next
+            </Button>
+          </div>
+        )}
       </div>
 
       {/* Footer */}
