@@ -6,6 +6,7 @@ import { LoadingContext } from "../../contexts/loadingContext";
 import { ErrorContext } from "../../contexts/errorContext";
 import { aboutMe } from "../../services/auth.service";
 import Header from "./Sections/header/Header";
+import Footer from "./Sections/footer/Footer";
 
 // AUTHENTICATED LAYOUT (Side Navbar, Dashboard)
 export default function AuthLayout() {
@@ -41,6 +42,7 @@ export default function AuthLayout() {
         <main className="grow min-h-screen flex flex-col bg-slate-100">
           <Header />
           <Outlet />
+          <Footer />
         </main>
       </AuthContext.Provider>
     </div>
