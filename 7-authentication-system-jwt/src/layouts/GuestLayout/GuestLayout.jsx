@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { getTokens } from "../utils/auth.utils";
+import { getTokens } from "../../utils/auth.utils";
 
 // UNAUTHENTICATED LAYOUT (Centered box for auth forms)
 export default function GuestLayout() {

@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import GuestLayout from "./layouts/GuestLayout";
-import AuthLayout from "./layouts/AuthLayout";
+import GuestLayout from "./layouts/GuestLayout/GuestLayout";
+import AuthLayout from "./layouts/AuthLayout/AuthLayout";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/dashboard/Dashboard";
