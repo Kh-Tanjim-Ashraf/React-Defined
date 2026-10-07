@@ -7,6 +7,7 @@ export default function SVG({
   strokeWidth,
   stroke,
   className,
+  onClick,
   children,
 }) {
   return (
@@ -19,6 +20,7 @@ export default function SVG({
       stroke-width={strokeWidth}
       stroke={stroke}
       class={className}
+      onClick={onClick}
     >
       {children}
     </svg>

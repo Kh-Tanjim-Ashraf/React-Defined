@@ -48,6 +48,7 @@ export default function SearchFilterSort() {
           {/* Serach Input */}
           <Input
             type="search"
+            name="searchInput"
             placeholder="Search users..."
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}

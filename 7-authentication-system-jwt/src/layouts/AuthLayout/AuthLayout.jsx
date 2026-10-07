@@ -5,6 +5,7 @@ import { AuthContext } from "../../contexts/authContext";
 import { LoadingContext } from "../../contexts/loadingContext";
 import { ErrorContext } from "../../contexts/errorContext";
 import { aboutMe } from "../../services/auth.service";
+import SideNavbar from "./Sections/side-navbar/SideNavbar";
 import Header from "./Sections/header/Header";
 import Footer from "./Sections/footer/Footer";
 
@@ -38,7 +39,7 @@ export default function AuthLayout() {
   return (
     <div className="dashboard-layout flex">
       <AuthContext.Provider value={{ userProfile, setUserProfile }}>
-        <nav className="max-w-3xs bg-slate-500">Side Navbar</nav>
+        <SideNavbar />
         <main className="grow min-h-screen flex flex-col bg-slate-100">
           <Header />
           <Outlet />
