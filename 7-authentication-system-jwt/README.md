@@ -20,8 +20,14 @@ The use case is aligned with a realistic team dashboard or user-management porta
 
 Below is reserved space for your project screenshots. You can replace this section with your own captured previews of the login page, register page, dashboard, and user card layout.
 
-<div style="border: 2px dashed #94a3b8; border-radius: 12px; padding: 2rem; margin: 1.5rem 0; background-color: #0e131f; color: #475569; min-height: 260px; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-  <strong style="color: white; text-align: center; margin-bottom:12px;">Project Screenshots</strong>
+<div style="border: 2px dashed #94a3b8; border-radius: 12px; padding: 2rem; margin: 1.5rem 0; background-color: #0e131f; color: #475569; min-height: 260px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 5px;">
+  <strong style="color: white; text-align: center;;">Project Screenshots</strong>
+
+  <!-- Login Page Screenshot -->
+  <div>
+    <strong style="color: #8B939C">Login Page</strong>
+    <img src="./doc-resources/screenshots/PeoplePanel-Login-Page.png" alt="dashboard" style="border-radius: 4px">
+  </div>
 
   <!-- Dashboard Screenshot -->
   <div>

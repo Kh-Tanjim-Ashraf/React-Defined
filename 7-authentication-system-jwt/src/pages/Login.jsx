@@ -5,6 +5,7 @@ import { saveLogin } from "../utils/auth.utils";
 import { useNavigate } from "react-router-dom";
 import { ErrorContext } from "../contexts/errorContext";
 import { LoadingContext } from "../contexts/loadingContext";
+import PeoplepanelBannerLogo from "../assets/PeoplepanelBannerLogo.png";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -57,8 +58,15 @@ export default function Login() {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-      <div className="form-header">
-        <p className="text-sm text-slate-500">Please enter your detail</p>
+      <div className="form-header flex flex-col items-center gap-5">
+        {/* Brand Logo */}
+        <img
+          src={PeoplepanelBannerLogo}
+          alt="brand-logo"
+          width="150"
+          height="150"
+          className="text-center"
+        />
         <h1 className="text-4xl font-semibold text-sky-800">Welcome back</h1>
       </div>
       <div className="form-body flex flex-col gap-4">
