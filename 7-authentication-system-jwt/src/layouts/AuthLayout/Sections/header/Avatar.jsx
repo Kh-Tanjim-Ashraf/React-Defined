@@ -1,10 +1,13 @@
 import { useState, useContext, useEffect, useRef } from "react";
 import { AuthContext } from "../../../../contexts/authContext";
+import { clearLogin } from "../../../../utils/auth.utils";
+import { useNavigate } from "react-router-dom";
 
 export default function Avatar() {
   const [isOpen, setIsOpen] = useState(false);
   const { userProfile } = useContext(AuthContext);
   const avatarDropdownRef = useRef(null); // Sticky note for the avatar-icon-wrapper element which contains both the icon-image & the collapsible dropdown
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleClickOutsideDropdown = (event) => {
@@ -26,9 +29,15 @@ export default function Avatar() {
     };
   });
 
+  // Toggle open/close dropdown menu while a user clicks the avatar icon
   const toggleAvatarDropdown = () => {
-    // console.log("Toggle dropdown");
     setIsOpen(!isOpen);
+  };
+
+  // Logout the user session
+  const handleLogout = () => {
+    clearLogin();
+    navigate("/login", { replace: true });
   };
 
   return (
@@ -60,7 +69,10 @@ export default function Avatar() {
             {`${userProfile.firstName} ${userProfile.lastName}`}
           </p>
           <hr className="h-[0.01px] opacity-15" />
-          <p className="text-sm px-2 py-2.5 rounded-b-md hover:bg-sky-700 hover:text-white hover:font-semibold hover:cursor-pointer">
+          <p
+            className="text-sm px-2 py-2.5 rounded-b-md hover:bg-sky-700 hover:text-white hover:font-semibold hover:cursor-pointer"
+            onClick={handleLogout}
+          >
             Logout
           </p>
         </div>
