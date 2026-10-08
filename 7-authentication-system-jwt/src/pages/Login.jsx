@@ -47,8 +47,8 @@ export default function Login() {
       // Save the login creds to the localStorage
       saveLogin(tokens, user);
 
-      // Navigate to the dashboard
-      navigate("/dashboard", { replace: true });
+      // Navigate to the default route
+      navigate("/", { replace: true });
     } catch (err) {
       setError(err);
     } finally {

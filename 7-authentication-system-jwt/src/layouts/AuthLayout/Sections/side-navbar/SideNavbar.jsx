@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import SVG from "../../../../component/ui/SVG";
 import Badge from "../../../../component/ui/Badge";
 import DashboardIcon from "../../../../assets/side-navbar-icons/DashboardIcon.png";
@@ -66,9 +67,12 @@ export default function SideNavbar() {
         </div>
         {!isOpen && <hr className="h-[0.1px] opacity-10" />}
         <div className="mt-2 space-y-1">
-          <a
-            href="#dashboard"
-            className="w-full px-4 py-2.5 text-sm text-slate-600 hover:bg-sky-700 hover:text-white transition-colors flex justify-start items-center gap-2"
+          {/* Dashboard */}
+          <NavLink
+            to="/dashboard"
+            className={({ isActive }) =>
+              `w-full px-4 py-2.5 text-sm hover:bg-sky-600 outline-0 hover:text-white transition-colors flex justify-start items-center gap-2 ${isActive ? `bg-sky-700 text-white font-medium` : `text-slate-600`}`
+            }
           >
             <Badge>
               <img src={DashboardIcon} alt="dashboard" className="w-4 h-4" />
@@ -76,10 +80,13 @@ export default function SideNavbar() {
             <Badge className={`${isOpen ? "inline" : "hidden"}`}>
               Dashboard
             </Badge>
-          </a>
-          <a
-            href="#users"
-            className="w-full px-4 py-2.5 text-sm text-slate-600 hover:bg-sky-700 hover:text-white transition-colors flex justify-start items-center gap-2"
+          </NavLink>
+          {/* User Directory */}
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `w-full px-4 py-2.5 text-sm hover:bg-sky-600 outline-0 hover:text-white transition-colors flex justify-start items-center gap-2 ${isActive ? `bg-sky-700 text-white font-medium` : `text-slate-600`}`
+            }
           >
             <Badge>
               <img src={UersIcon} alt="users" className="w-4 h-4" />
@@ -87,7 +94,8 @@ export default function SideNavbar() {
             <Badge className={`${isOpen ? "inline" : "hidden"}`}>
               User Directory
             </Badge>
-          </a>
+          </NavLink>
+          {/* Tasks (Todos) */}
           <a
             href="#todos"
             className="w-full px-4 py-2.5 text-sm text-slate-600 hover:bg-sky-700 hover:text-white transition-colors flex justify-start items-center gap-2"
@@ -113,6 +121,7 @@ export default function SideNavbar() {
         </div>
         {!isOpen && <hr className="h-[0.1px] opacity-10" />}
         <div className="mt-2 space-y-1">
+          {/* Products Stock */}
           <a
             href="#products"
             className="w-full px-4 py-2.5 text-sm text-slate-600 hover:bg-sky-700 hover:text-white transition-colors flex justify-start items-center gap-2"
@@ -124,6 +133,7 @@ export default function SideNavbar() {
               Products Stock
             </Badge>
           </a>
+          {/* Posts */}
           <a
             href="#posts"
             className="w-full px-4 py-2.5 text-sm text-slate-600 hover:bg-sky-700 hover:text-white transition-colors flex justify-start items-center gap-2"
