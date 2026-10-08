@@ -78,7 +78,7 @@ export default function Login() {
         {/* Error Message */}
         {error && (
           <p className="inline-flex gap-4 justify-center items-center bg-[#FEE2E2] text-[#991B1B] px-4 py-2 rounded-lg">
-            Invalid login Credentials
+            Invalid login credentials
             <Badge
               className="px-2 py-0.5 rounded-lg border-[0.1px] border-[#FCA5A5] text-[#991B1B] hover:bg-[#FCA5A5]/30 hover:text-[#7F1D1D] hover:cursor-pointer transition-colors focus:outline-none"
               onClick={toggleErrorCrossButton}
