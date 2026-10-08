@@ -6,12 +6,13 @@ import { useNavigate } from "react-router-dom";
 import { ErrorContext } from "../contexts/errorContext";
 import { LoadingContext } from "../contexts/loadingContext";
 import PeoplepanelBannerLogo from "../assets/peoplepanelBannerLogo.png";
+import Badge from "../component/ui/Badge";
 
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const { setError } = useContext(ErrorContext);
+  const { error, setError } = useContext(ErrorContext);
   const { isLoading, setIsLoading } = useContext(LoadingContext);
 
   const navigate = useNavigate();
@@ -56,9 +57,14 @@ export default function Login() {
     }
   };
 
+  const toggleErrorCrossButton = () => {
+    setError(null);
+  };
+
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-      <div className="form-header flex flex-col items-center gap-5">
+      {/* Header */}
+      <div className="flex flex-col items-center gap-5">
         {/* Brand Logo */}
         <img
           src={PeoplepanelBannerLogo}
@@ -67,9 +73,24 @@ export default function Login() {
           height="150"
           className="text-center"
         />
+        {/* Form Title */}
         <h1 className="text-4xl font-semibold text-sky-800">Welcome back</h1>
+        {/* Error Message */}
+        {error && (
+          <p className="inline-flex gap-4 justify-center items-center bg-[#FEE2E2] text-[#991B1B] px-4 py-2 rounded-lg">
+            Invalid login Credentials
+            <Badge
+              className="px-2 py-0.5 rounded-lg border-[0.1px] border-[#FCA5A5] text-[#991B1B] hover:bg-[#FCA5A5]/30 hover:text-[#7F1D1D] hover:cursor-pointer transition-colors focus:outline-none"
+              onClick={toggleErrorCrossButton}
+            >
+              X
+            </Badge>
+          </p>
+        )}
+        {/* {error && "Error Exists"} */}
       </div>
-      <div className="form-body flex flex-col gap-4">
+      {/* Body */}
+      <div className="flex flex-col gap-4">
         {/* Input field: Username */}
         <div className="form-group">
           <input
@@ -100,7 +121,8 @@ export default function Login() {
           {isLoading ? "Logging in..." : "Login"}
         </button>
       </div>
-      <div className="form-footer">
+      {/* Footer */}
+      <div>
         <p className="text-sm text-slate-500">
           Don't have account?{" "}
           <span>
