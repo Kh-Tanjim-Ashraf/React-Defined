@@ -5,7 +5,7 @@ import { saveLogin } from "../utils/auth.utils";
 import { useNavigate } from "react-router-dom";
 import { ErrorContext } from "../contexts/errorContext";
 import { LoadingContext } from "../contexts/loadingContext";
-import PeoplepanelBannerLogo from "../assets/PeoplepanelBannerLogo.png";
+import PeoplepanelBannerLogo from "../assets/peoplepanelBannerLogo.png";
 
 export default function Login() {
   const [username, setUsername] = useState("");

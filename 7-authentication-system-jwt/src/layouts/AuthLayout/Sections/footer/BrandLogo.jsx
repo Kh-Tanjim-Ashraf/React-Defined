@@ -1,5 +1,5 @@
 import Image from "../../../../component/ui/Image";
-import PeoplepanelBannerLogo from "../../../../assets/PeoplepanelBannerLogo.png";
+import PeoplepanelBannerLogo from "../../../../assets/peoplepanelBannerLogo.png";
 
 export default function BrandLogo() {
   return (

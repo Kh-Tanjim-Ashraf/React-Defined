@@ -1,4 +1,4 @@
-import PeoplepanelBannerLogo from "../../../../assets/PeoplepanelBannerLogo.png";
+import PeoplepanelBannerLogo from "../../../../assets/peoplepanelBannerLogo.png";
 
 export default function BannerLogo() {
   return (
