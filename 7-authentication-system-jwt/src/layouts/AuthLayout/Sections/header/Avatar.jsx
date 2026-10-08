@@ -57,7 +57,7 @@ export default function Avatar() {
       {/* Collapsible Dropdown */}
       {isOpen && (
         <div
-          className={`absolute right-0 top-0 w-30 h-auto flex flex-col bg-white rounded-md mt-10 border-[0.1px] border-slate-300 shadow-lg z-10 origin-top-right transition-all duration-300 ease-out
+          className={`absolute right-0 top-0 w-36 h-auto flex flex-col bg-white rounded-md mt-10 border-[0.1px] border-slate-300 shadow-lg z-10 origin-top-right transition-all duration-300 ease-out
           ${
             isOpen
               ? "transform opacity-100 scale-100 visible"
