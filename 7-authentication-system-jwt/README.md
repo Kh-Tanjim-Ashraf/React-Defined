@@ -29,10 +29,16 @@ Below is reserved space for your project screenshots. You can replace this secti
     <img src="./doc-resources/screenshots/PeoplePanel-Login-Page.png" alt="dashboard" style="border-radius: 4px">
   </div>
 
-  <!-- Dashboard Screenshot -->
+  <!-- Dashboard Screenshots -->
+  <!-- Collapsed -->
   <div>
-    <strong style="color: #8B939C">Dashboard</strong>
-    <img src="./doc-resources/screenshots/PeoplePanel-Dashboard.png" alt="dashboard" style="border-radius: 4px">
+    <strong style="color: #8B939C">Dashboard (Collapsed)</strong>
+    <img src="./doc-resources/screenshots/PeoplePanel-Dashboard-Collapsed.png" alt="dashboard-collapsed" style="border-radius: 4px">
+  </div>
+  <!-- Not Collapsed -->
+  <div>
+    <strong style="color: #8B939C">Dashboard (Opened)</strong>
+    <img src="./doc-resources/screenshots/PeoplePanel-Dashboard-Not-Collapsed.png" alt="dashboard-not-collapsed" style="border-radius: 4px">
   </div>
 </div>
 

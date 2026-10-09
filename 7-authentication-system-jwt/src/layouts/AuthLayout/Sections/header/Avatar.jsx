@@ -2,6 +2,7 @@ import { useState, useContext, useEffect, useRef } from "react";
 import { AuthContext } from "../../../../contexts/authContext";
 import { clearLogin } from "../../../../utils/auth.utils";
 import { useNavigate } from "react-router-dom";
+import Image from "../../../../component/ui/Image";
 
 export default function Avatar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +12,7 @@ export default function Avatar() {
 
   useEffect(() => {
     const handleClickOutsideDropdown = (event) => {
-      // Check if the clicked div/HTML element doesn't equal to the `<img>` or collapsible `<div>` of the avatar-icon-wrapper section
+      // Check if the clicked div/HTML element doesn't equal to the `img` or collapsible `div` of the avatar-icon-wrapper section
       if (
         avatarDropdownRef.current &&
         !avatarDropdownRef.current.contains(event.target)
@@ -46,7 +47,7 @@ export default function Avatar() {
       ref={avatarDropdownRef}
     >
       {/* Avatar Icon */}
-      <img
+      <Image
         src={userProfile?.image}
         alt="user-avatar"
         width="36"

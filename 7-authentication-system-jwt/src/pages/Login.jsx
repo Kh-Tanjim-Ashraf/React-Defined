@@ -8,6 +8,7 @@ import { LoadingContext } from "../contexts/loadingContext";
 import PeoplepanelBannerLogo from "../assets/peoplepanelBannerLogo.png";
 import Badge from "../component/ui/Badge";
 import Button from "../component/ui/Button";
+import Image from "../component/ui/Image";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -67,7 +68,7 @@ export default function Login() {
       {/* Header */}
       <div className="flex flex-col items-center gap-5">
         {/* Brand Logo */}
-        <img
+        <Image
           src={PeoplepanelBannerLogo}
           alt="brand-logo"
           width="150"

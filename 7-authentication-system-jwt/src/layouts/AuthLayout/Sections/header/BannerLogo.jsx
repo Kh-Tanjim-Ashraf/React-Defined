@@ -1,8 +1,9 @@
 import PeoplepanelBannerLogo from "../../../../assets/peoplepanelBannerLogo.png";
+import Image from "../../../../component/ui/Image";
 
 export default function BannerLogo() {
   return (
-    <img
+    <Image
       src={PeoplepanelBannerLogo}
       alt="banner-logo"
       width="200"

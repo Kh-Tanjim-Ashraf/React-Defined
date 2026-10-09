@@ -2,6 +2,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import SVG from "../../../../component/ui/SVG";
 import Badge from "../../../../component/ui/Badge";
+import Image from "../../../../component/ui/Image";
 import DashboardIcon from "../../../../assets/side-navbar-icons/DashboardIcon.png";
 import ProductsIcon from "../../../../assets/side-navbar-icons/ProductsIcon.png";
 import TodosIcon from "../../../../assets/side-navbar-icons/TodosIcon.png";
@@ -16,7 +17,6 @@ export default function SideNavbar() {
   };
 
   return (
-    //   <nav className="max-w-3xs bg-slate-500">Side Navbar</nav>
     <nav className="flex flex-col gap-4 py-4">
       {/* Navbar Toggle Button */}
       <div className="flex justify-end pr-2">
@@ -60,8 +60,7 @@ export default function SideNavbar() {
       <div>
         <div
           className={`px-4 py-2 text-xs font-semibold text-slate-400 uppercase tracking-wider
-        ${isOpen ? "inline" : "hidden"}
-          `}
+        ${isOpen ? "inline" : "hidden"}`}
         >
           User Control
         </div>
@@ -74,9 +73,11 @@ export default function SideNavbar() {
               `w-full px-4 py-2.5 text-sm hover:bg-sky-600 outline-0 hover:text-white transition-colors flex justify-start items-center gap-2 ${isActive ? `bg-sky-700 text-white font-medium` : `text-slate-600`}`
             }
           >
+            {/* Icon */}
             <Badge>
-              <img src={DashboardIcon} alt="dashboard" className="w-4 h-4" />
+              <Image src={DashboardIcon} alt="dashboard" className="w-4 h-4" />
             </Badge>
+            {/* Text */}
             <Badge className={`${isOpen ? "inline" : "hidden"}`}>
               Dashboard
             </Badge>
@@ -88,9 +89,11 @@ export default function SideNavbar() {
               `w-full px-4 py-2.5 text-sm hover:bg-sky-600 outline-0 hover:text-white transition-colors flex justify-start items-center gap-2 ${isActive ? `bg-sky-700 text-white font-medium` : `text-slate-600`}`
             }
           >
+            {/* Icon */}
             <Badge>
-              <img src={UersIcon} alt="users" className="w-4 h-4" />
+              <Image src={UersIcon} alt="users" className="w-4 h-4" />
             </Badge>
+            {/* Text */}
             <Badge className={`${isOpen ? "inline" : "hidden"}`}>
               User Directory
             </Badge>
@@ -100,16 +103,17 @@ export default function SideNavbar() {
             href="#todos"
             className="w-full px-4 py-2.5 text-sm text-slate-600 hover:bg-sky-700 hover:text-white transition-colors flex justify-start items-center gap-2"
           >
+            {/* Icon */}
             <Badge>
-              <img src={TodosIcon} alt="todos" className="w-4 h-4" />
+              <Image src={TodosIcon} alt="todos" className="w-4 h-4" />
             </Badge>
+            {/* Text */}
             <Badge className={`${isOpen ? "inline" : "hidden"}`}>
               Tasks (Todos)
             </Badge>
           </a>
         </div>
       </div>
-
       {/* Section: Store & Content */}
       <div>
         <div
@@ -127,7 +131,7 @@ export default function SideNavbar() {
             className="w-full px-4 py-2.5 text-sm text-slate-600 hover:bg-sky-700 hover:text-white transition-colors flex justify-start items-center gap-2"
           >
             <Badge>
-              <img src={ProductsIcon} alt="products" className="w-4 h-4" />
+              <Image src={ProductsIcon} alt="products" className="w-4 h-4" />
             </Badge>
             <Badge className={`${isOpen ? "inline" : "hidden"}`}>
               Products Stock
@@ -138,9 +142,11 @@ export default function SideNavbar() {
             href="#posts"
             className="w-full px-4 py-2.5 text-sm text-slate-600 hover:bg-sky-700 hover:text-white transition-colors flex justify-start items-center gap-2"
           >
+            {/* Icon */}
             <Badge>
-              <img src={UserPostsIcon} alt="posts" className="w-4 h-4" />
+              <Image src={UserPostsIcon} alt="posts" className="w-4 h-4" />
             </Badge>
+            {/* Text */}
             <Badge className={`${isOpen ? "inline" : "hidden"}`}>
               User Posts
             </Badge>
