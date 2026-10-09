@@ -10,6 +10,7 @@ import Badge from "../component/ui/Badge";
 import Button from "../component/ui/Button";
 import Image from "../component/ui/Image";
 import Paragraph from "../component/ui/Paragraph";
+import Input from "../component/ui/Input";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -96,24 +97,24 @@ export default function Login() {
       <div className="flex flex-col gap-4">
         {/* Input field: Username */}
         <div className="form-group">
-          <input
+          <Input
             type="text"
             placeholder="Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             className={inputClass}
-            // required
+            required
           />
         </div>
         {/* Input field: Password */}
         <div className="form-group">
-          <input
+          <Input
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className={inputClass}
-            // required
+            required
           />
         </div>
         <Button
