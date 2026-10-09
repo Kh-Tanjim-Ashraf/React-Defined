@@ -99,9 +99,11 @@ export default function SideNavbar() {
             </Badge>
           </NavLink>
           {/* Tasks (Todos) */}
-          <a
-            href="#todos"
-            className="w-full px-4 py-2.5 text-sm text-slate-600 hover:bg-sky-700 hover:text-white transition-colors flex justify-start items-center gap-2"
+          <NavLink
+            to="/todos"
+            className={({ isActive }) =>
+              `w-full px-4 py-2.5 text-sm hover:bg-sky-600 outline-0 hover:text-white transition-colors flex justify-start items-center gap-2 ${isActive ? `bg-sky-700 text-white font-medium` : `text-slate-600`}`
+            }
           >
             {/* Icon */}
             <Badge>
@@ -111,7 +113,7 @@ export default function SideNavbar() {
             <Badge className={`${isOpen ? "inline" : "hidden"}`}>
               Tasks (Todos)
             </Badge>
-          </a>
+          </NavLink>
         </div>
       </div>
       {/* Section: Store & Content */}
@@ -126,9 +128,11 @@ export default function SideNavbar() {
         {!isOpen && <hr className="h-[0.1px] opacity-10" />}
         <div className="mt-2 space-y-1">
           {/* Products Stock */}
-          <a
-            href="#products"
-            className="w-full px-4 py-2.5 text-sm text-slate-600 hover:bg-sky-700 hover:text-white transition-colors flex justify-start items-center gap-2"
+          <NavLink
+            to="/products"
+            className={({ isActive }) =>
+              `w-full px-4 py-2.5 text-sm hover:bg-sky-600 outline-0 hover:text-white transition-colors flex justify-start items-center gap-2 ${isActive ? `bg-sky-700 text-white font-medium` : `text-slate-600`}`
+            }
           >
             <Badge>
               <Image src={ProductsIcon} alt="products" className="w-4 h-4" />
@@ -136,11 +140,13 @@ export default function SideNavbar() {
             <Badge className={`${isOpen ? "inline" : "hidden"}`}>
               Products Stock
             </Badge>
-          </a>
+          </NavLink>
           {/* Posts */}
-          <a
-            href="#posts"
-            className="w-full px-4 py-2.5 text-sm text-slate-600 hover:bg-sky-700 hover:text-white transition-colors flex justify-start items-center gap-2"
+          <NavLink
+            to="/posts"
+            className={({ isActive }) =>
+              `w-full px-4 py-2.5 text-sm hover:bg-sky-600 outline-0 hover:text-white transition-colors flex justify-start items-center gap-2 ${isActive ? `bg-sky-700 text-white font-medium` : `text-slate-600`}`
+            }
           >
             {/* Icon */}
             <Badge>
@@ -150,7 +156,7 @@ export default function SideNavbar() {
             <Badge className={`${isOpen ? "inline" : "hidden"}`}>
               User Posts
             </Badge>
-          </a>
+          </NavLink>
         </div>
       </div>
     </nav>
