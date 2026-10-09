@@ -1,7 +1,3 @@
-export default function Badge({ onClick, className, children }) {
-  return (
-    <span onClick={onClick} className={className}>
-      {children}
-    </span>
-  );
+export default function Badge({ children, ...props }) {
+  return <span {...props}>{children}</span>;
 }

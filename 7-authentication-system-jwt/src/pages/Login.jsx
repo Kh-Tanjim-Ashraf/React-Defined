@@ -127,14 +127,14 @@ export default function Login() {
       <div>
         <p className="text-sm text-slate-500">
           Don't have account?{" "}
-          <span>
+          <Badge>
             <Link
               to="/register"
               className="font-medium text-sky-800 underline underline-offset-4"
             >
               Register
             </Link>
-          </span>
+          </Badge>
         </p>
       </div>
     </form>

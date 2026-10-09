@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Badge from "../component/ui/Badge";
 
 export default function Register() {
   return (
@@ -8,14 +9,14 @@ export default function Register() {
       </h1>
       <p className="mt-4">
         Already have an account?{" "}
-        <span>
+        <Badge>
           <Link
             to="/login"
             className="font-medium text-sky-800 underline underline-offset-4"
           >
             Sign In
           </Link>
-        </span>
+        </Badge>
       </p>
     </>
   );
