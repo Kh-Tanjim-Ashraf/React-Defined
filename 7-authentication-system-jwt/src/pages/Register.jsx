@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Badge from "../component/ui/Badge";
+import Paragraph from "../component/ui/Paragraph";
 
 export default function Register() {
   return (
@@ -7,7 +8,7 @@ export default function Register() {
       <h1 className="text-4xl text-sky-800 underline underline-offset-12">
         Register
       </h1>
-      <p className="mt-4">
+      <Paragraph className="mt-4">
         Already have an account?{" "}
         <Badge>
           <Link
@@ -17,7 +18,7 @@ export default function Register() {
             Sign In
           </Link>
         </Badge>
-      </p>
+      </Paragraph>
     </>
   );
 }

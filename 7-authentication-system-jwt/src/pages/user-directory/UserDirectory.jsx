@@ -6,6 +6,7 @@ import { LoadingContext } from "../../contexts/loadingContext";
 import UserCard from "./sections/UserCard";
 import { userList } from "../../services/user.service";
 import Button from "../../component/ui/Button";
+import Paragraph from "../../component/ui/Paragraph";
 
 export default function UserDirectory() {
   const [usersObject, setUsersObject] = useState({});
@@ -70,7 +71,7 @@ export default function UserDirectory() {
         <div className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-4 p-4 mt-10">
           {/* Card */}
           {isLoading ? (
-            <p>Loading...</p>
+            <Paragraph>Loading...</Paragraph>
           ) : usersObject?.users ? (
             usersObject.users.map((user) => (
               <UserCard user={user} key={user.id} />

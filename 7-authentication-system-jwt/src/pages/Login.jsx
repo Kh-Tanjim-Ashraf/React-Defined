@@ -9,6 +9,7 @@ import PeoplepanelBannerLogo from "../assets/peoplepanelBannerLogo.png";
 import Badge from "../component/ui/Badge";
 import Button from "../component/ui/Button";
 import Image from "../component/ui/Image";
+import Paragraph from "../component/ui/Paragraph";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -79,7 +80,7 @@ export default function Login() {
         <h1 className="text-4xl font-semibold text-sky-800">Welcome back</h1>
         {/* Error Message */}
         {error && (
-          <p className="inline-flex gap-4 justify-center items-center bg-[#FEE2E2] text-[#991B1B] px-4 py-2 rounded-lg">
+          <Paragraph className="inline-flex gap-4 justify-center items-center bg-[#FEE2E2] text-[#991B1B] px-4 py-2 rounded-lg">
             Invalid login credentials
             <Badge
               className="px-2 py-0.5 rounded-lg border-[0.1px] border-[#FCA5A5] text-[#991B1B] hover:bg-[#FCA5A5]/30 hover:text-[#7F1D1D] hover:cursor-pointer transition-colors focus:outline-none"
@@ -87,7 +88,7 @@ export default function Login() {
             >
               X
             </Badge>
-          </p>
+          </Paragraph>
         )}
         {/* {error && "Error Exists"} */}
       </div>
@@ -125,7 +126,7 @@ export default function Login() {
       </div>
       {/* Footer */}
       <div>
-        <p className="text-sm text-slate-500">
+        <Paragraph className="text-sm text-slate-500">
           Don't have account?{" "}
           <Badge>
             <Link
@@ -135,7 +136,7 @@ export default function Login() {
               Register
             </Link>
           </Badge>
-        </p>
+        </Paragraph>
       </div>
     </form>
   );
