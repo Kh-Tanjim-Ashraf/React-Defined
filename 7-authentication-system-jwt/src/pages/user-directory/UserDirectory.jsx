@@ -84,6 +84,7 @@ export default function UserDirectory() {
         {!isLoading && usersObject?.users && (
           <div className="flex justify-center items-center gap-4 pt-4 pb-8">
             <Button
+              type="button"
               className={`px-4 py-2 border cursor-pointer rounded-lg disabled:cursor-not-allowed ${isLoading || skip < 20 ? "text-slate-400 border-slate-200" : "border-slate-300 hover:bg-sky-800 hover:border-sky-800 hover:text-white transition-all"}`}
               onClick={handlePrev}
               disabled={isLoading || skip < 20}
@@ -91,6 +92,7 @@ export default function UserDirectory() {
               Prev
             </Button>
             <Button
+              type="button"
               className={`px-4 py-2 border cursor-pointer rounded-lg disabled:cursor-not-allowed ${isLoading || skip >= 200 ? "text-slate-400 border-slate-200" : "border-slate-300 hover:bg-sky-800 hover:border-sky-800 hover:text-white transition-all"}`}
               onClick={handleNext}
               disabled={isLoading || skip >= 200}

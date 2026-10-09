@@ -138,7 +138,10 @@ export default function UserCard({ user }) {
       </CardBody>
       {/* Footer */}
       <CardFooter className="flex justify-end px-4 py-2">
-        <Button className="px-4 py-2 text-sm border border-slate-200 cursor-pointer rounded-lg hover:bg-sky-800 hover:border-sky-800 hover:text-white transition-all">
+        <Button
+          type="button"
+          className="px-4 py-2 text-sm border border-slate-200 cursor-pointer rounded-lg hover:bg-sky-800 hover:border-sky-800 hover:text-white transition-all"
+        >
           View Profile
         </Button>
       </CardFooter>

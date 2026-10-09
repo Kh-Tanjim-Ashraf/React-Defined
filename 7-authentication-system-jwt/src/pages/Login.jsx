@@ -7,6 +7,7 @@ import { ErrorContext } from "../contexts/errorContext";
 import { LoadingContext } from "../contexts/loadingContext";
 import PeoplepanelBannerLogo from "../assets/peoplepanelBannerLogo.png";
 import Badge from "../component/ui/Badge";
+import Button from "../component/ui/Button";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -113,13 +114,13 @@ export default function Login() {
             // required
           />
         </div>
-        <button
+        <Button
           type="submit"
           className={`w-full px-3 py-2 rounded-lg ${isFormIncomplete ? buttonNotAllowedClass : buttonAllowedClass}`}
           disabled={isFormIncomplete}
         >
           {isLoading ? "Logging in..." : "Login"}
-        </button>
+        </Button>
       </div>
       {/* Footer */}
       <div>
