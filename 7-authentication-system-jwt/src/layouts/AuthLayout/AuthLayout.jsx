@@ -15,10 +15,6 @@ export default function AuthLayout() {
   const { setIsLoading } = useContext(LoadingContext);
   const { setError } = useContext(ErrorContext);
 
-  // If tokens unavailable, redirect to login page instantly
-  const tokens = getTokens();
-  if (!tokens) return <Navigate to="/login" replace />;
-
   // User profile invoked
   useEffect(() => {
     const fetchProfile = async () => {
@@ -34,7 +30,11 @@ export default function AuthLayout() {
       }
     };
     fetchProfile();
-  }, []);
+  }, [setError, setIsLoading]);
+
+  // If tokens unavailable, redirect to login page instantly
+  const tokens = getTokens();
+  if (!tokens) return <Navigate to="/login" replace />;
 
   return (
     <div className="dashboard-layout flex">

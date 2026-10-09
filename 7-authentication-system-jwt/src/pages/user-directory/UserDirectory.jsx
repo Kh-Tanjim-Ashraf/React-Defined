@@ -1,5 +1,4 @@
-import { clearLogin } from "../../utils/auth.utils";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import { ErrorContext } from "../../contexts/errorContext";
 import { LoadingContext } from "../../contexts/loadingContext";
@@ -11,8 +10,7 @@ import Paragraph from "../../component/ui/Paragraph";
 export default function UserDirectory() {
   const [usersObject, setUsersObject] = useState({});
   const [searchParams, setSearchParams] = useSearchParams();
-  const navigate = useNavigate();
-  const { error, setError } = useContext(ErrorContext);
+  const { setError } = useContext(ErrorContext);
   const { isLoading, setIsLoading } = useContext(LoadingContext);
 
   // Use to navigate through paginated user data
@@ -21,11 +19,6 @@ export default function UserDirectory() {
 
   const queryLimit = searchParams.get("limit");
   const limit = Number.parseInt(queryLimit ?? "", 10) || 20;
-
-  const handleLogout = () => {
-    clearLogin();
-    navigate("/login", { replace: true });
-  };
 
   // User list invoked
   useEffect(() => {
@@ -42,7 +35,7 @@ export default function UserDirectory() {
       }
     };
     fetchUserList();
-  }, [searchParams]);
+  }, [limit, skip, searchParams, setError, setIsLoading]);
 
   // Page Navigation: Previous
   const handlePrev = () => {

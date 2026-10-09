@@ -7,24 +7,14 @@ import Paragraph from "../../../component/ui/Paragraph";
 import Badge from "../../../component/ui/Badge";
 import SVG from "../../../component/ui/SVG";
 import Button from "../../../component/ui/Button";
-import { useState } from "react";
 
 export default function UserCard({ user }) {
-  let userRoleBadgeColor = "";
-  switch (user.role) {
-    case "admin":
-      userRoleBadgeColor = "bg-[#FEE2E2] text-[#991B1B]";
-      break;
-    case "moderator":
-      userRoleBadgeColor = "bg-[#FEF3C7] text-[#92400E]";
-      break;
-    case "user":
-      userRoleBadgeColor = "bg-[#E0F2FE] text-[#075985]";
-      break;
-    default:
-      userRoleBadgeColor = "bg-sky-200 text-sky-900";
-      break;
-  }
+  const userRoleBadgeColor =
+    {
+      admin: "bg-[#FEE2E2] text-[#991B1B]",
+      moderator: "bg-[#FEF3C7] text-[#92400E]",
+      user: "bg-[#E0F2FE] text-[#075985]",
+    }[user.role] ?? "bg-sky-200 text-sky-900";
 
   return (
     <Card className="h-fit bg-white flex flex-col rounded-xl shadow-[0_6px_6px_-6px_rgba(0,0,0,0.2)] hover:shadow-[0_8px_25px_-6px_rgba(0,0,0,0.2)] transition-all duration-100">
