@@ -4,10 +4,7 @@ import SVG from "../ui/SVG";
 
 export default function FilterButton({ buttonName }) {
   return (
-    <Button
-      type="button"
-      className="flex items-center gap-1 px-2 py-1 text-sm border border-slate-200 cursor-pointer rounded-lg hover:bg-sky-800 hover:border-sky-800 hover:text-white transition-all"
-    >
+    <Button className="flex items-center gap-1 px-2 py-1 text-sm border border-slate-200 cursor-pointer rounded-lg hover:bg-sky-800 hover:border-sky-800 hover:text-white transition-all">
       <Badge>
         <SVG
           xmlns="http://www.w3.org/2000/svg"
