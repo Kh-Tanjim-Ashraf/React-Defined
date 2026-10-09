@@ -1,27 +1,6 @@
-export default function SVG({
-  xmlns,
-  width,
-  height,
-  fill,
-  viewBox,
-  strokeWidth,
-  stroke,
-  className,
-  onClick,
-  children,
-}) {
+export default function SVG({ xmlns, width, height, children, ...props }) {
   return (
-    <svg
-      xmlns={xmlns}
-      width={width}
-      height={height}
-      fill={fill}
-      viewBox={viewBox}
-      stroke-width={strokeWidth}
-      stroke={stroke}
-      class={className}
-      onClick={onClick}
-    >
+    <svg xmlns={xmlns} width={width} height={height} {...props}>
       {children}
     </svg>
   );
