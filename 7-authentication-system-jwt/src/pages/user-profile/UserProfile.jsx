@@ -3,10 +3,13 @@ import { useState, useEffect, useContext } from "react";
 import { userDetail } from "../../services/user.service";
 import { LoadingContext } from "../../contexts/loadingContext";
 import { ErrorContext } from "../../contexts/errorContext";
+import SVG from "../../component/ui/SVG";
+import Paragraph from "../../component/ui/Paragraph";
+import MetaInformationCard from "../../component/meta-information-card/MetaInformationCard";
 
 export default function UserProfile() {
   // Store user information fetched from the API
-  const [userDetailObj, setUserDetailObj] = useState({});
+  const [userDetailObj, setUserDetailObj] = useState(null);
 
   // Retrieve user id (destructured) from the browser URL
   const { id } = useParams();
@@ -37,15 +40,186 @@ export default function UserProfile() {
   return (
     <>
       {/* Main Content */}
-      <div className="grow flex flex-col justify-center items-center">
-        {isLoading ? (
-          <p>Loading...</p>
-        ) : (
-          <>
-            <h1 className="text-2xl">User Profile</h1>
-            <p>User ID: {userDetailObj.id}</p>
-          </>
-        )}
+      <div className="grow flex p-4 gap-4">
+        {/* Left panel */}
+        <div className="w-full flex flex-col bg-amber-400 rounded-lg p-4">
+          {/* Header */}
+          <div className="bg-blue-300 flex">
+            {/* Avatar */}
+            <img
+              src={userDetailObj?.image}
+              alt="user-avatar"
+              width="80"
+              height="80"
+              className="border-[0.5px] rounded-full"
+            />
+            {/* User Header Information */}
+            <div className="bg-fuchsia-300 grow flex flex-col">
+              {/* User Fullname, role */}
+              <div className="bg-blue-500 h-full flex">
+                {/* User Fullname */}
+                <div className="bg-white grow">
+                  <p>
+                    {userDetailObj?.firstName} {userDetailObj?.maidenName}{" "}
+                    {userDetailObj?.lastName}
+                  </p>
+                </div>
+                {/* Role */}
+                <div className="bg-cyan-300">{userDetailObj?.role}</div>
+              </div>
+              {/* Designation, Company */}
+              <div className="bg-green-500 h-full">
+                {userDetailObj?.company.title} • {userDetailObj?.company.name}
+              </div>
+              {/* User ID */}
+              <div className="bg-indigo-500 h-full">
+                User ID: {userDetailObj?.id}
+              </div>
+            </div>
+          </div>
+          {/* Meta Information */}
+          <div className="grid grid-cols-4 gap-2 py-2">
+            {/* Gender */}
+            <div className="flex flex-col gap-1 py-1 justify-center items-center rounded-md border border-slate-200">
+              <SVG
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="#000000"
+                viewBox="0 0 256 256"
+              >
+                <path d="M208,24H168a8,8,0,0,0,0,16h20.69L163.54,65.15A64,64,0,1,0,112,175.48V192H88a8,8,0,0,0,0,16h24v24a8,8,0,0,0,16,0V208h24a8,8,0,0,0,0-16H128V175.48a63.92,63.92,0,0,0,45.84-98L200,51.31V72a8,8,0,0,0,16,0V32A8,8,0,0,0,208,24ZM120,160a48,48,0,1,1,48-48A48.05,48.05,0,0,1,120,160Z"></path>
+              </SVG>
+              <Paragraph className="text-xs">{userDetailObj?.gender}</Paragraph>
+            </div>
+            {/* Blood Group */}
+            <div className="flex flex-col gap-1 py-1 justify-center items-center rounded-md border border-slate-200">
+              <SVG
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="#000000"
+                viewBox="0 0 640 640"
+              >
+                <path d="M320 576C214 576 128 490 128 384C128 292.8 258.2 109.9 294.6 60.5C300.5 52.5 309.8 48 319.8 48L320.2 48C330.2 48 339.5 52.5 345.4 60.5C381.8 109.9 512 292.8 512 384C512 490 426 576 320 576zM240 376C240 362.7 229.3 352 216 352C202.7 352 192 362.7 192 376C192 451.1 252.9 512 328 512C341.3 512 352 501.3 352 488C352 474.7 341.3 464 328 464C279.4 464 240 424.6 240 376z" />
+              </SVG>
+              <Paragraph className="text-[10px]">
+                {userDetailObj?.bloodGroup}
+              </Paragraph>
+            </div>
+            {/* Height */}
+            <div className="flex flex-col gap-1 py-1 justify-center items-center rounded-md border border-slate-200">
+              <SVG
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="#000000"
+                viewBox="0 0 640 640"
+              >
+                <path d="M342.6 41.4C330.1 28.9 309.8 28.9 297.3 41.4L201.3 137.4C188.8 149.9 188.8 170.2 201.3 182.7C213.8 195.2 234.1 195.2 246.6 182.7L288 141.3L288 498.7L246.6 457.4C234.1 444.9 213.8 444.9 201.3 457.4C188.8 469.9 188.8 490.2 201.3 502.7L297.3 598.7C303.3 604.7 311.4 608.1 319.9 608.1C328.4 608.1 336.5 604.7 342.5 598.7L438.5 502.7C451 490.2 451 469.9 438.5 457.4C426 444.9 405.7 444.9 393.2 457.4L351.8 498.8L351.8 141.3L393.2 182.7C405.7 195.2 426 195.2 438.5 182.7C451 170.2 451 149.9 438.5 137.4L342.5 41.4z" />
+              </SVG>
+              <Paragraph className="text-[10px]">
+                {userDetailObj?.height}
+              </Paragraph>
+            </div>
+            {/* Weight */}
+            <div className="flex flex-col gap-1 py-1 justify-center items-center rounded-md border border-slate-200">
+              <SVG
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="#000000"
+                viewBox="0 0 640 640"
+              >
+                <path d="M212.6 256C209.6 245.9 208 235.1 208 224C208 162.1 258.1 112 320 112C381.9 112 432 162.1 432 224C432 235.1 430.4 245.9 427.4 256L356.4 256L381 211.7C387.4 200.1 383.3 185.5 371.7 179.1C360.1 172.7 345.5 176.8 339.1 188.4L301.5 256.1L212.7 256.1zM224 96L160 96C124.7 96 96 124.7 96 160L96 480C96 515.3 124.7 544 160 544L480 544C515.3 544 544 515.3 544 480L544 160C544 124.7 515.3 96 480 96L416 96C389.3 75.9 356 64 320 64C284 64 250.7 75.9 224 96z" />
+              </SVG>
+              <Paragraph className="text-[10px]">
+                {userDetailObj?.weight}
+              </Paragraph>
+            </div>
+          </div>
+          {/* Body: Information list */}
+          <div className="bg-emerald-300 grow flex flex-col">
+            {/* Meta-Information-Card-Grid-Panel */}
+            {/* Email */}
+            <MetaInformationCard
+              informationName="Email"
+              value={userDetailObj?.email}
+            />
+            {/* Phone */}
+            <MetaInformationCard
+              informationName="Phone"
+              value={userDetailObj?.phone}
+            />
+            {/* Username */}
+            <MetaInformationCard
+              informationName="Username"
+              value={userDetailObj?.username}
+            />
+            {/* Password */}
+            <MetaInformationCard
+              informationName="Password"
+              value={userDetailObj?.password}
+            />
+            {/* Age */}
+            <MetaInformationCard
+              informationName="Age"
+              value={userDetailObj?.age}
+            />
+            {/* Eye Color */}
+            <MetaInformationCard
+              informationName="Eye Color"
+              value={userDetailObj?.eyeColor}
+            />
+            {/* Hair: Color, Type */}
+            <div className="flex">
+              {/* Color */}
+              <MetaInformationCard
+                informationName="Hair Color"
+                value={userDetailObj?.crypto.coin}
+                useIcon={false}
+              />
+              {/* Type */}
+              <MetaInformationCard
+                informationName="Hair Type"
+                value={userDetailObj?.crypto.coin}
+                useIcon={false}
+              />
+            </div>
+            {/* EIN */}
+            <MetaInformationCard
+              informationName="EIN"
+              value={userDetailObj?.ein}
+            />
+            {/* SSN */}
+            <MetaInformationCard
+              informationName="SSN"
+              value={userDetailObj?.ssn}
+            />
+            {/* Crypto */}
+            <MetaInformationCard
+              informationName="Crypto"
+              value={userDetailObj?.crypto.coin}
+            />
+            {/* Wallet */}
+            <MetaInformationCard
+              informationName="Wallet"
+              value={userDetailObj?.crypto.wallet}
+            />
+            {/* Network */}
+            <MetaInformationCard
+              informationName="Network"
+              value={userDetailObj?.crypto.network}
+            />
+            {/* User Agent */}
+            <MetaInformationCard
+              informationName="User Agent"
+              value={userDetailObj?.userAgent}
+            />
+          </div>
+        </div>
+        {/* Right panel */}
+        <div className="w-full bg-sky-400 rounded-lg p-4">Right</div>
       </div>
     </>
   );
