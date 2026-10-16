@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect, useRef } from "react";
 import { AuthContext } from "../../../../contexts/authContext";
 import { clearLogin } from "../../../../utils/auth.utils";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Image from "../../../../component/ui/Image";
 import Paragraph from "../../../../component/ui/Paragraph";
 
@@ -68,7 +68,9 @@ export default function Avatar() {
         `}
         >
           <Paragraph className="font-semibold text-sm px-2 py-2.5 rounded-t-md hover:bg-sky-700 hover:text-white hover:cursor-pointer">
-            {`${userProfile.firstName} ${userProfile.lastName}`}
+            <Link to={`/profile/${userProfile?.id}`}>
+              {`${userProfile.firstName} ${userProfile.lastName}`}
+            </Link>
           </Paragraph>
           <hr className="h-[0.01px] opacity-15" />
           <Paragraph

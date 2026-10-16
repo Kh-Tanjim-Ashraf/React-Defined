@@ -7,6 +7,7 @@ import Paragraph from "../../../component/ui/Paragraph";
 import Badge from "../../../component/ui/Badge";
 import SVG from "../../../component/ui/SVG";
 import Button from "../../../component/ui/Button";
+import { Link } from "react-router-dom";
 
 export default function UserCard({ user }) {
   const userRoleBadgeColor =
@@ -128,9 +129,11 @@ export default function UserCard({ user }) {
       </CardBody>
       {/* Footer */}
       <CardFooter className="flex justify-end px-4 py-2">
-        <Button className="px-4 py-2 text-sm border border-slate-200 cursor-pointer rounded-lg hover:bg-sky-800 hover:border-sky-800 hover:text-white transition-all">
-          View Profile
-        </Button>
+        <Link to={`/profile/${user?.id}`}>
+          <Button className="px-4 py-2 text-sm border border-slate-200 cursor-pointer rounded-lg hover:bg-sky-800 hover:border-sky-800 hover:text-white transition-all">
+            View Profile
+          </Button>
+        </Link>
       </CardFooter>
     </Card>
   );

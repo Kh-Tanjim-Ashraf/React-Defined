@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/dashboard/Dashboard";
 import UserDirectory from "./pages/user-directory/UserDirectory";
+import UserProfile from "./pages/user-profile/UserProfile";
 import TasksTodos from "./pages/tasks/TasksTodos";
 import ProductsStock from "./pages/products/ProductsStock";
 import UserPosts from "./pages/posts/UserPosts";
@@ -33,6 +34,7 @@ export default function App() {
           <Route path="/" element={<AuthLayout />}>
             {/* Default Route: User Directory */}
             <Route index element={<UserDirectory />} />
+            <Route path="profile/:id" element={<UserProfile />} />
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="todos" element={<TasksTodos />} />
             <Route path="products" element={<ProductsStock />} />
