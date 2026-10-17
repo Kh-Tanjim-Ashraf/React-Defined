@@ -7,6 +7,7 @@ import SVG from "../../component/ui/SVG";
 import Paragraph from "../../component/ui/Paragraph";
 import InformationListItem from "../../component/information-list-item/InformationListItem";
 import Badge from "../../component/ui/Badge";
+import GithubLogo from "../../assets/GithubLogo.png";
 
 export default function UserProfile() {
   // Store user information fetched from the API
@@ -718,7 +719,356 @@ export default function UserProfile() {
           </div>
         </div>
         {/* Right panel */}
-        <div className="w-full bg-sky-400 rounded-lg p-4">Right</div>
+        <div className="w-full flex flex-col gap-4 rounded-lg">
+          {/* University */}
+          <div className="flex gap-4 px-4 py-6 rounded-lg border bg-white border-slate-200 shadow-md">
+            {/* Icon */}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="50px"
+              height="50px"
+              viewBox="0 0 24 24"
+              className="h-full p-1 border border-slate-200 rounded-lg text-slate-500"
+            >
+              <path
+                fill="currentColor"
+                d="M21 10a1 1 0 0 0 1-1V6a1 1 0 0 0-.684-.948l-9-3a1 1 0 0 0-.632 0l-9 3A1 1 0 0 0 2 6v3a1 1 0 0 0 1 1h1v7.184A2.995 2.995 0 0 0 2 20v2a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2a2.995 2.995 0 0 0-2-2.816V10Zm-1 11H4v-1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1ZM6 17v-7h2v7Zm4 0v-7h4v7Zm6 0v-7h2v7ZM4 8V6.72l8-2.666l8 2.667V8Z"
+                stroke-width="1"
+              />
+            </svg>
+            {/* Information */}
+            <div className="grow h-full flex flex-col gap-1">
+              <p className="text-sm text-slate-500 underline underline-offset-4 decoration-slate-400">
+                University
+              </p>
+              <p className="font-semibold text-3xl grow">
+                {userDetailObj?.university}
+              </p>
+            </div>
+          </div>
+          {/* Digital Address: IP, MAC */}
+          <div className="rounded-lg border border-slate-200 shadow-md">
+            {/* IP Address */}
+            <div className="flex gap-4 px-4 py-6 rounded-t-lg border-t border-x bg-white border-slate-200 shadow-md">
+              {/* Icon */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                height="50"
+                width="50"
+                className="h-full p-1 border border-slate-200 rounded-lg"
+              >
+                <g id="location-pin--navigation-map-maps-pin-gps-location">
+                  <path
+                    id="Subtract"
+                    fill="#62748e"
+                    fill-rule="evenodd"
+                    d="M2.25 10.5C2.25 5.1152 6.6152 0.75 12 0.75S21.75 5.1152 21.75 10.5c0 3.4937 -1.8028 6.43255 -3.7629 8.6014 -1.96625 2.17565 -4.16325 3.65805 -5.1188 4.2531 -0.536 0.33375 -1.2006 0.33375 -1.7366 0 -0.95555 -0.59505 -3.15255 -2.07745 -5.1188 -4.2531C4.0528 16.93255 2.25 13.9937 2.25 10.5ZM12 14.5c2.20915 0 4 -1.79085 4 -4s-1.79085 -4 -4 -4 -4 1.79085 -4 4 1.79085 4 4 4Z"
+                    clip-rule="evenodd"
+                    stroke-width="1"
+                  ></path>
+                </g>
+              </svg>
+              {/* Information */}
+              <div className="grow h-full flex flex-col gap-1">
+                <p className="text-sm text-slate-500 underline underline-offset-4 decoration-slate-400">
+                  IP Address
+                </p>
+                <p className="font-semibold text-3xl grow">
+                  {userDetailObj?.ip}
+                </p>
+              </div>
+            </div>
+            {/* Divider */}
+            <hr className="h-[0.1px] text-slate-200" />
+            {/* MAC Address */}
+            <div className="flex gap-4 px-4 py-6 rounded-b-lg border-b border-x bg-white border-slate-200 shadow-md">
+              {/* Icon */}
+              <svg
+                xmlns="http://w3.org"
+                viewBox="0 0 400 400"
+                width="50"
+                height="50"
+                fill="#62748e"
+                className="h-auto p-1 border border-slate-200 rounded-lg"
+              >
+                <g id="ethernet-port">
+                  <rect
+                    x="135"
+                    y="35"
+                    width="130"
+                    height="130"
+                    rx="20"
+                    ry="20"
+                    fill="none"
+                    stroke="#62748e"
+                    stroke-width="14"
+                  />
+
+                  <path
+                    d="M 155,70 
+             H 245 
+             V 122 
+             H 232 
+             V 135 
+             H 168 
+             V 122 
+             H 155 
+             Z"
+                  />
+
+                  <g fill="white">
+                    <rect x="167" y="77" width="6" height="18" rx="1" />
+                    <rect x="178" y="77" width="6" height="18" rx="1" />
+                    <rect x="189" y="77" width="6" height="18" rx="1" />
+                    <rect x="200" y="77" width="6" height="18" rx="1" />
+                    <rect x="211" y="77" width="6" height="18" rx="1" />
+                    <rect x="222" y="77" width="6" height="18" rx="1" />
+                  </g>
+                </g>
+
+                <g id="ethernet-plug">
+                  <rect
+                    x="172"
+                    y="200"
+                    width="56"
+                    height="60"
+                    rx="8"
+                    fill="none"
+                    stroke="#62748e"
+                    stroke-width="12"
+                  />
+
+                  <rect
+                    x="148"
+                    y="255"
+                    width="104"
+                    height="100"
+                    rx="8"
+                    ry="8"
+                  />
+
+                  <path d="M 166,355 H 234 V 364 H 166 Z" />
+                  <path d="M 176,364 H 224 V 374 H 176 Z" />
+                  <path d="M 186,374 H 214 V 384 H 186 Z" />
+
+                  <rect x="194" y="384" width="12" height="30" />
+                </g>
+              </svg>
+
+              {/* Information */}
+              <div className="grow h-full flex flex-col gap-1">
+                <p className="text-sm text-slate-500 underline underline-offset-4 decoration-slate-400">
+                  MAC Address
+                </p>
+                <p className="font-semibold text-3xl grow">
+                  {userDetailObj?.macAddress}
+                </p>
+              </div>
+            </div>
+          </div>
+          {/* Address, Latitude & Longitude */}
+          <div className="rounded-lg border bg-white border-slate-200 shadow-md flex flex-col">
+            {/* Address */}
+            <div className="flex gap-4 px-4 py-6 rounded-t-lg">
+              {/* Icon */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 48 48"
+                height="50"
+                width="50"
+                className="h-fit p-1 border border-slate-200 rounded-lg"
+              >
+                <g id="location-pin-3--navigation-map-maps-pin-gps-location">
+                  <path
+                    id="Subtract"
+                    fill="#62748e"
+                    d="M36.2073 34.1014c-3.4475 3.8908 -7.3051 6.5539 -9.1133 7.7004 -1.8936 1.2007 -4.2944 1.2007 -6.188 0 -1.8082 -1.1465 -5.6658 -3.8096 -9.1133 -7.7004 -0.6341 -0.7157 -1.2666 -1.4869 -1.87631 -2.3113 -0.02699 0.0015 -0.05368 0.003 -0.08008 0.0045 -1.71135 0.0961 -3.29786 1.043 -4.10358 2.6431 -0.74766 1.4849 -1.77531 3.8164 -2.53276 6.671 -0.70334 2.6507 1.27621 5.0372 3.87527 5.1432 2.89263 0.118 8.08826 0.2485 16.92546 0.2485 8.8373 0 14.0329 -0.1305 16.9255 -0.2485 2.5991 -0.106 4.5786 -2.4925 3.8753 -5.1432 -0.7574 -2.8546 -1.7851 -5.1861 -2.5327 -6.671 -0.8058 -1.6001 -2.3923 -2.547 -4.1036 -2.6431 -0.0269 -0.0015 -0.0541 -0.003 -0.0815 -0.0046 -0.6097 0.8244 -1.2422 1.5957 -1.8764 2.3114Z"
+                    stroke-width="1"
+                  ></path>
+                  <path
+                    id="Subtract_2"
+                    fill="#62748e"
+                    fill-rule="evenodd"
+                    d="M8 18.0698C8 9.19906 15.1591 2 24 2c8.8409 0 16 7.19906 16 16.0698 0 5.6599 -2.8585 10.4532 -6.038 14.0416 -3.1865 3.5962 -6.7849 6.0851 -8.4745 7.1563 -0.9129 0.5789 -2.0621 0.5789 -2.975 0 -1.6896 -1.0712 -5.288 -3.5601 -8.4745 -7.1563C10.8585 28.523 8 23.7297 8 18.0698ZM24 24c3.3137 0 6 -2.6863 6 -6s-2.6863 -6 -6 -6 -6 2.6863 -6 6 2.6863 6 6 6Z"
+                    clip-rule="evenodd"
+                    stroke-width="1"
+                  ></path>
+                </g>
+              </svg>
+              {/* Information */}
+              <div className="grow h-full flex flex-col gap-1">
+                <p className="text-sm text-slate-500 underline underline-offset-4 decoration-slate-400">
+                  Address
+                </p>
+                <p className="font-semibold text-lg grow">
+                  {userDetailObj?.address.address},{" "}
+                  {userDetailObj?.address.city}, {userDetailObj?.address.state},{" "}
+                  {userDetailObj?.address.stateCode},{" "}
+                  {userDetailObj?.address.postalCode},{" "}
+                  {userDetailObj?.address.country}
+                </p>
+              </div>
+            </div>
+            {/* Divider */}
+            <hr className="h-[0.1px] text-slate-200" />
+            {/* Latitude & Longitude */}
+            <div className="flex rounded-b-lg">
+              {/* Latitude */}
+              <div className="w-full px-5 py-2 rounded-bl-lg flex flex-col gap-3 border-r border-slate-200">
+                <p className="text-sm text-slate-500 underline underline-offset-4 decoration-slate-400">
+                  Latitude
+                </p>
+                <p className="font-medium">
+                  {userDetailObj?.address.coordinates.lat}
+                </p>
+              </div>
+              {/* Longitude */}
+              <div className="w-full px-5 py-2 rounded-br-lg flex flex-col gap-3">
+                <p className="text-sm text-slate-500 underline underline-offset-4 decoration-slate-400">
+                  Longitude
+                </p>
+                <p className="font-medium">
+                  {userDetailObj?.address.coordinates.lng}
+                </p>
+              </div>
+            </div>
+          </div>
+          {/* Bank */}
+          <div className="flex flex-col rounded-lg border bg-white border-slate-200 shadow-md">
+            {/* Header */}
+            <div className="flex gap-6 px-4 py-4 rounded-t-lg items-center">
+              {/* Icon */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="50"
+                height="50"
+                viewBox="0 0 24 24"
+                className="h-full p-1 border border-slate-200 rounded-lg text-slate-500"
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  d="M21.5 9v10M5.5 9v10m-3-10v10m16-10v10M2 21h20M0 23.5h24M12 11h-1a1 1 0 0 0-1 1v.375a1 1 0 0 0 .72.96l2.56.747a1 1 0 0 1 .72.96V16a1 1 0 0 1-1 1h-1m0-6h1a1 1 0 0 1 1 1v.5M12 11V9m0 8h-1a1 1 0 0 1-1-1v-.5m2 1.5v2M23.5 6.25V7H.5v-.75C5.5 4.5 8.5 3 11.75.5h.5C15.5 3 18.5 4.5 23.5 6.25Z"
+                  stroke-width="1"
+                />
+              </svg>
+              {/* Information */}
+              <p className="font-semibold text-3xl grow text-slate-500 underline underline-offset-4 decoration-slate-400">
+                Bank
+              </p>
+            </div>
+            {/* Bank Information List */}
+            <div className="px-4 flex flex-col rounded-b-lg">
+              {/* Card Number */}
+              <div className="flex border-b-[0.1px] border-slate-200">
+                <p className="w-2/6 py-2 text-sm text-slate-600">Card Number</p>
+                <p className="w-full py-2 text-sm">729387293847293847</p>
+              </div>
+              {/* Card Type */}
+              <div className="flex border-b-[0.1px] border-slate-200">
+                <p className="w-2/6 py-2 text-sm text-slate-600">Card Type</p>
+                <p className="w-full py-2 text-sm">ELO</p>
+              </div>
+              {/* Card Currency */}
+              <div className="flex border-b-[0.1px] border-slate-200">
+                <p className="w-2/6 py-2 text-sm text-slate-600">Currency</p>
+                <p className="w-full py-2 text-sm">CNY</p>
+              </div>
+              {/* Expiration Date */}
+              <div className="flex border-b-[0.1px] border-slate-200">
+                <p className="w-2/6 py-2 text-sm text-slate-600">
+                  Expiration Date
+                </p>
+                <p className="w-full py-2 text-sm">03/26</p>
+              </div>
+              {/* IBAN */}
+              <div className="flex border-b-[0.1px] border-slate-200">
+                <p className="w-2/6 py-2 text-sm text-slate-600">IBAN</p>
+                <p className="w-full py-2 text-sm">87IU8302HSDH3489</p>
+              </div>
+            </div>
+          </div>
+          {/* Company */}
+          <div className="bg-white flex flex-col rounded-lg border border-slate-200 shadow-md">
+            {/* Header */}
+            <div className="flex gap-6 px-4 py-4 rounded-t-lg items-center">
+              {/* Icon */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="50"
+                height="50"
+                viewBox="0 0 24 24"
+                className="h-full p-1 border border-slate-200 rounded-lg text-slate-500"
+              >
+                <path
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  d="M16.25 3h-8.5c-.69 0-1.25.56-1.25 1.25V21h11V4.25c0-.69-.56-1.25-1.25-1.25M11 17H9.5v-2.5H11zm0-4H9.5v-2.5H11zm0-4H9.5V6.5H11zm3.5 8H13v-2.5h1.5zm0-4H13v-2.5h1.5zm0-4H13V6.5h1.5zm4.75 1H19v11h3v-8.25A2.755 2.755 0 0 0 19.25 10m-14.5 0H5v11H2v-8.25A2.755 2.755 0 0 1 4.75 10"
+                  clip-rule="evenodd"
+                  stroke-width="1"
+                />
+              </svg>
+              {/* Information */}
+              <div className="grow h-full flex flex-col gap-1">
+                <p className="text-sm text-slate-500 underline underline-offset-4 decoration-slate-400">
+                  Company
+                </p>
+                <p className="font-semibold text-3xl grow">
+                  {userDetailObj?.company.name}
+                </p>
+              </div>
+            </div>
+            {/* Company Information List */}
+            <div className="px-4 flex flex-col rounded-b-lg">
+              {/* Department */}
+              <div className="flex border-b-[0.1px] border-slate-200">
+                <p className="w-2/6 py-2 text-sm text-slate-600">Department</p>
+                <p className="w-full py-2 text-sm">
+                  {userDetailObj?.company.department}
+                </p>
+              </div>
+              {/* Designation */}
+              <div className="flex border-b-[0.1px] border-slate-200">
+                <p className="w-2/6 py-2 text-sm text-slate-600">Designation</p>
+                <p className="w-full py-2 text-sm">
+                  {userDetailObj?.company.department}
+                </p>
+              </div>
+              {/* Address */}
+              <div className="flex border-b-[0.1px] border-slate-200">
+                <p className="w-2/6 py-2 text-sm text-slate-600">Address</p>
+                <p className="w-full py-2 text-sm">
+                  {userDetailObj?.company.address.address},{" "}
+                  {userDetailObj?.company.address.city},{" "}
+                  {userDetailObj?.company.address.state},{" "}
+                  {userDetailObj?.company.address.stateCode},{" "}
+                  {userDetailObj?.company.address.postalCode},
+                </p>
+              </div>
+              {/* Latitude & Longitute */}
+              <div className="flex border-b-[0.1px] border-slate-200">
+                {/* Latitude */}
+                <div className="w-full py-2 flex flex-col gap-2 border-r border-slate-200">
+                  <p className="text-xs text-slate-600 underline underline-offset-2 decoration-slate-400">
+                    Latitude
+                  </p>
+                  <p className="text-sm">-129.798</p>
+                </div>
+                {/* Longitute */}
+                <div className="w-full py-2 flex flex-col gap-2 px-4">
+                  <p className="text-xs text-slate-600 underline underline-offset-2 decoration-slate-400">
+                    Longitute
+                  </p>
+                  <p className="text-sm">-129.798</p>
+                </div>
+                {/* <p className="w-2/6 py-2 text-sm text-slate-600">IBAN</p>
+                <p className="w-full py-2 text-sm">87IU8302HSDH3489</p> */}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
