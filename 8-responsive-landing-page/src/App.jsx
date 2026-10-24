@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="flex flex-col justify-center w-full bg-amber-200">
+    <div className="min-h-screen bg-slate-950 text-white overflow-hidden">
       <Navbar />
       <Hero />
       <Features />
