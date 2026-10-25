@@ -1,7 +1,11 @@
+import { useState } from "react";
 import NavLink from "./NavLink";
 import codeflowLogo from "../../assets/codeflowLogo.png";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
+
 export default function Navbar() {
+  const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
+
   const navLinks = ["Features", "Pricing", "Testimonials"];
 
   return (
@@ -11,16 +15,18 @@ export default function Navbar() {
         {/* Nav Container: Logo & Links */}
         <div className="flex justify-between items-center h-14 sm:h-16 md:h-20">
           {/* Logo */}
-          <div className="flex items-center gap-1 cursor-pointer">
-            <img
-              src={codeflowLogo}
-              alt="CodeFlow"
-              className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
-            />
-            <span className="text-lg sm:text-xl md:text-2xl font-medium">
-              <span>Code</span>
-              <span className="text-[#fa33d0]">Flow</span>
-            </span>
+          <div className="cursor-pointer">
+            <a href="#" className="flex items-center gap-1">
+              <img
+                src={codeflowLogo}
+                alt="CodeFlow"
+                className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
+              />
+              <span className="text-lg sm:text-xl md:text-2xl font-medium">
+                <span>Code</span>
+                <span className="text-[#fa33d0]">Flow</span>
+              </span>
+            </a>
           </div>
           {/* Nav Links */}
           {/* Disappears when screen resolution < 768px */}
@@ -28,7 +34,7 @@ export default function Navbar() {
             {navLinks.map((link, index) => (
               <NavLink
                 key={index} // Using `index` arg since the array is static/hard-coded
-                href={`#${link.toLocaleLowerCase()}`}
+                href={`#${link.toLowerCase()}`}
                 className="hover:text-white"
                 linkName={link}
               />
@@ -36,11 +42,31 @@ export default function Navbar() {
           </div>
           {/* Mobile Navbar Toggle Button */}
           {/* Disappears when screen resolution > 768px */}
-          <button className="md:hidden">
-            <Menu className="w-5 h-5 sm:w-6 sm:h-6" />
+          <button
+            className="md:hidden"
+            onClick={() => setMobileMenuIsOpen((prev) => !prev)}
+          >
+            {mobileMenuIsOpen ? (
+              <X className="w-5 h-5 sm:w-6 sm:h-6 hover:text-white" />
+            ) : (
+              <Menu className="w-5 h-5 sm:w-6 sm:h-6 hover:text-white" />
+            )}
           </button>
         </div>
       </div>
+      {/* Mobile Menu Nav Links */}
+      {mobileMenuIsOpen && (
+        <div className="md:hidden flex flex-col gap-6 items-center bg-slate-900/95 backdrop-blur-lg border-t border-slate-800">
+          {navLinks.map((link, index) => (
+            <NavLink
+              key={index} // Using `index` arg since the array is static/hard-coded
+              href={`#${link.toLowerCase()}`}
+              className="hover:text-white"
+              linkName={link}
+            />
+          ))}
+        </div>
+      )}
     </nav>
   );
 }
