@@ -1,6 +1,6 @@
 import NavLink from "./NavLink";
 import codeflowLogo from "../../assets/codeflowLogo.png";
-
+import { Menu } from "lucide-react";
 export default function Navbar() {
   const navLinks = ["Features", "Pricing", "Testimonials"];
 
@@ -23,15 +23,22 @@ export default function Navbar() {
             </span>
           </div>
           {/* Nav Links */}
-          <div className="flex items-center gap-6 lg:gap-8 text-sm md:text-base">
-            {navLinks.map((link) => (
+          {/* Disappears when screen resolution < 768px */}
+          <div className="hidden md:flex items-center gap-6 lg:gap-8 text-sm md:text-base">
+            {navLinks.map((link, index) => (
               <NavLink
+                key={index} // Using `index` arg since the array is static/hard-coded
                 href={`#${link.toLocaleLowerCase()}`}
                 className="hover:text-white"
                 linkName={link}
               />
             ))}
           </div>
+          {/* Mobile Navbar Toggle Button */}
+          {/* Disappears when screen resolution > 768px */}
+          <button className="md:hidden">
+            <Menu className="w-5 h-5 sm:w-6 sm:h-6" />
+          </button>
         </div>
       </div>
     </nav>
