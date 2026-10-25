@@ -56,12 +56,13 @@ export default function Navbar() {
       </div>
       {/* Mobile Menu Nav Links */}
       {mobileMenuIsOpen && (
-        <div className="md:hidden flex flex-col gap-6 items-center bg-slate-900/95 backdrop-blur-lg border-t border-slate-800">
+        <div className="md:hidden flex flex-col gap-4 px-4 py-4 sm:px-6 sm:py-6 sm:gap-6 bg-slate-900/95 backdrop-blur-lg border-t border-slate-800 animate-in slide-in-from-top duration-300">
           {navLinks.map((link, index) => (
             <NavLink
               key={index} // Using `index` arg since the array is static/hard-coded
               href={`#${link.toLowerCase()}`}
               className="hover:text-white"
+              onClick={() => setMobileMenuIsOpen(false)}
               linkName={link}
             />
           ))}
