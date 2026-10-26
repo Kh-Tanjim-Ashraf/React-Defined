@@ -1,4 +1,4 @@
-# CodeFlow
+# CodeFlow AI
 
 This is practice project for gaining hands-on experience on responsive web development using **React, Vite & Tailwind CSS**.
 
