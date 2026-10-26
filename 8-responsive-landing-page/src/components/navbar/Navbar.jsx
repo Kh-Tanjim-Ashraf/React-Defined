@@ -10,6 +10,7 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-slate-950/20 text-gray-300">
+      {/* <nav className="fixed top-0 w-full z-50 bg-amber-800 text-gray-300"> */}
       {/* Navbar Wrapper */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Nav Container: Logo & Links */}
