@@ -4,6 +4,7 @@ import Button from "./ui/button";
 
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [activeTab, setActiveTab] = useState("App.jsx");
 
   // File tabs
   const fileTabs = ["App.jsx", "Hero.jsx", "Navbar.jsx"];
@@ -67,12 +68,19 @@ export default function Hero() {
               {/* File tab; `overflow-x-auto` is used to let users on the mobile screen to swipe horizontally instead of breaking the layout */}
               <div className="flex gap-1 sm:gap-2 mb-3 sm:mb-4 overflow-x-auto">
                 {fileTabs.map((tab) => (
-                  <Button className="px-3 py-2 backdrop-blur-sm text-xs sm:text-sm rounded-t-lg border bg-white/5 text-gray-300 transition-all duration-200 whitespace-nowrap">
+                  <Button
+                    onClick={() => setActiveTab(tab)}
+                    className={`px-3 py-2 backdrop-blur-sm text-xs sm:text-sm rounded-t-lg border ${
+                      activeTab === tab
+                        ? "bg-blue-500/30 text-white border-blue-400/20"
+                        : "bg-white/5 text-gray-300 border-white/10 hover:bg-white/10"
+                    } transition-all duration-200 whitespace-nowrap cursor-pointer`}
+                  >
                     {tab}
                   </Button>
                 ))}
               </div>
-              {/* Code Editor */}
+              {/* Code Content */}
               <div></div>
             </div>
           </div>
