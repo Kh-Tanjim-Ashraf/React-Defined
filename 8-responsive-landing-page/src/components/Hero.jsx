@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
+import Button from "./ui/button";
 
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  // File tabs
+  const fileTabs = ["App.jsx", "Hero.jsx", "Navbar.jsx"];
 
   useEffect(() => {
     // Create a function to track the coordinates of mouse position
@@ -56,6 +60,20 @@ export default function Hero() {
               </div>
               {/* 8:Chevron down icon */}
               <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400" />
+            </div>
+
+            {/* File Tab & Code Editor */}
+            <div className="p-3 sm:p-4 relative h-full">
+              {/* File tab; `overflow-x-auto` is used to let users on the mobile screen to swipe horizontally instead of breaking the layout */}
+              <div className="flex gap-1 sm:gap-2 mb-3 sm:mb-4 overflow-x-auto">
+                {fileTabs.map((tab) => (
+                  <Button className="px-3 py-2 backdrop-blur-sm text-xs sm:text-sm rounded-t-lg border bg-white/5 text-gray-300 transition-all duration-200 whitespace-nowrap">
+                    {tab}
+                  </Button>
+                ))}
+              </div>
+              {/* Code Editor */}
+              <div></div>
             </div>
           </div>
         </div>
