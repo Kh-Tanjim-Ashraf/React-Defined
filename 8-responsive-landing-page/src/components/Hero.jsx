@@ -102,8 +102,8 @@ export default function Hero() {
               </div>
             </div>
           </div>
-          {/* Floating Cards */}
-          <div className="hidden lg:block absolute bottom-4 right-4 transform translate-x-8 translate-y-8 w-72"></div>
+          {/* Floating Cards; absolute bottom-0 right-0 establishes that starting position: it aligns the div’s bottom-right with the parent’s bottom-right. Then the translations move/nudge it 16px right and down. */}
+          <div className="hidden lg:block absolute bottom-0 right-0 transform translate-x-4 translate-y-4 w-72"></div>
         </div>
       </div>
     </section>
