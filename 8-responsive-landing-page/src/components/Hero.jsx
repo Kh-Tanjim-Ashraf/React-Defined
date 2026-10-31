@@ -102,6 +102,8 @@ export default function Hero() {
               </div>
             </div>
           </div>
+          {/* Floating Cards */}
+          <div className="hidden lg:block absolute bottom-4 right-4 transform translate-x-8 translate-y-8 w-72"></div>
         </div>
       </div>
     </section>

@@ -1,3 +1,4 @@
+// Dummy Code Snipper
 export const codeExamples = {
   "App.jsx": `import { useState } from "react";
 import { CodeFlow } from "@codeflow/ai";
@@ -88,4 +89,17 @@ export default function Navbar() {
     );
 }
     `,
+};
+
+// Floating Cards
+export const floatingCards = {
+  "App.jsx": {
+    bgColor: "bg-blue-500/20",
+    iconColor: "text-blue-400",
+    textColor: "text-blue-200",
+    contentColor: "text-blue-300",
+    icon: "AI",
+    title: "Smart Completion",
+    content: "AI-powered code suggestions in real-time",
+  },
 };
