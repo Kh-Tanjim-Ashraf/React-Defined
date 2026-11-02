@@ -12,6 +12,9 @@ export default function Hero() {
   // File tabs
   const fileTabs = ["App.jsx", "Hero.jsx", "Navbar.jsx"];
 
+  // Active floating Cards
+  const activeFloatingCard = floatingCards[activeTab];
+
   useEffect(() => {
     // Create a function to track the coordinates of mouse position
     function handleMouseMove(e) {
@@ -104,17 +107,29 @@ export default function Hero() {
           </div>
           {/* Floating Cards; absolute bottom-0 right-0 establishes that starting position: it aligns the div’s bottom-right with the parent’s bottom-right. Then the translations move/nudge it 16px right and down. */}
           <div
-            className={`hidden lg:block absolute bottom-0 right-0 transform translate-x-4 translate-y-4 w-72 ${floatingCards[activeTab].bgColor}`}
+            className={`hidden lg:block absolute bottom-0 right-0 transform translate-x-4 translate-y-4 w-72 ${activeFloatingCard.bgColor} backdrop-blur-xl rounded-lg p-4 border border-white/20 shadow-2xl`}
           >
             {/* Header */}
             <div className="flex items-center gap-2 mb-2">
               {/* Icon */}
-              <span>AI</span>
+              <div
+                className={`w-6 h-6 ${activeFloatingCard.iconColor} flex items-center justify-center text-sm font-bold`}
+              >
+                {activeFloatingCard.icon}
+              </div>
               {/* Headline */}
-              <span>Smart Completion</span>
+              <span
+                className={`text-sm font-medium ${activeFloatingCard.textColor}`}
+              >
+                {activeFloatingCard.title}
+              </span>
             </div>
             {/* Content */}
-            <p>AI-powered code suggestion in real-time</p>
+            <p
+              className={`text-sm text-left ${activeFloatingCard.contentColor}`}
+            >
+              {activeFloatingCard.content}
+            </p>
           </div>
         </div>
       </div>
