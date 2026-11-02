@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
 import Button from "./ui/button";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { codeExamples } from "../data/CodeExamples";
+import { codeExamples, floatingCards } from "../data/CodeExamples";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 export default function Hero() {
@@ -103,7 +103,19 @@ export default function Hero() {
             </div>
           </div>
           {/* Floating Cards; absolute bottom-0 right-0 establishes that starting position: it aligns the div’s bottom-right with the parent’s bottom-right. Then the translations move/nudge it 16px right and down. */}
-          <div className="hidden lg:block absolute bottom-0 right-0 transform translate-x-4 translate-y-4 w-72"></div>
+          <div
+            className={`hidden lg:block absolute bottom-0 right-0 transform translate-x-4 translate-y-4 w-72 ${floatingCards[activeTab].bgColor}`}
+          >
+            {/* Header */}
+            <div className="flex items-center gap-2 mb-2">
+              {/* Icon */}
+              <span>AI</span>
+              {/* Headline */}
+              <span>Smart Completion</span>
+            </div>
+            {/* Content */}
+            <p>AI-powered code suggestion in real-time</p>
+          </div>
         </div>
       </div>
     </section>
