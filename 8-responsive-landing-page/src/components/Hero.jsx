@@ -37,99 +37,114 @@ export default function Hero() {
           background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(59, 130, 246, 0.15), transparent 40%)`,
         }}
       ></div>
-      {/* Two fixed radial background blobs-Pulsating animation & diffused */}
+      {/* [Background] Two fixed radial background blobs-Pulsating animation & diffused */}
       <div className="absolute top-20 left-4 sm:left-10 w-48 h-48 sm:w-72 sm:h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-20 right-4 sm:right-10 w-48 h-48 sm:w-72 sm:h-72 bg-[#fa33d0]/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-      {/* Code Editor:Started from inner part to outer; following the numbers */}
-      {/* 4:IDE Parent Wrapper */}
-      <div className="relative order-2 w-full">
-        {/* 3:IDE-Outer Layer */}
-        <div className="relative bg-white/5 backdrop-blur-xl rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-2xl border border-white/10">
-          {/* 2:IDE */}
-          <div className="bg-linear-to-br from-gray-900/20 to-gray-800/20 backdrop-blur-sm rounded-lg overflow-hidden h-70 sm:w-87.5 lg:h-112.5 border border-white/5">
-            {/* 1:IDE HEADER */}
-            <div className="flex items-center justify-between px-3 sm:px-4 py-2 sm:py-3 bg-white/5 backdrop-blur-sm border-b border-white/10">
-              {/* 7:Three Dots & App Name */}
-              <div className="flex items-center gap-2">
-                {/* 5:Three Dots */}
-                <div className="flex items-center gap-1 sm:gap-2">
-                  {/* 5.1:Red Dot */}
-                  <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-red-500 "></div>
-                  {/* 5.2:Yellow Dot */}
-                  <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-yellow-500 "></div>
-                  {/* 5.3:Green Dot */}
-                  <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-green-500 "></div>
-                </div>
-                {/* 6:CodeFlow AI */}
-                <span className="text-xs sm:text-sm text-gray-300">
-                  CodeFlow AI
-                </span>
-              </div>
-              {/* 8:Chevron down icon */}
-              <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400" />
-            </div>
 
-            {/* File Tab & Code Editor */}
-            <div className="p-3 sm:p-4 relative h-full">
-              {/* File tab; `overflow-x-auto` is used to let users on the mobile screen to swipe horizontally instead of breaking the layout */}
-              <div className="flex gap-1 sm:gap-2 mb-3 sm:mb-4 overflow-x-auto">
-                {fileTabs.map((tab) => (
-                  <Button
-                    onClick={() => setActiveTab(tab)}
-                    className={`px-3 py-2 backdrop-blur-sm text-xs sm:text-sm rounded-t-lg border ${
-                      activeTab === tab
-                        ? "bg-blue-500/30 text-white border-blue-400/20"
-                        : "bg-white/5 text-gray-300 border-white/10 hover:bg-white/10"
-                    } transition-all duration-200 whitespace-nowrap cursor-pointer`}
-                  >
-                    {tab}
-                  </Button>
-                ))}
-              </div>
-              {/* Code Content */}
-              <div className="relative overflow-hidden grow">
-                <SyntaxHighlighter
-                  language="javascript"
-                  style={nightOwl}
-                  customStyle={{
-                    margin: 0,
-                    borderRadius: "8px",
-                    fontSize: "11px",
-                    lineHeight: "1.4",
-                    height: "100%",
-                    border: "1px solid #3c3c3c",
-                  }}
-                >
-                  {codeExamples[activeTab]}
-                </SyntaxHighlighter>
-              </div>
-            </div>
-          </div>
-          {/* Floating Cards; absolute bottom-0 right-0 establishes that starting position: it aligns the div’s bottom-right with the parent’s bottom-right. Then the translations move/nudge it 16px right and down. */}
-          <div
-            className={`hidden lg:block absolute bottom-0 right-0 transform translate-x-4 translate-y-4 w-72 ${activeFloatingCard.bgColor} backdrop-blur-xl rounded-lg p-4 border border-white/20 shadow-2xl`}
-          >
-            {/* Header */}
-            <div className="flex items-center gap-2 mb-2">
-              {/* Icon */}
-              <div
-                className={`w-6 h-6 ${activeFloatingCard.iconColor} flex items-center justify-center text-sm font-bold`}
-              >
-                {activeFloatingCard.icon}
-              </div>
-              {/* Headline */}
-              <span
-                className={`text-sm font-medium ${activeFloatingCard.textColor}`}
-              >
-                {activeFloatingCard.title}
-              </span>
-            </div>
-            {/* Content */}
-            <p
-              className={`text-sm text-left ${activeFloatingCard.contentColor}`}
-            >
-              {activeFloatingCard.content}
+      {/* Hero: Parent Wrapper Container */}
+      <div className="max-w-7xl mx-auto w-full text-center relative">
+        {/* Hero: Layout changing wrapper; Based on display breakpoint */}
+        {/* Note: >1024px (large screen) the display will be flexxed with column level display orientation; In contrast it will be a grid layout */}
+        <div className="max-w-7xl mx-auto flex flex-cols lg:grid lg:grid-cols-2 gap-6">
+          {/* Hero Text */}
+          <div>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad,
+              corporis.
             </p>
+          </div>
+          {/* Hero IDE/Code Editor:Started from inner part to outer; following the numbers */}
+          {/* 4:IDE Parent Wrapper */}
+          <div className="relative order-2 w-full">
+            {/* 3:IDE-Outer Layer */}
+            <div className="relative bg-white/5 backdrop-blur-xl rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-2xl border border-white/10">
+              {/* 2:IDE */}
+              <div className="bg-linear-to-br from-gray-900/20 to-gray-800/20 backdrop-blur-sm rounded-lg overflow-hidden h-70 sm:w-87.5 lg:h-112.5 border border-white/5">
+                {/* 1:IDE HEADER */}
+                <div className="flex items-center justify-between px-3 sm:px-4 py-2 sm:py-3 bg-white/5 backdrop-blur-sm border-b border-white/10">
+                  {/* 7:Three Dots & App Name */}
+                  <div className="flex items-center gap-2">
+                    {/* 5:Three Dots */}
+                    <div className="flex items-center gap-1 sm:gap-2">
+                      {/* 5.1:Red Dot */}
+                      <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-red-500 "></div>
+                      {/* 5.2:Yellow Dot */}
+                      <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-yellow-500 "></div>
+                      {/* 5.3:Green Dot */}
+                      <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-green-500 "></div>
+                    </div>
+                    {/* 6:CodeFlow AI */}
+                    <span className="text-xs sm:text-sm text-gray-300">
+                      CodeFlow AI
+                    </span>
+                  </div>
+                  {/* 8:Chevron down icon */}
+                  <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400" />
+                </div>
+
+                {/* File Tab & Code Editor */}
+                <div className="p-3 sm:p-4 relative h-full">
+                  {/* File tab; `overflow-x-auto` is used to let users on the mobile screen to swipe horizontally instead of breaking the layout */}
+                  <div className="flex gap-1 sm:gap-2 mb-3 sm:mb-4 overflow-x-auto">
+                    {fileTabs.map((tab) => (
+                      <Button
+                        onClick={() => setActiveTab(tab)}
+                        className={`px-3 py-2 backdrop-blur-sm text-xs sm:text-sm rounded-t-lg border ${
+                          activeTab === tab
+                            ? "bg-blue-500/30 text-white border-blue-400/20"
+                            : "bg-white/5 text-gray-300 border-white/10 hover:bg-white/10"
+                        } transition-all duration-200 whitespace-nowrap cursor-pointer`}
+                      >
+                        {tab}
+                      </Button>
+                    ))}
+                  </div>
+                  {/* Code Content */}
+                  <div className="relative overflow-hidden grow">
+                    <SyntaxHighlighter
+                      language="javascript"
+                      style={nightOwl}
+                      customStyle={{
+                        margin: 0,
+                        borderRadius: "8px",
+                        fontSize: "11px",
+                        lineHeight: "1.4",
+                        height: "100%",
+                        border: "1px solid #3c3c3c",
+                      }}
+                    >
+                      {codeExamples[activeTab]}
+                    </SyntaxHighlighter>
+                  </div>
+                </div>
+              </div>
+              {/* Floating Cards; absolute bottom-0 right-0 establishes that starting position: it aligns the div’s bottom-right with the parent’s bottom-right. Then the translations move/nudge it 16px right and down. */}
+              <div
+                className={`hidden lg:block absolute bottom-0 right-0 transform translate-x-4 translate-y-4 w-72 ${activeFloatingCard.bgColor} backdrop-blur-xl rounded-lg p-4 border border-white/20 shadow-2xl`}
+              >
+                {/* Header */}
+                <div className="flex items-center gap-2 mb-2">
+                  {/* Icon */}
+                  <div
+                    className={`w-6 h-6 ${activeFloatingCard.iconColor} flex items-center justify-center text-sm font-bold`}
+                  >
+                    {activeFloatingCard.icon}
+                  </div>
+                  {/* Headline */}
+                  <span
+                    className={`text-sm font-medium ${activeFloatingCard.textColor}`}
+                  >
+                    {activeFloatingCard.title}
+                  </span>
+                </div>
+                {/* Content */}
+                <p
+                  className={`text-sm text-left ${activeFloatingCard.contentColor}`}
+                >
+                  {activeFloatingCard.content}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
