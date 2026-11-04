@@ -44,15 +44,13 @@ export default function Hero() {
       {/* Hero: Parent Wrapper Container */}
       <div className="max-w-7xl mx-auto w-full text-center relative">
         {/* Hero: Layout changing wrapper; Based on display breakpoint */}
-        {/* Note: >1024px (large screen) the display will be flexxed with column level display orientation; In contrast it will be a grid layout */}
-        <div className="max-w-7xl mx-auto flex flex-cols lg:grid lg:grid-cols-2 gap-6">
+        {/* Note: >1024px (large screen) the display will be flexxed with column level display orientation; In contrast, it will be a grid layout; `sm:gap-8` gets effect while the screen in >640px & it's in flex layout */}
+        <div className="max-w-7xl mx-auto flex flex-col lg:grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center relative">
           {/* Hero Text */}
-          <div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad,
-              corporis.
-            </p>
-          </div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad,
+            corporis.
+          </p>
           {/* Hero IDE/Code Editor:Started from inner part to outer; following the numbers */}
           {/* 4:IDE Parent Wrapper */}
           <div className="relative order-2 w-full">
@@ -86,8 +84,9 @@ export default function Hero() {
                 <div className="p-3 sm:p-4 relative h-full">
                   {/* File tab; `overflow-x-auto` is used to let users on the mobile screen to swipe horizontally instead of breaking the layout */}
                   <div className="flex gap-1 sm:gap-2 mb-3 sm:mb-4 overflow-x-auto">
-                    {fileTabs.map((tab) => (
+                    {fileTabs.map((tab, index) => (
                       <Button
+                        key={index}
                         onClick={() => setActiveTab(tab)}
                         className={`px-3 py-2 backdrop-blur-sm text-xs sm:text-sm rounded-t-lg border ${
                           activeTab === tab
