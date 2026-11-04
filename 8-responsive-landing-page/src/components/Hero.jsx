@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Sparkles } from "lucide-react";
 import Button from "./ui/button";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { codeExamples, floatingCards } from "../data/CodeExamples";
@@ -47,10 +47,17 @@ export default function Hero() {
         {/* Note: >1024px (large screen) the display will be flexxed with column level display orientation; In contrast, it will be a grid layout; `sm:gap-8` gets effect while the screen in >640px & it's in flex layout */}
         <div className="max-w-7xl mx-auto flex flex-col lg:grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center relative">
           {/* Hero Text */}
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad,
-            corporis.
-          </p>
+          <div>
+            {/* Pill */}
+            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full mb-4 sm:mb-6 animate-in slide-in-from-bottom duration-700">
+              <Sparkles className="w-4 h-4 text-blue-400" />
+              <span className="text-xs sm:text-sm text-blue-300">
+                Introducing to CodeFlow AI
+              </span>
+            </div>
+            {/* Tag Line */}
+            {/* CTA Buttons */}
+          </div>
           {/* Hero IDE/Code Editor:Started from inner part to outer; following the numbers */}
           {/* 4:IDE Parent Wrapper */}
           <div className="relative order-2 w-full">
