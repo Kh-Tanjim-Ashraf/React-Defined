@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ChevronDown, Sparkles } from "lucide-react";
+import { ArrowRight, ChevronDown, Sparkles } from "lucide-react";
 import Button from "./ui/button";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { codeExamples, floatingCards } from "../data/CodeExamples";
@@ -55,8 +55,36 @@ export default function Hero() {
                 Introducing to CodeFlow AI
               </span>
             </div>
-            {/* Tag Line */}
+            {/* Tag Line/Website Heading */}
+            <h1 className="text-5xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 sm:mb-6 animate-in slide-in-from-bottom duration-700 delay-100 leading-tight">
+              <span className="bg-linear-to-r from-white via-blue-100 to-cyan-100 bg-clip-text text-transparent block mb-1 sm:mb-2">
+                Code Faster
+              </span>
+              <span className="bg-linear-to-b from-blue-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent block mb-1 sm:mb-2">
+                Build Better
+              </span>
+              <span className="bg-linear-to-r from-white via-blue-100 to-cyan-100 bg-clip-text text-transparent block mb-1 sm:mb-2">
+                With CodeFlow AI
+              </span>
+            </h1>
+            {/* Description */}
+            <p className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-2xl mx-auto lg:mx-0 mb-6 sm:mb-8 animate-in slide-in-from-bottom duration-700 delay-200 leading-relaxed">
+              Accelerate your development workflow with intelligent code
+              completion, automated testing, and smart debugging. Ship
+              production-ready code 10x faster.
+            </p>
             {/* CTA Buttons */}
+            <div>
+              <button>
+                <span>Start Coding Free</span>
+                <ArrowRight />
+              </button>
+
+              <button>
+                <span>Start Coding Free</span>
+                <ArrowRight />
+              </button>
+            </div>
           </div>
           {/* Hero IDE/Code Editor:Started from inner part to outer; following the numbers */}
           {/* 4:IDE Parent Wrapper */}
