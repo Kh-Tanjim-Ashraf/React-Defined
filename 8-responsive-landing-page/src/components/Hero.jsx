@@ -45,7 +45,7 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto w-full text-center relative">
         {/* Hero: Layout changing wrapper; Based on display breakpoint */}
         {/* Note: >1024px (large screen) the display will be flexxed with column level display orientation; In contrast, it will be a grid layout; `sm:gap-8` gets effect while the screen in >640px & it's in flex layout */}
-        <div className="max-w-7xl mx-auto flex flex-col lg:grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center relative">
+        <div className="max-w-7xl mx-auto flex flex-col lg:grid lg:grid-cols-2 text-center lg:text-left gap-6 sm:gap-8 lg:gap-12 items-center relative">
           {/* Hero Text */}
           <div>
             {/* Pill */}
@@ -56,7 +56,7 @@ export default function Hero() {
               </span>
             </div>
             {/* Tag Line/Website Heading */}
-            <h1 className="text-5xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 sm:mb-6 animate-in slide-in-from-bottom duration-700 delay-100 leading-tight">
+            <h1 className="text-5xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold mb-4 sm:mb-6 animate-in slide-in-from-bottom duration-700 delay-100 leading-tight">
               <span className="bg-linear-to-r from-white via-blue-100 to-cyan-100 bg-clip-text text-transparent block mb-1 sm:mb-2">
                 Code Faster
               </span>
@@ -94,7 +94,7 @@ export default function Hero() {
             {/* 3:IDE-Outer Layer */}
             <div className="relative bg-white/5 backdrop-blur-xl rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-2xl border border-white/10">
               {/* 2:IDE */}
-              <div className="bg-linear-to-br from-gray-900/20 to-gray-800/20 backdrop-blur-sm rounded-lg overflow-hidden h-70 sm:w-87.5 lg:h-112.5 border border-white/5">
+              <div className="bg-linear-to-br from-gray-900/20 to-gray-800/20 backdrop-blur-sm rounded-lg overflow-hidden h-70 sm:h-87.5 lg:h-112.5 border border-white/5">
                 {/* 1:IDE HEADER */}
                 <div className="flex items-center justify-between px-3 sm:px-4 py-2 sm:py-3 bg-white/5 backdrop-blur-sm border-b border-white/10">
                   {/* 7:Three Dots & App Name */}
@@ -147,6 +147,7 @@ export default function Hero() {
                         lineHeight: "1.4",
                         height: "100%",
                         border: "1px solid #3c3c3c",
+                        textAlign: "start",
                       }}
                     >
                       {codeExamples[activeTab]}
