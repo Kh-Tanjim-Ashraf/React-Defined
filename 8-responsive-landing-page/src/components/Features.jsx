@@ -62,11 +62,13 @@ export default function Features() {
           {features.map((feature, key) => (
             <div
               key={key}
-              className={`flex flex-col lg:grow items-center gap-8 sm:gap-12 ${feature.imagePosition === "right" ? "lg:flex-row-reverse" : "lg:flex-row"}`}
+              className={`flex flex-col items-center gap-8 sm:gap-12 ${feature.imagePosition === "right" ? "lg:flex-row-reverse" : "lg:flex-row"}`}
             >
               {/* Code Section */}
               <div className="flex-1 w-full">
                 <div className="relative group">
+                  {/* Self-closing div */}
+                  <div className="absolute inset-0 bg-linear-to-br from-blue-500/20 to-purple-500/20 rounded-xl sm:rounded-2xl transition-all duration-500" />
                   <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-xl sm:rounded-2xl p-4 sm:p-6 overflow-hidden group-hover:border group-hover:border-blue-600/50 transition-all duration-300">
                     {/* IDE Interface */}
                     <div className="bg-gray-950 rounded-lg p-3 sm:p-4 font-mono text-xs sm:text-sm">
@@ -89,11 +91,11 @@ export default function Features() {
                           style={nightOwl}
                           customStyle={{
                             margin: 0,
+                            background: "transparent",
                             borderRadius: "8px",
                             fontSize: "0.75rem",
                             lineHeight: "1.4",
                             height: "100%",
-                            border: "1px solid #3c3c3c",
                             textAlign: "start",
                           }}
                           wrapLines={true}
@@ -107,7 +109,16 @@ export default function Features() {
               </div>
 
               {/* Text Section */}
-              <div>asodiuasodiu</div>
+              <div>
+                <div className="max-w-lg mx-auto lg:mx-0 text-center lg:text-left">
+                  <h3 className="text-4xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 text-white">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+              </div>
             </div>
           ))}
         </div>
